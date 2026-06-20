@@ -8,128 +8,193 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-background:#08111f;
-color:#e5e7eb;
-font-family:Inter,sans-serif;
-overflow-x:hidden;
+body{background:#08111f;color:#e5e7eb;font-family:Inter,sans-serif;overflow-x:hidden}
+body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);z-index:-3}
+.market-line{position:fixed;left:0;right:0;top:18%;height:2px;background:linear-gradient(90deg,transparent,#c9a227,transparent);animation:slide 6s linear infinite;opacity:.4;z-index:-2}
+@keyframes slide{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
+
+/* Bull and Bear fixed background */
+.bg-bull, .bg-bear {
+  position:fixed;
+  top:50%;
+  transform:translateY(-50%);
+  width:320px;
+  height:320px;
+  z-index:-1;
+  pointer-events:none;
 }
-body:before{
-content:"";
-position:fixed;
-inset:0;
-background:
-repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),
-repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);
-z-index:-3;
-}
-.market-line{
-position:fixed;
-left:0;right:0;top:18%;
-height:2px;
-background:linear-gradient(90deg,transparent,#c9a227,transparent);
-animation:slide 6s linear infinite;
-opacity:.4;
-z-index:-2;
-}
-@keyframes slide{
-0%{transform:translateX(-30%)}
-100%{transform:translateX(30%)}
-}
-#market-canvas{
-position:fixed;
-inset:0;
-z-index:-2;
-pointer-events:none;
-}
+.bg-bull { left: -30px; }
+.bg-bear { right: -30px; }
+.bg-bull svg { width:100%; height:100%; }
+.bg-bear svg { width:100%; height:100%; transform:scaleX(-1); }
+
+/* Candlestick canvas */
+#market-canvas{position:fixed;inset:0;z-index:-2;pointer-events:none}
+
 .container{max-width:1200px;margin:auto;padding:0 24px}
-nav{
-position:sticky;top:0;
-display:flex;justify-content:center;gap:28px;
-padding:22px;background:rgba(8,17,31,.85);
-backdrop-filter:blur(10px);
-z-index:999;
-}
+nav{position:sticky;top:0;display:flex;justify-content:center;gap:28px;padding:22px;background:rgba(8,17,31,.85);backdrop-filter:blur(10px);z-index:999}
 nav a{color:#cbd5e1;text-decoration:none}
 nav a:hover{color:#c9a227}
-.hero{
-min-height:92vh;display:flex;align-items:center;justify-content:center;
-text-align:center;
-}
-h1{
-font-family:"Playfair Display",serif;
-font-size:5rem;color:#fff;
-}
+.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center}
+h1{font-family:"Playfair Display",serif;font-size:5rem;color:#fff}
 .goldline{width:140px;height:3px;background:#c9a227;margin:20px auto;border-radius:99px}
-.subtitle{
-color:#c9a227;
-font-size:1.25rem;
-max-width:850px;
-margin:0 auto 25px;
-}
+.subtitle{color:#c9a227;font-size:1.25rem;max-width:850px;margin:0 auto 25px}
 .hero p{max-width:800px;margin:auto;color:#cbd5e1}
-.btn{
-display:inline-block;margin:12px;padding:14px 26px;
-border:1px solid #c9a227;border-radius:8px;
-text-decoration:none;color:#c9a227;
-transition:.3s;
-}
+.btn{display:inline-block;margin:12px;padding:14px 26px;border:1px solid #c9a227;border-radius:8px;text-decoration:none;color:#c9a227;transition:.3s}
 .btn:hover{background:#c9a227;color:#08111f}
 section{padding:90px 0}
-.section-title{
-text-align:center;
-font-size:2.5rem;
-font-family:"Playfair Display",serif;
-color:#c9a227;
-margin-bottom:40px;
-}
+.section-title{text-align:center;font-size:2.5rem;font-family:"Playfair Display",serif;color:#c9a227;margin-bottom:40px}
 .about{max-width:900px;margin:auto;line-height:2}
 .tags{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.tag,.card{
-background:#111827;
-border:1px solid rgba(201,162,39,.18);
-}
+.tag,.card{background:#111827;border:1px solid rgba(201,162,39,.18)}
 .tag{padding:12px 18px;border-radius:999px}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-gap:24px;
-}
-.card{
-padding:24px;border-radius:14px;
-transition:.35s;
-}
-.card:hover{
-transform:translateY(-10px);
-border-color:#c9a227;
-box-shadow:0 20px 40px rgba(201,162,39,.15);
-}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:24px}
+.card{padding:24px;border-radius:14px;transition:.35s}
+.card:hover{transform:translateY(-10px);border-color:#c9a227;box-shadow:0 20px 40px rgba(201,162,39,.15)}
 .card h3{color:#c9a227;margin-bottom:10px}
-.quote{
-text-align:center;
-font-size:1.6rem;
-font-style:italic;
-}
+.quote{text-align:center;font-size:1.6rem;font-style:italic}
 .quote-author{margin-top:14px;color:#c9a227}
-.book img{
-width:100%;
-height:340px;
-object-fit:cover;
-border-radius:10px;
-background:#1a2537;
-}
+.book img{width:100%;height:340px;object-fit:cover;border-radius:10px;background:#1a2537}
 .contact{text-align:center}
 .contact a{display:block;margin:10px;color:#c9a227;text-decoration:none}
 footer{text-align:center;padding:40px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)}
-@media(max-width:768px){
-h1{font-size:3rem}
-nav{flex-wrap:wrap}
-}
+@media(max-width:768px){h1{font-size:3rem}nav{flex-wrap:wrap}.bg-bull,.bg-bear{width:180px;height:180px}}
 </style>
 </head>
 <body>
 <div class="market-line"></div>
 <canvas id="market-canvas"></canvas>
+
+<!-- BULL — gold, left side, facing right -->
+<div class="bg-bull">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="opacity:0.22">
+    <path fill="#c9a227" d="M509.988,75.807c-6,3.281-26.203,9.156-56-3.563c-30.078-12.828-61.031,6.141-72.438,15.422l-31.828-28.594
+      c-1.188-1.078-2.734-1.656-4.344-1.641l-95.891,1.375c-1.844,0.031-3.594,0.859-4.766,2.25l-70.203,83.094
+      c-0.813,0.969-1.906,1.672-3.125,2.016l-75.171,21.266c-1.453,0.422-2.719,1.344-3.563,2.609l-31.813,48.047
+      c-3.969-0.031-7.359-0.75-10.25-1.984c-4.359-1.891-7.672-4.906-10.016-8.781c-2.328-3.875-3.641-8.641-3.641-13.766
+      c0.016-6.844,2.313-14.266,7.469-20.969c5.141-6.688,13.141-12.703,24.828-16.531c15.797-5.172,27.281-10.922,35.688-16.703
+      c18.078-1.984,21.859-17.547,21.906-30.125c0.078-0.797,0.125-1.531,0.125-2.109c0-0.797-0.063-1.359-0.094-1.625l-0.125,0.016
+      c-0.375-7.125-1.703-12.547-1.703-12.547s-0.641,5.734-11.984,10.781c-16.422,4.703-21.047,17.438-19.266,26.797
+      c-6.891,4.219-16.156,8.609-28.734,12.719c-13.953,4.547-24.422,12.125-31.313,21.125c-6.922,8.984-10.266,19.313-10.266,29.172
+      c0,9.844,3.344,19.328,9.844,26.438c3.25,3.547,7.297,6.469,11.969,8.484c3.688,1.578,7.828,2.391,12.172,2.75l-0.891,72.422
+      c0,0.391-0.047,0.781-0.125,1.172l-11.625,58.141c-0.156,0.75-0.422,1.453-0.828,2.094L0.942,435.182
+      c-0.984,1.594-1.203,3.547-0.609,5.328c0.578,1.781,1.938,3.203,3.672,3.906l24.328,9.703c2.406,0.953,5.156,0.359,6.953-1.5
+      l51.141-53.328c0.047-0.031,0.078-0.063,0.109-0.094l56.046-56.063l134.672-74.063l20.156,27.484
+      c1.125,1.531,1.5,3.469,1.047,5.313c-0.469,1.828-1.719,3.375-3.422,4.188l-43.375,20.828c-1.531,0.719-2.719,2.047-3.266,3.672
+      c-0.563,1.594-0.438,3.375,0.328,4.906l5.703,11.375c1.484,2.969,5.016,4.313,8.094,3.047l87.906-35.969
+      c3.047-1.234,4.641-4.609,3.672-7.75l-19.766-64.234c-0.594-1.984-0.219-4.141,1.047-5.766l5.453-7.047
+      c1.125-1.453,2.813-2.344,4.625-2.469c1.828-0.109,3.609,0.563,4.906,1.859l27.672,27.563c1.734,1.734,4.297,2.297,6.609,1.484
+      l31.531-11.156c2.219-0.781,3.828-2.719,4.172-5.047l13.563-89.781c26.859-1.438,28.516-24.781,28.516-24.781l-37.031-7.922
+      c6.234-5.828,14.813-12.391,23.766-14.844c13.219-3.609,28.906,0.094,45.156-6.406C510.566,91.104,515.128,74.198,509.988,75.807z"/>
+  </svg>
+</div>
+
+<!-- BEAR — slate, right side, facing left (scaleX flipped via CSS) -->
+<div class="bg-bear">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571.081 571.081" style="opacity:0.20">
+    <path fill="#94a3b8" d="M568.739,218.52c-7.923-5.402-12.57-13.753-18.98-20.502c-0.424-0.449-0.734-1.016-1.179-1.436
+      c-3.007-2.832-4.455-5.92-2.501-10.09c0.894-1.91,0.343-3.986-1.273-5.504c-3.101-2.913-6.01-6.12-9.465-8.536
+      c-4.773-3.337-10.029-5.973-14.979-9.078c-1.529-0.959-2.766-2.412-4.055-3.717c-1.489-1.51-2.718-3.325-4.37-4.611
+      c-2.158-1.672-3.949-1.379-6.128,0.257c-0.489,0.367-1.229,0.575-1.849,0.571c-2.333-0.008-4.671-0.074-7.001-0.237
+      c-2.395-0.163-4.826-0.253-7.16-0.743c-7.066-1.485-14.056-3.358-21.146-4.692c-9.196-1.734-18.454-2.979-27.888-2.46
+      c-5.487,0.302-10.726-0.938-15.842-3.154c-12.362-5.349-25.436-8.495-38.45-11.787c-6.594-1.668-13.093-3.827-19.768-5.039
+      c-6.957-1.265-14.108-2.105-21.139-0.343c-8.886,2.232-17.426,5.5-25.725,9.4c-1.293,0.608-2.934,0.897-4.354,0.75
+      c-11.212-1.142-22.398-2.378-33.688-2.676c-6.304-0.167-12.579-1.363-18.874-2.028c-7.254-0.767-14.533-1.326-21.771-2.211
+      c-8.127-0.991-16.226-2.231-24.333-3.391c-4.146-0.591-8.274-1.285-12.424-1.848c-16.361-2.228-32.726-4.169-49.315-2.893
+      c-13.362,1.028-26.814,1.277-39.748,5.365c-1.293,0.408-2.378,1.444-3.631,2.036c-2.362,1.114-4.696,2.407-7.189,3.109
+      c-5.945,1.668-11.11,4.786-16.137,8.176c-6.046,4.08-12.46,7.789-17.875,12.603c-9.804,8.727-19.106,17.928-26.214,29.274
+      c-7.939,12.677-12.815,26.438-16.916,40.616c-2.371,8.189-4.929,16.329-7.099,24.57c-1.261,4.778-2.064,9.69-2.803,14.586
+      c-0.551,3.656,0.045,7.234,1.563,10.689c0.551,1.253,0.285,2.84,0.571,4.235c0.551,2.729,0.388,6.251,2.048,7.964
+      c2.403,2.477,3.015,6.234,6.356,7.961c0.914-0.433,1.95-0.927,3.231-1.534c0,1.081,0,1.971,0,2.978
+      c4.076-1.105,1.714,2.236,2.762,3.742c0.788-0.592,1.587-1.195,2.444-1.841c1.139,2.526,2.052-0.004,3.301-0.322
+      c0.42,2.081,0.539,4.26,1.314,6.169c1.624,4.003-0.119,7.381-1.563,10.816c-4.663,11.09-10.653,21.437-17.76,31.131
+      c-4.439,6.05-8.968,12.031-13.529,17.992c-1.416,1.853-2.958,3.64-4.643,5.243c-1.894,1.799-2.795,3.798-2.55,6.426
+      c0.22,2.37,0.698,4.822-0.906,6.985c-0.11,0.146-0.13,0.403-0.102,0.596c0.404,3.035,0.841,6.066,1.232,9.103
+      c0.13,1.016,0.286,2.056,0.196,3.063c-0.196,2.195,0.636,3.864,2.256,5.255c0.334,0.286,0.856,0.771,0.792,1.041
+      c-0.588,2.383,1.387,3.717,2.129,5.545c0.437,1.072,0.686,2.235,0.894,3.378c0.563,3.104,1.024,6.23,1.612,9.327
+      c0.085,0.461,0.542,0.982,0.971,1.224c1.975,1.102,2.415,2.896,1.873,4.79c-1.281,4.472-0.718,8.535,1.921,12.391
+      c0.375,0.547,0.143,1.624-0.041,2.403c-0.188,0.783-0.682,1.493-1.012,2.248c-0.474,1.077-0.241,1.669,0.983,2.167
+      c1.636,0.665,3.289,1.497,4.635,2.619c2.211,1.84,4.675,2.383,7.425,2.309c14.452-0.392,28.903-0.771,43.354-1.134
+      c1.134-0.028,1.914-0.208,2.734-1.293c0.734-0.968,2.309-1.339,3.566-1.853c2.416-0.987,2.787-3.387,2.717-5.247
+      c-0.135-3.402-0.951-6.806-1.738-10.146c-0.514-2.175-1.889-3.844-3.778-5.235c-0.938-0.693-1.604-2.269-1.702-3.496
+      c-0.265-3.317-2.75-5.157-5.002-6.349c-2.493-1.322-3.129-3.02-3.358-5.337c-0.085-0.877-0.012-1.774,0.465-2.379
+      c0.514-0.591,1.118-1.134,1.522-1.795c0.424-0.697,0.624-1.525,0.991-2.265c0.241-0.485,0.6-1.301,0.918-1.305
+      c2.864-0.05,3.9-2.926,6.198-3.917c1.379-0.596,2.358-2.175,3.459-3.362c1.53-1.656,2.995-3.37,4.509-5.043
+      c1.783-1.975,3.59-3.929,5.377-5.903c0.481-0.535,0.934-1.094,1.469-1.722c0.261,0.392,0.444,0.547,0.473,0.726
+      c1.363,9.393,3.35,18.744,2.24,28.323c-0.261,2.249-0.816,4.464-1.232,6.695c-0.478,2.571,1.02,4.496,3.664,4.468
+      c3.158-0.036,5.255,1.474,7.377,3.705c1.167,1.228,3.513,1.738,5.369,1.844c5.834,0.331,11.689,0.485,17.532,0.404
+      c10.596-0.147,21.191-0.453,31.779-0.828c2.484-0.086,4.941-0.755,7.421-1.073c0.942-0.122,1.909-0.021,2.942-0.021
+      c2.056-3.076,0.844-8.046-2.424-9.874c-0.653-0.367-1.273-1.036-1.595-1.713c-1.379-2.913-2.897-5.513-6.247-6.716
+      c-2.244-0.808-3.264-3.035-3.459-5.284c-0.302-3.483-0.375-7.001-0.306-10.497c0.147-7.434,0.147-14.888,0.775-22.285
+      c0.592-6.94,1.718-13.855,2.975-20.714c1.375-7.508,3.162-14.938,4.798-22.396c0.176-0.8,0.486-1.579,0.792-2.342
+      c1.204-3.044,1.212-2.896,4.513-2.877c2.876,0.017,5.753-0.326,8.629-0.521c0.469-0.033,0.935-0.123,1.653-0.217
+      c0,1.384,0,2.648,0,4.015c0.489,0,0.767,0.074,0.983-0.012c2.534-1.021,5.043-1.489,7.809-0.727
+      c2.358,0.648,4.554-0.139,6.541-2.652c0,1.648,0,2.547,0,3.868c1.946-0.8,3.542-1.55,5.206-2.089
+      c0.608-0.195,1.387,0.086,2.077,0.225c0.62,0.122,1.245,0.551,1.824,0.485c1.706-0.191,3.529-0.249,5.055-0.926
+      c3.529-1.567,7.279-0.751,10.963-1.534c0.155,0.681,0.286,1.257,0.522,2.284c1.134-0.562,2.203-0.93,3.076-1.57
+      c1.163-0.853,2.215-1.253,3.774-1.061c1.391,0.171,3.133-0.164,4.28-0.931c2.028-1.358,4.052-2.154,6.426-1.868
+      c0.481,0.538,1.044,1.027,1.42,1.628c0.306,0.493,0.392,1.121,0.693,2.06c0.935-0.6,2.016-1.048,2.762-1.823
+      c1.853-1.922,4.108-2.852,6.63-3.533c2.069-0.56,4.011-1.583,6.25-2.501c1.412,1.126,2.954,0.065,4.402-0.935
+      c1.432-0.991,2.672-2.15,4.521-0.689c0.51,0.404,1.452,0.285,2.199,0.359c1.367,0.13,2.717-1.021,4.206,0.289
+      c0.384,0.339,2.211-0.734,3.215-1.399c1.403-0.93,2.66-2.085,3.982-3.146c0.159,0.114,0.322,0.232,0.481,0.347
+      c-2.04,4.305-4.08,8.609-6.218,13.121c0.771,0,1.379,0,2.411,0c-1.155,1.832-2.17,3.448-3.19,5.063
+      c0.11,0.143,0.224,0.286,0.334,0.429c0.833-0.307,1.661-0.612,2.942-1.081c-0.816,1.648-1.481,2.99-2.363,4.773
+      c1.501-0.277,2.526-0.465,4.007-0.738c-0.645,1.375-1.093,2.558-1.73,3.627c-1.514,2.533-2.705,4.957-2.893,8.164
+      c-0.208,3.57-1.734,7.099-2.942,10.555c-0.755,2.162-1.591,4.142-1.134,6.569c0.261,1.391-0.416,2.945-0.571,4.438
+      c-0.094,0.91,0.004,1.836,0.021,2.754c0.788-0.367,1.575-0.734,2.84-1.321c-0.175,0.901-0.286,1.717-0.51,2.505
+      c-0.208,0.742-0.942,1.452,0.392,1.986c0.261,0.106,0.29,1.257,0.143,1.853c-1.351,5.463-2.762,10.914-4.227,16.65
+      c0.008,0.009,0.441,0.298,0.943,0.641c-0.698,1.448-1.383,2.885-2.093,4.357c3.729,1.159,4.243,1.926,3.505,5.672
+      c-0.518,2.61-1.416,5.148-1.942,7.76c-0.82,4.056-1.464,8.144-2.199,12.289c4.084,0.155,4.015,0.159,4.161,3.893
+      c0.033,0.873,0.706,1.718,1.061,2.582c0.155,0.371,0.404,0.775,0.363,1.139c-0.233,2.158,1.191,3.235,2.685,4.271
+      c4.394,3.048,9.413,3.448,14.565,3.766c13.595,0.837,27.169,1.935,40.756,2.926c1.028,0.073,2.068,0.298,3.08,0.196
+      c3.272-0.327,6.373,0.326,9.571,0.954c3.102,0.608,6.414,0.139,9.629,0.106c0.229-0.004,0.515-0.237,0.674-0.44
+      c1.236-1.596,2.574-2,4.414-0.804c0.502,0.326,1.547-0.184,2.645-0.359c0.705,1.754,1.954,1.265,3.398,0.086
+      c1.473-1.208,3.007-0.906,4.631-0.123c1.334,0.641,2.807,0.987,4.541,1.575c-0.103-2.733-1.392-4.011-2.738-5.3
+      c-0.502-0.481-1.158-1.208-1.113-1.775c0.229-2.803-0.914-5.137-2.338-7.344c-1.229-1.901-2.387-4.026-4.104-5.386
+      c-1.616-1.272-3.868-1.889-5.94-2.407c-3.713-0.934-7.503-1.554-11.249-2.37c-0.469-0.102-0.971-0.519-1.24-0.931
+      c-0.379-0.575-0.555-1.28-0.82-1.934c-0.269,0.249-0.542,0.502-0.812,0.751c-0.481,1.004-0.963,2.007-1.44,3.011
+      c-0.212-0.065-0.424-0.131-0.636-0.191c-1.51-6.014-2.285-12.032-0.367-18.185c0.75-2.411,1.207-4.912,1.722-7.394
+      c0.795-3.831,1.424-7.698,2.312-11.51c0.539-2.305,1.592-4.373,3.827-5.65c0.571-0.326,0.906-1.154,1.236-1.808
+      c0.894-1.754,1.84-3.496,2.559-5.324c0.738-1.877,1.448-3.811,1.778-5.785c0.318-1.914,0.425-3.709,1.849-5.312
+      c0.718-0.808,0.706-2.297,0.959-3.488c0.73-3.439,1.432-6.883,2.19-10.559c1.514,1.746,2.13,0.979,2.656-0.779
+      c0.425-1.408,1.236-2.697,1.967-4.219c0.763,0.583,1.272,0.975,1.991,1.521c0.637-1.399,1.407-2.685,1.803-4.072
+      c0.596-2.089,0.902-4.255,1.375-6.381c0.196-0.881,0.144-2.012,1.678-1.795c0.272,0.036,0.864-0.763,0.967-1.249
+      c0.261-1.199,0.322-2.443,0.469-3.725c2.146,1.032,1.987-0.604,2.252-1.824c1.094-4.969,3.211-9.51,5.565-13.953
+      c0.196,0.008,0.392,0.021,0.583,0.028c0.196,1.375,0.511,2.746,0.567,4.125c0.143,3.366,0.163,6.74,0.249,10.11
+      c0.045,1.804,0.624,2.99,2.86,2.076c0.236,1.359,0.526,2.555,0.632,3.767c0.147,1.648,0.453,2.909,2.501,1.688
+      c0.461,0.951,0.841,1.742,1.208,2.501c1.783-0.143,4.504,2.412,4.378,4.117c-0.2,2.758-0.367,5.402,1.832,7.67
+      c0.722,0.743,0.832,2.154,1.053,3.293c0.294,1.526,1.134,2.46,2.529,1.596c2.261-1.404,4.26,0.375,6.386,0.179
+      c0.252-0.024,0.648,0.629,0.836,1.037c0.669,1.436,1.236,2.917,1.913,4.345c1.2,2.521,1.514,2.652,4.179,1.914
+      c0.306,0.808,0.551,1.664,0.958,2.436c0.258,0.489,0.723,1.15,1.163,1.212c2.004,0.277,2.272,1.632,2.403,3.26
+      c0.29,3.537,1.188,4.545,4.455,5.545c0.551,0.167,1.086,0.718,1.412,1.228c0.478,0.743,0.693,1.648,1.134,2.424
+      c1.465,2.57,2.02,2.582,3.578,0.028c2.061,1.253,3.889,0.534,5.729-1.167c0.543,1.167,1.016,2.13,1.444,3.113
+      c0.882,2.003,1.971,3.709,4.231,4.521c0.559,0.2,1.109,1.591,0.979,2.317c-0.343,1.954,0.294,3.224,1.853,4.321
+      c1,0.705,1.738,1.778,2.722,2.513c2.26,1.677,3.093,1.452,4.614-1.379c2.383,0.976,4.937,1.763,7.226,3.031
+      c2.432,1.347,4.672,2.272,7.353,0.747c0.591-0.335,1.465-0.217,2.211-0.221c1.559-0.008,3.134-0.065,4.676,0.106
+      c0.991,0.11,2.008,0.473,2.893,0.95c1.146,0.616,2.188,1.433,3.248,2.195c2.007,1.452,4.17,1.819,6.438,0.796
+      c7.123-3.216,14.386-1.853,21.648-0.755c0.6,0.09,1.228,0.212,1.819,0.143c4.729-0.575,9.445-1.163,14.08,0.661
+      c0.343,0.135,1.098-0.453,1.485-0.869c0.298-0.318,0.298-0.901,0.469-1.347c0.172-0.44,0.392-0.86,0.498-1.081
+      c1.362,0,2.823,0.42,3.631-0.126c0.698-0.474,0.653-2.045,0.976-3.285c2.358,0.914,3.309,0.355,2.644-2.13
+      c-0.082-0.306,0.706-1.13,1.191-1.235c0.689-0.147,1.473,0.171,2.22,0.253c0.718,0.077,1.44,0.098,2.162,0.146
+      c-0.053-0.849-0.008-1.722-0.195-2.538c-0.147-0.641-0.584-1.22-1.135-2.301c1.946,0,3.599,0,5.373,0
+      c-1.195-3.533-2.79-4.941-5.728-5.753c-1.045-1.42-1.616-2.542-2.493-3.321c-2.497-2.231-5.264-3.998-8.756-4.247
+      c-0.538-0.037-1.102-0.188-1.595-0.412c-4.402-1.999-8.789-1.975-13.171,0.163c-3.908-6.418-7.735-12.737-11.611-19.025
+      c-0.755-1.224-1.779-2.276-2.57-3.479c-1.195-1.815-2.293-3.696-3.436-5.549c-0.322-0.526-0.547-1.159-0.983-1.559
+      c-3.149-2.856-4.757-6.688-6.736-10.307c-1.574-2.884-3.443-5.613-5.186-8.408c-0.146-0.232-0.354-0.429-0.481-0.669
+      c-2.126-3.971-4.247-7.944-6.36-11.922c-0.123-0.232-0.217-0.522-0.212-0.784c0.053-2.432-1.212-4.202-2.942-5.667
+      c-2.175-1.836-3.007-4.223-3.696-6.919c-1.203-4.692-2.9-9.258-4.378-13.881c-0.461-1.44-0.828-2.913-1.334-4.337
+      c-0.897-2.509-1.869-4.994-3.023-8.062c1.652-0.591,3.619-1.293,5.77-2.064c0.277,1.118,0.433,1.746,0.697,2.811
+      c1.363-0.824,2.587-1.562,3.938-2.375c0.804,1.893,1.971,1.012,3.052,0.306c0.979-0.637,1.849-1.44,2.827-2.081
+      c1.069-0.702,2.008-1.958,3.599-0.742c0.359,0.273,1.318-0.135,1.959-0.355c2.402-0.833,4.765-1.808,7.196-2.534
+      c0.743-0.225,1.673,0.171,2.518,0.286c0.033,0.281,0.062,0.559,0.094,0.84c1.498-0.759,2.999-1.514,4.786-2.416
+      c0.216,1.175,0.392,2.134,0.616,3.342c1.546-0.865,2.99-1.73,4.492-2.493c1.901-0.967,3.843-1.848,5.777-2.754
+      c0.371-0.175,0.93-0.526,1.134-0.392c1.832,1.212,3.101-0.575,4.647-0.767c1.579-0.196,3.203-0.033,4.781-0.237
+      c1.808-0.232,3.587-0.702,5.455-1.081c1.191,1.709,1.461,1.657,2.999-0.232c0.563-0.689,1.437-1.489,2.235-1.571
+      c3.877-0.4,7.858-0.159,11.645-0.926c4.521-0.918,8.323,1.281,12.461,1.926c3.479,0.547,6.605,0.363,9.017-2.542
+      c1.302-1.566,3.027-1.848,4.916-2.06c1.229-0.139,2.534-0.6,3.566-1.277c3.194-2.101,6.274-4.578,7.658-8.176
+      c1.248-3.251,2.84-6.039,5.312-8.478C571.726,222.996,571.146,220.16,568.739,218.52z"/>
+  </svg>
+</div>
 
 <nav>
 <a href="#about">About</a>
@@ -140,7 +205,6 @@ nav{flex-wrap:wrap}
 </nav>
 
 <div class="container">
-
 <section class="hero">
 <div>
 <h1>Pratik Deshmukh</h1>
@@ -202,31 +266,25 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section id="reading">
-
 <h2 class="section-title">Library</h2>
-
-<p style="text-align:center;color:#CBD5E1;margin-bottom:50px;">
-Books that have influenced my thinking on investing, business,
-decision-making, personal growth, and life.
-</p>
+<p style="text-align:center;color:#CBD5E1;margin-bottom:50px;">Books that have influenced my thinking on investing, business, decision-making, personal growth, and life.</p>
 
 <h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Finance & Investing</h3>
-
 <div class="grid">
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg" alt="The Psychology of Money" onerror="this.src='https://covers.openlibrary.org/b/title/The+Psychology+of+Money-L.jpg'">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/PSYCHOLOGY%20OF%20MONEY.jpg" alt="The Psychology of Money">
 <h3>The Psychology of Money</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg" alt="Rich Dad Poor Dad" onerror="this.src='https://covers.openlibrary.org/b/title/Rich+Dad+Poor+Dad-L.jpg'">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/RICH%20DAD%20POOR%20DAD.jpg" alt="Rich Dad Poor Dad">
 <h3>Rich Dad Poor Dad</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/The+Big+Bull+of+Dalal+Street-L.jpg" alt="The Big Bull of Dalal Street">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/THE%20BIG%20BULL%20OF%20DALAL%20STREET.jpg" alt="The Big Bull of Dalal Street">
 <h3>The Big Bull of Dalal Street</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/isbn/9781612680064-L.jpg" alt="The Business of the 21st Century">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/THE%20BUSINESS%20OF%2021ST%20CENTURY.jpg" alt="The Business of the 21st Century">
 <h3>The Business of the 21st Century</h3>
 </div>
 </div>
@@ -234,18 +292,17 @@ decision-making, personal growth, and life.
 <br><br><br>
 
 <h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Personal Growth</h3>
-
 <div class="grid">
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg" alt="Atomic Habits">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/ATOMIC%20HABITS.jpg" alt="Atomic Habits">
 <h3>Atomic Habits</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Attitude+Is+Everything-L.jpg" alt="Attitude Is Everything">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/ATTITUDE%20IS%20EVERYTHING.jpg" alt="Attitude Is Everything">
 <h3>Attitude Is Everything</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/isbn/9780807014271-L.jpg" alt="Man's Search for Meaning">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/THE%20MAN%20IN%20SEARCH%20OF%20MEANING.jpg" alt="Man's Search for Meaning">
 <h3>Man's Search for Meaning</h3>
 </div>
 </div>
@@ -253,30 +310,28 @@ decision-making, personal growth, and life.
 <br><br><br>
 
 <h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Marathi Literature</h3>
-
 <div class="grid">
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Musafir+Marathi-L.jpg" alt="Musafir">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/MUSAFIR.jpg" alt="Musafir">
 <h3>Musafir</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Manat+Marathi-L.jpg" alt="Manat">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/MANAT.jpg" alt="Manat">
 <h3>Manat</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Naadvedh-L.jpg" alt="Naadvedh">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/NAADVEDH.jpg" alt="Naadvedh">
 <h3>Naadvedh</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Amrutvel-L.jpg" alt="Amrutvel">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/AMRUTVEL.jpg" alt="Amrutvel">
 <h3>Amrutvel</h3>
 </div>
 <div class="card book">
-<img src="https://covers.openlibrary.org/b/title/Idli+Orchid+Aani+Me-L.jpg" alt="Idli Orchid Aani Me">
+<img src="https://raw.githubusercontent.com/pratikdeshmukh01/pratikdeshmukh01.github.io/main/IDLI%20ORCHID%20AANI%20ME.jpg" alt="Idli Orchid Aani Me">
 <h3>Idli Orchid Aani Me</h3>
 </div>
 </div>
-
 </section>
 
 <section id="contact">
@@ -286,237 +341,61 @@ decision-making, personal growth, and life.
 <a href="https://github.com/pratikdeshmukh01" target="_blank">GitHub</a>
 </div>
 </section>
-
 </div>
+
 <footer>Pratik Deshmukh • Markets • Businesses • Investing</footer>
 
 <script>
 (function(){
   const canvas = document.getElementById('market-canvas');
   const ctx = canvas.getContext('2d');
-
-  function resize(){
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-  }
+  function resize(){ canvas.width=window.innerWidth; canvas.height=window.innerHeight; }
   resize();
   window.addEventListener('resize', resize);
 
-  // ── CANDLESTICKS ──────────────────────────────────────────
-  const CANDLE_COUNT = 18;
-  const candles = [];
-
-  function makeCandle(x){
-    const bullish = Math.random() > 0.45;
-    const bodyH = 30 + Math.random() * 90;
-    const bodyW = 18 + Math.random() * 14;
-    const y = 80 + Math.random() * (window.innerHeight - 220);
-    const wickTop = bodyH * (0.3 + Math.random() * 0.5);
-    const wickBot = bodyH * (0.3 + Math.random() * 0.5);
-    const opacity = 0.10 + Math.random() * 0.18;
-    return { x, y, bodyH, bodyW, wickTop, wickBot, bullish, opacity,
-             drift: (Math.random() - 0.5) * 0.15,
-             float: Math.random() * Math.PI * 2,
-             floatSpeed: 0.004 + Math.random() * 0.006 };
+  const candles=[];
+  for(let i=0;i<18;i++){
+    const bul=Math.random()>0.45;
+    const c={
+      x:(window.innerWidth/18)*i+(window.innerWidth/36),
+      y:80+Math.random()*(window.innerHeight-220),
+      bH:28+Math.random()*80,bW:14+Math.random()*12,
+      bullish:bul,op:0.10+Math.random()*0.14,
+      ph:Math.random()*Math.PI*2,spd:0.004+Math.random()*0.005
+    };
+    c.wT=c.bH*(0.3+Math.random()*0.5);
+    c.wB=c.bH*(0.25+Math.random()*0.4);
+    candles.push(c);
   }
 
-  const spreadX = window.innerWidth / CANDLE_COUNT;
-  for(let i = 0; i < CANDLE_COUNT; i++){
-    candles.push(makeCandle(spreadX * i + spreadX * 0.3 + Math.random() * spreadX * 0.4));
-  }
-
-  function drawCandle(c, t){
-    const floatY = Math.sin(t * c.floatSpeed + c.float) * 6;
-    const cx = c.x;
-    const cy = c.y + floatY;
-    const color = c.bullish ? `rgba(34,197,94,${c.opacity})` : `rgba(239,68,68,${c.opacity})`;
-    const wickColor = c.bullish ? `rgba(34,197,94,${c.opacity * 0.7})` : `rgba(239,68,68,${c.opacity * 0.7})`;
-
-    // wick
-    ctx.strokeStyle = wickColor;
-    ctx.lineWidth = 2;
-    ctx.beginPath();
-    ctx.moveTo(cx, cy - c.bodyH/2 - c.wickTop);
-    ctx.lineTo(cx, cy + c.bodyH/2 + c.wickBot);
-    ctx.stroke();
-
-    // body
-    ctx.fillStyle = color;
-    ctx.strokeStyle = color;
-    ctx.lineWidth = 1;
-    const bx = cx - c.bodyW/2;
-    const by = cy - c.bodyH/2;
-    ctx.fillRect(bx, by, c.bodyW, c.bodyH);
-    ctx.strokeRect(bx, by, c.bodyW, c.bodyH);
-  }
-
-  // ── BULL SVG paths drawn via canvas ──────────────────────
-  function drawBull(ctx, x, y, scale, alpha){
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
-    ctx.globalAlpha = alpha;
-    ctx.strokeStyle = '#c9a227';
-    ctx.lineWidth = 3.5 / scale;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.fillStyle = 'rgba(201,162,39,0.06)';
-
-    // Body
-    ctx.beginPath();
-    ctx.ellipse(0, 0, 70, 45, 0, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Head
-    ctx.beginPath();
-    ctx.ellipse(68, -18, 32, 26, -0.3, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Snout
-    ctx.beginPath();
-    ctx.ellipse(92, -10, 14, 10, 0.2, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Nostrils
-    ctx.fillStyle = 'rgba(201,162,39,0.3)';
-    ctx.beginPath(); ctx.ellipse(87, -8, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(96, -6, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
-
-    // Eye
-    ctx.fillStyle = '#c9a227';
-    ctx.beginPath(); ctx.arc(78, -26, 4, 0, Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#08111f';
-    ctx.beginPath(); ctx.arc(79, -26, 2, 0, Math.PI*2); ctx.fill();
-
-    // Horns (upward — bullish!)
-    ctx.strokeStyle = '#c9a227';
-    ctx.lineWidth = 4 / scale;
-    ctx.beginPath();
-    ctx.moveTo(65, -38);
-    ctx.quadraticCurveTo(55, -72, 72, -80);
-    ctx.stroke();
-    ctx.beginPath();
-    ctx.moveTo(80, -40);
-    ctx.quadraticCurveTo(85, -74, 104, -76);
-    ctx.stroke();
-
-    // Legs
-    ctx.lineWidth = 3 / scale;
-    const legs = [[-40,40],[-18,40],[18,40],[40,40]];
-    legs.forEach(([lx])=>{
-      ctx.beginPath();
-      ctx.moveTo(lx, 38);
-      ctx.lineTo(lx - 4, 85);
-      ctx.lineTo(lx + 10, 85);
-      ctx.stroke();
-    });
-
-    // Tail
-    ctx.beginPath();
-    ctx.moveTo(-68, -8);
-    ctx.quadraticCurveTo(-92, -30, -80, -52);
-    ctx.stroke();
-
-    ctx.restore();
-  }
-
-  // ── BEAR SVG paths drawn via canvas ──────────────────────
-  function drawBear(ctx, x, y, scale, alpha){
-    ctx.save();
-    ctx.translate(x, y);
-    ctx.scale(scale, scale);
-    ctx.globalAlpha = alpha;
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 3.5 / scale;
-    ctx.lineCap = 'round';
-    ctx.lineJoin = 'round';
-    ctx.fillStyle = 'rgba(148,163,184,0.06)';
-
-    // Body
-    ctx.beginPath();
-    ctx.ellipse(0, 0, 72, 48, 0, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Head
-    ctx.beginPath();
-    ctx.ellipse(-66, -20, 34, 28, 0.3, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Snout
-    ctx.beginPath();
-    ctx.ellipse(-90, -10, 16, 11, -0.2, 0, Math.PI*2);
-    ctx.fill();
-    ctx.stroke();
-
-    // Nostrils
-    ctx.fillStyle = 'rgba(148,163,184,0.3)';
-    ctx.beginPath(); ctx.ellipse(-85, -8, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
-    ctx.beginPath(); ctx.ellipse(-95, -6, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
-
-    // Eye
-    ctx.fillStyle = '#94a3b8';
-    ctx.beginPath(); ctx.arc(-76, -28, 4, 0, Math.PI*2); ctx.fill();
-    ctx.fillStyle = '#08111f';
-    ctx.beginPath(); ctx.arc(-77, -28, 2, 0, Math.PI*2); ctx.fill();
-
-    // Ears (round bear ears)
-    ctx.fillStyle = 'rgba(148,163,184,0.15)';
-    ctx.strokeStyle = '#94a3b8';
-    ctx.lineWidth = 3 / scale;
-    ctx.beginPath(); ctx.arc(-58, -46, 12, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-    ctx.beginPath(); ctx.arc(-80, -44, 12, 0, Math.PI*2); ctx.fill(); ctx.stroke();
-
-    // Claws / paws (downward — bearish)
-    ctx.lineWidth = 3 / scale;
-    const legs = [[-40,40],[-18,40],[18,40],[40,40]];
-    legs.forEach(([lx])=>{
-      ctx.beginPath();
-      ctx.moveTo(lx, 38);
-      ctx.lineTo(lx - 4, 85);
-      ctx.lineTo(lx + 10, 85);
-      ctx.stroke();
-      // claw marks pointing down
-      ctx.beginPath();
-      ctx.moveTo(lx, 85); ctx.lineTo(lx-5, 96); ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(lx+5, 85); ctx.lineTo(lx+2, 96); ctx.stroke();
-    });
-
-    // Tail
-    ctx.beginPath();
-    ctx.moveTo(70, -5);
-    ctx.quadraticCurveTo(90, -20, 82, -40);
-    ctx.stroke();
-
-    ctx.restore();
-  }
-
-  // ── ANIMATION LOOP ────────────────────────────────────────
-  let t = 0;
+  let t=0;
   function draw(){
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0,0,canvas.width,canvas.height);
     t++;
-
-    // Draw all candlesticks
-    candles.forEach(c => drawCandle(c, t));
-
-    // Bull — left side, large, moderate opacity
-    const bullFloat = Math.sin(t * 0.008) * 10;
-    drawBull(ctx, canvas.width * 0.13, canvas.height * 0.42 + bullFloat, 1.0, 0.22);
-
-    // Bear — right side, large, moderate opacity
-    const bearFloat = Math.sin(t * 0.007 + 1.5) * 10;
-    drawBear(ctx, canvas.width * 0.87, canvas.height * 0.58 + bearFloat, 1.0, 0.20);
-
+    candles.forEach(c=>{
+      const fy=Math.sin(t*c.spd+c.ph)*5;
+      const cy=c.y+fy;
+      const col=c.bullish?`rgba(34,197,94,${c.op})`:`rgba(239,68,68,${c.op})`;
+      ctx.strokeStyle=col; ctx.lineWidth=1.5;
+      ctx.beginPath(); ctx.moveTo(c.x,cy-c.bH/2-c.wT); ctx.lineTo(c.x,cy+c.bH/2+c.wB); ctx.stroke();
+      ctx.fillStyle=col;
+      ctx.fillRect(c.x-c.bW/2,cy-c.bH/2,c.bW,c.bH);
+    });
     requestAnimationFrame(draw);
   }
-
   draw();
+
+  // Gentle float animation for bull and bear
+  const bull = document.querySelector('.bg-bull');
+  const bear = document.querySelector('.bg-bear');
+  let f=0;
+  function floatAnimate(){
+    f+=0.02;
+    bull.style.transform=`translateY(calc(-50% + ${Math.sin(f)*8}px))`;
+    bear.style.transform=`translateY(calc(-50% + ${Math.sin(f+1.5)*8}px))`;
+    requestAnimationFrame(floatAnimate);
+  }
+  floatAnimate();
 })();
 </script>
 </body>
