@@ -3,430 +3,225 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Pratik Deshmukh | Markets • Businesses • Investing</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+<title>Pratik Deshmukh | Researching Businesses. Studying Markets. Thinking Long Term.</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-
 <style>
-
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
-html{
-scroll-behavior:smooth;
-}
-
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
 body{
-background:#0B1220;
-color:#E5E7EB;
-font-family:'Inter',sans-serif;
-line-height:1.8;
+background:#08111f;
+color:#e5e7eb;
+font-family:Inter,sans-serif;
 overflow-x:hidden;
 }
-
-/* Background Pattern */
-
-body::before{
+body:before{
 content:"";
 position:fixed;
 inset:0;
 background:
-linear-gradient(to right, rgba(201,162,39,.03) 1px, transparent 1px),
-linear-gradient(to bottom, rgba(201,162,39,.03) 1px, transparent 1px);
-background-size:50px 50px;
+repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),
+repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);
 z-index:-3;
 }
-
-/* Bull */
-
-.bull{
+.market-line{
 position:fixed;
-left:-100px;
-top:20%;
-font-size:18rem;
+left:0;right:0;top:18%;
+height:2px;
+background:linear-gradient(90deg,transparent,#c9a227,transparent);
+animation:slide 6s linear infinite;
+opacity:.4;
+z-index:-2;
+}
+@keyframes slide{
+0%{transform:translateX(-30%)}
+100%{transform:translateX(30%)}
+}
+.bull,.bear{
+position:fixed;
+font-size:15rem;
 opacity:.03;
 z-index:-2;
 }
-
-/* Bear */
-
-.bear{
-position:fixed;
-right:-100px;
-bottom:10%;
-font-size:18rem;
-opacity:.03;
-z-index:-2;
-}
-
-.container{
-max-width:1150px;
-margin:auto;
-padding:0 25px;
-}
-
-/* NAV */
-
+.bull{left:-40px;top:15%}
+.bear{right:-40px;bottom:10%}
+.container{max-width:1200px;margin:auto;padding:0 24px}
 nav{
-display:flex;
-justify-content:center;
-gap:35px;
-padding:30px 0;
-position:sticky;
-top:0;
+position:sticky;top:0;
+display:flex;justify-content:center;gap:28px;
+padding:22px;background:rgba(8,17,31,.85);
 backdrop-filter:blur(10px);
-background:rgba(11,18,32,.85);
 z-index:999;
 }
-
-nav a{
-color:#CBD5E1;
-text-decoration:none;
-font-size:.95rem;
-transition:.3s;
-}
-
-nav a:hover{
-color:#C9A227;
-}
-
-/* HERO */
-
+nav a{color:#cbd5e1;text-decoration:none}
+nav a:hover{color:#c9a227}
 .hero{
-min-height:90vh;
-display:flex;
-align-items:center;
-justify-content:center;
+min-height:92vh;display:flex;align-items:center;justify-content:center;
 text-align:center;
 }
-
-.hero h1{
-font-family:'Playfair Display',serif;
-font-size:5rem;
-color:white;
-margin-bottom:20px;
+h1{
+font-family:"Playfair Display",serif;
+font-size:5rem;color:#fff;
 }
-
+.goldline{width:140px;height:3px;background:#c9a227;margin:20px auto;border-radius:99px}
 .subtitle{
-color:#C9A227;
-font-size:1.2rem;
-letter-spacing:3px;
-text-transform:uppercase;
-margin-bottom:25px;
+color:#c9a227;
+font-size:1.25rem;
+max-width:850px;
+margin:0 auto 25px;
 }
-
-.hero p{
-max-width:800px;
-margin:auto;
-color:#CBD5E1;
-font-size:1.1rem;
-}
-
-.buttons{
-margin-top:40px;
-}
-
+.hero p{max-width:800px;margin:auto;color:#cbd5e1}
 .btn{
-display:inline-block;
-padding:14px 28px;
-margin:10px;
-border:1px solid #C9A227;
-color:#C9A227;
-text-decoration:none;
-border-radius:8px;
+display:inline-block;margin:12px;padding:14px 26px;
+border:1px solid #c9a227;border-radius:8px;
+text-decoration:none;color:#c9a227;
 transition:.3s;
 }
-
-.btn:hover{
-background:#C9A227;
-color:#0B1220;
-}
-
-section{
-padding:100px 0;
-}
-
+.btn:hover{background:#c9a227;color:#08111f}
+section{padding:90px 0}
 .section-title{
-font-family:'Playfair Display',serif;
-font-size:2.5rem;
 text-align:center;
-margin-bottom:50px;
-color:#C9A227;
+font-size:2.5rem;
+font-family:"Playfair Display",serif;
+color:#c9a227;
+margin-bottom:40px;
 }
-
-.about{
-max-width:900px;
-margin:auto;
-font-size:1.05rem;
-color:#CBD5E1;
-}
-
-/* INTERESTS */
-
-.tags{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-gap:15px;
-}
-
-.tag{
-padding:12px 18px;
+.about{max-width:900px;margin:auto;line-height:2}
+.tags{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.tag,.card{
 background:#111827;
-border:1px solid rgba(201,162,39,.25);
-border-radius:999px;
+border:1px solid rgba(201,162,39,.18);
 }
-
-/* CARDS */
-
+.tag{padding:12px 18px;border-radius:999px}
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:24px;
 }
-
 .card{
-background:#111827;
-padding:30px;
-border-radius:14px;
-border:1px solid rgba(201,162,39,.15);
-transition:.3s;
+padding:24px;border-radius:14px;
+transition:.35s;
 }
-
 .card:hover{
-transform:translateY(-5px);
-border-color:#C9A227;
+transform:translateY(-10px);
+border-color:#c9a227;
+box-shadow:0 20px 40px rgba(201,162,39,.15);
 }
-
-.card h3{
-color:#C9A227;
-margin-bottom:10px;
-}
-
-/* CONTACT */
-
-.contact{
+.card h3{color:#c9a227;margin-bottom:10px}
+.quote{
 text-align:center;
+font-size:1.6rem;
+font-style:italic;
 }
-
-.contact a{
-color:#C9A227;
-text-decoration:none;
-display:block;
-margin:12px;
+.quote-author{margin-top:14px;color:#c9a227}
+.book img{
+width:100%;
+height:340px;
+object-fit:cover;
+border-radius:10px;
 }
-
-footer{
-padding:40px;
-text-align:center;
-border-top:1px solid rgba(255,255,255,.08);
-color:#94A3B8;
-}
-
-/* MOBILE */
-
+.contact{text-align:center}
+.contact a{display:block;margin:10px;color:#c9a227;text-decoration:none}
+footer{text-align:center;padding:40px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08)}
 @media(max-width:768px){
-
-.hero h1{
-font-size:3rem;
+h1{font-size:3rem}
+nav{flex-wrap:wrap}
 }
-
-nav{
-flex-wrap:wrap;
-gap:15px;
-}
-
-.subtitle{
-font-size:1rem;
-}
-
-}
-
 </style>
 </head>
-
 <body>
-
+<div class="market-line"></div>
 <div class="bull">🐂</div>
 <div class="bear">🐻</div>
 
 <nav>
 <a href="#about">About</a>
-<a href="#interests">Interests</a>
 <a href="#research">Research</a>
+<a href="#notes">Notes</a>
 <a href="#reading">Reading</a>
-<a href="#contact">Contact</a>
+<a href="#contact">Connect</a>
 </nav>
 
 <div class="container">
 
 <section class="hero">
-
 <div>
-
 <h1>Pratik Deshmukh</h1>
-
-<div class="subtitle">
-Markets • Businesses • Investing
+<div class="goldline"></div>
+<div class="subtitle">Researching Businesses. Studying Markets. Thinking Long Term.</div>
+<p>Understanding how businesses create value, how capital is allocated, and how markets reflect these dynamics over time.</p>
+<div>
+<a class="btn" href="https://www.linkedin.com/in/pratikdeshmukh1/" target="_blank">LinkedIn</a>
+<a class="btn" href="https://github.com/pratikdeshmukh01" target="_blank">GitHub</a>
 </div>
-
-<p>
-Researching businesses, studying financial markets, and documenting insights on investing, valuation, capital allocation, and decision-making.
-</p>
-
-<div class="buttons">
-
-<a class="btn"
-href="https://www.linkedin.com/in/pratikdeshmukh1/"
-target="_blank">
-LinkedIn
-</a>
-
-<a class="btn"
-href="https://github.com/pratikdeshmukh01"
-target="_blank">
-GitHub
-</a>
-
 </div>
-
-</div>
-
 </section>
 
 <section id="about">
-
 <h2 class="section-title">About</h2>
-
 <div class="about">
-
-<p>
-I am deeply interested in understanding how businesses create value, how capital is allocated, and how financial markets reflect these dynamics over time.
-</p>
-
-<br>
-
-<p>
-My focus lies at the intersection of investing, business analysis, and financial decision-making. I enjoy studying companies, analyzing financial statements, evaluating business models, and exploring the factors that drive long-term growth and shareholder value.
-</p>
-
-<br>
-
-<p>
-Alongside my academic foundation in commerce and finance, I continue to develop practical skills in financial modeling, valuation, business analytics, and market research. I believe that sound investment decisions emerge from a combination of rigorous analysis, intellectual curiosity, and a long-term perspective.
-</p>
-
-<br>
-
-<p>
-Beyond finance, I bring multilingual communication skills in English, Spanish, Marathi, and Hindi. This website serves as a digital repository of my research, observations, reading notes, and ongoing exploration of the world of finance.
-</p>
-
+I am deeply interested in understanding how businesses create value, how capital is allocated, and how financial markets reflect these dynamics over time.<br><br>
+My focus lies at the intersection of investing, business analysis, and financial decision-making. I enjoy studying companies, analyzing financial statements, evaluating business models, and exploring the factors that drive long-term growth and shareholder value.<br><br>
+Alongside my academic foundation in commerce and finance, I continue to develop practical skills in financial modeling, valuation, business analytics, and market research. I believe that sound investment decisions emerge from a combination of rigorous analysis, intellectual curiosity, and a long-term perspective.<br><br>
+Beyond finance, I bring multilingual communication skills in English, Spanish, Marathi, and Hindi.
 </div>
-
 </section>
 
-<section id="interests">
+<section>
+<div class="quote">“Go to bed smarter than when you woke up.”</div>
+<div class="quote-author">— Charlie Munger</div>
+</section>
 
+<section>
 <h2 class="section-title">Areas of Interest</h2>
-
 <div class="tags">
-
 <div class="tag">Investment Analysis</div>
-<div class="tag">Financial Modeling</div>
 <div class="tag">Valuation</div>
-<div class="tag">Business Analytics</div>
-<div class="tag">Market Research</div>
-<div class="tag">Economics</div>
+<div class="tag">Financial Modeling</div>
 <div class="tag">Capital Allocation</div>
 <div class="tag">Business Strategy</div>
-
+<div class="tag">Market Research</div>
+<div class="tag">Economics</div>
+<div class="tag">Behavioral Finance</div>
 </div>
-
 </section>
 
 <section id="research">
-
 <h2 class="section-title">Research</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>Company Analysis</h3>
-<p>In-depth research on listed businesses and their long-term prospects.</p>
+<div class="card"><h3>Company Analysis</h3><p>Long-form analysis of businesses and industries.</p></div>
+<div class="card"><h3>Market Notes</h3><p>Observations on markets, cycles and investing.</p></div>
+<div class="card"><h3>Valuation Studies</h3><p>Frameworks for assessing intrinsic value.</p></div>
 </div>
+</section>
 
-<div class="card">
-<h3>Market Notes</h3>
-<p>Observations on market trends, economic developments, and investing ideas.</p>
+<section id="notes">
+<h2 class="section-title">Notes</h2>
+<div class="grid">
+<div class="card"><h3>Book Notes</h3><p>Key ideas and lessons from books.</p></div>
+<div class="card"><h3>Business Lessons</h3><p>Insights from companies and management teams.</p></div>
+<div class="card"><h3>Market Observations</h3><p>Thoughts on current developments and trends.</p></div>
 </div>
-
-<div class="card">
-<h3>Valuation Studies</h3>
-<p>Exploring valuation frameworks and business quality assessment.</p>
-</div>
-
-</div>
-
 </section>
 
 <section id="reading">
-
 <h2 class="section-title">Reading Shelf</h2>
-
 <div class="grid">
-
-<div class="card">
-<h3>The Intelligent Investor</h3>
-<p>Benjamin Graham</p>
+<div class="card book"><img src="PSYCHOLOGY OF MONEY.jpg"><h3>The Psychology of Money</h3></div>
+<div class="card book"><img src="RICH DAD POOR DAD.jpg"><h3>Rich Dad Poor Dad</h3></div>
+<div class="card book"><img src="ATOMIC HABITS.jpg"><h3>Atomic Habits</h3></div>
+<div class="card book"><img src="THE BIG BULL OF DALAL STREET.jpg"><h3>The Big Bull of Dalal Street</h3></div>
 </div>
-
-<div class="card">
-<h3>Poor Charlie's Almanack</h3>
-<p>Charlie Munger</p>
-</div>
-
-<div class="card">
-<h3>The Psychology of Money</h3>
-<p>Morgan Housel</p>
-</div>
-
-</div>
-
 </section>
 
 <section id="contact">
-
 <h2 class="section-title">Connect</h2>
-
 <div class="contact">
-
-<a href="https://www.linkedin.com/in/pratikdeshmukh1/" target="_blank">
-LinkedIn
-</a>
-
-<a href="https://github.com/pratikdeshmukh01" target="_blank">
-GitHub
-</a>
-
+<a href="https://www.linkedin.com/in/pratikdeshmukh1/">LinkedIn</a>
+<a href="https://github.com/pratikdeshmukh01">GitHub</a>
 </div>
-
 </section>
 
 </div>
-
-<footer>
-
-Pratik Deshmukh • Markets • Businesses • Investing
-
-</footer>
-
+<footer>Pratik Deshmukh • Markets • Businesses • Investing</footer>
 </body>
 </html>
