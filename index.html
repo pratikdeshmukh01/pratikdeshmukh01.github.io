@@ -36,14 +36,12 @@ z-index:-2;
 0%{transform:translateX(-30%)}
 100%{transform:translateX(30%)}
 }
-.bull,.bear{
+#market-canvas{
 position:fixed;
-font-size:15rem;
-opacity:.03;
+inset:0;
 z-index:-2;
+pointer-events:none;
 }
-.bull{left:-40px;top:15%}
-.bear{right:-40px;bottom:10%}
 .container{max-width:1200px;margin:auto;padding:0 24px}
 nav{
 position:sticky;top:0;
@@ -118,6 +116,7 @@ width:100%;
 height:340px;
 object-fit:cover;
 border-radius:10px;
+background:#1a2537;
 }
 .contact{text-align:center}
 .contact a{display:block;margin:10px;color:#c9a227;text-decoration:none}
@@ -130,8 +129,7 @@ nav{flex-wrap:wrap}
 </head>
 <body>
 <div class="market-line"></div>
-<div class="bull">🐂</div>
-<div class="bear">🐻</div>
+<canvas id="market-canvas"></canvas>
 
 <nav>
 <a href="#about">About</a>
@@ -167,7 +165,7 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section>
-<div class="quote">“Go to bed smarter than when you woke up.”</div>
+<div class="quote">"Go to bed smarter than when you woke up."</div>
 <div class="quote-author">— Charlie Munger</div>
 </section>
 
@@ -204,7 +202,6 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section id="reading">
-<section id="reading">
 
 <h2 class="section-title">Library</h2>
 
@@ -213,106 +210,314 @@ Books that have influenced my thinking on investing, business,
 decision-making, personal growth, and life.
 </p>
 
-<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">
-Finance & Investing
-</h3>
+<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Finance & Investing</h3>
 
 <div class="grid">
-
 <div class="card book">
-<img src="PSYCHOLOGY OF MONEY.jpg">
+<img src="https://covers.openlibrary.org/b/isbn/9780857197689-L.jpg" alt="The Psychology of Money" onerror="this.src='https://covers.openlibrary.org/b/title/The+Psychology+of+Money-L.jpg'">
 <h3>The Psychology of Money</h3>
 </div>
-
 <div class="card book">
-<img src="RICH DAD POOR DAD.jpg">
+<img src="https://covers.openlibrary.org/b/isbn/9781612680194-L.jpg" alt="Rich Dad Poor Dad" onerror="this.src='https://covers.openlibrary.org/b/title/Rich+Dad+Poor+Dad-L.jpg'">
 <h3>Rich Dad Poor Dad</h3>
 </div>
-
 <div class="card book">
-<img src="THE BIG BULL OF DALAL STREET.jpg">
+<img src="https://covers.openlibrary.org/b/title/The+Big+Bull+of+Dalal+Street-L.jpg" alt="The Big Bull of Dalal Street">
 <h3>The Big Bull of Dalal Street</h3>
 </div>
-
 <div class="card book">
-<img src="THE BUSINESS OF THE 21ST CENTURY.jpg">
+<img src="https://covers.openlibrary.org/b/isbn/9781612680064-L.jpg" alt="The Business of the 21st Century">
 <h3>The Business of the 21st Century</h3>
 </div>
-
 </div>
 
 <br><br><br>
 
-<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">
-Personal Growth
-</h3>
+<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Personal Growth</h3>
 
 <div class="grid">
-
 <div class="card book">
-<img src="ATOMIC HABITS.jpg">
+<img src="https://covers.openlibrary.org/b/isbn/9780735211292-L.jpg" alt="Atomic Habits">
 <h3>Atomic Habits</h3>
 </div>
-
 <div class="card book">
-<img src="ATTITUDE IS EVERYTHING.jpg">
+<img src="https://covers.openlibrary.org/b/title/Attitude+Is+Everything-L.jpg" alt="Attitude Is Everything">
 <h3>Attitude Is Everything</h3>
 </div>
-
 <div class="card book">
-<img src="MANS SEARCH FOR MEANING.jpg">
+<img src="https://covers.openlibrary.org/b/isbn/9780807014271-L.jpg" alt="Man's Search for Meaning">
 <h3>Man's Search for Meaning</h3>
 </div>
-
 </div>
 
 <br><br><br>
 
-<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">
-Marathi Literature
-</h3>
+<h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Marathi Literature</h3>
 
 <div class="grid">
-
 <div class="card book">
-<img src="MUSAFIR.jpg">
+<img src="https://covers.openlibrary.org/b/title/Musafir+Marathi-L.jpg" alt="Musafir">
 <h3>Musafir</h3>
 </div>
-
 <div class="card book">
-<img src="MANAT.jpg">
+<img src="https://covers.openlibrary.org/b/title/Manat+Marathi-L.jpg" alt="Manat">
 <h3>Manat</h3>
 </div>
-
 <div class="card book">
-<img src="NAADVEDH.jpg">
+<img src="https://covers.openlibrary.org/b/title/Naadvedh-L.jpg" alt="Naadvedh">
 <h3>Naadvedh</h3>
 </div>
-
 <div class="card book">
-<img src="AMRUTVEL.jpg">
+<img src="https://covers.openlibrary.org/b/title/Amrutvel-L.jpg" alt="Amrutvel">
 <h3>Amrutvel</h3>
 </div>
-
 <div class="card book">
-<img src="IDLI ORCHID AANI ME.jpg">
+<img src="https://covers.openlibrary.org/b/title/Idli+Orchid+Aani+Me-L.jpg" alt="Idli Orchid Aani Me">
 <h3>Idli Orchid Aani Me</h3>
 </div>
-
 </div>
 
 </section>
 
-
 <section id="contact">
 <h2 class="section-title">Connect</h2>
 <div class="contact">
-<a href="https://www.linkedin.com/in/pratikdeshmukh1/">LinkedIn</a>
-<a href="https://github.com/pratikdeshmukh01">GitHub</a>
+<a href="https://www.linkedin.com/in/pratikdeshmukh1/" target="_blank">LinkedIn</a>
+<a href="https://github.com/pratikdeshmukh01" target="_blank">GitHub</a>
 </div>
 </section>
 
 </div>
 <footer>Pratik Deshmukh • Markets • Businesses • Investing</footer>
+
+<script>
+(function(){
+  const canvas = document.getElementById('market-canvas');
+  const ctx = canvas.getContext('2d');
+
+  function resize(){
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  // ── CANDLESTICKS ──────────────────────────────────────────
+  const CANDLE_COUNT = 18;
+  const candles = [];
+
+  function makeCandle(x){
+    const bullish = Math.random() > 0.45;
+    const bodyH = 30 + Math.random() * 90;
+    const bodyW = 18 + Math.random() * 14;
+    const y = 80 + Math.random() * (window.innerHeight - 220);
+    const wickTop = bodyH * (0.3 + Math.random() * 0.5);
+    const wickBot = bodyH * (0.3 + Math.random() * 0.5);
+    const opacity = 0.10 + Math.random() * 0.18;
+    return { x, y, bodyH, bodyW, wickTop, wickBot, bullish, opacity,
+             drift: (Math.random() - 0.5) * 0.15,
+             float: Math.random() * Math.PI * 2,
+             floatSpeed: 0.004 + Math.random() * 0.006 };
+  }
+
+  const spreadX = window.innerWidth / CANDLE_COUNT;
+  for(let i = 0; i < CANDLE_COUNT; i++){
+    candles.push(makeCandle(spreadX * i + spreadX * 0.3 + Math.random() * spreadX * 0.4));
+  }
+
+  function drawCandle(c, t){
+    const floatY = Math.sin(t * c.floatSpeed + c.float) * 6;
+    const cx = c.x;
+    const cy = c.y + floatY;
+    const color = c.bullish ? `rgba(34,197,94,${c.opacity})` : `rgba(239,68,68,${c.opacity})`;
+    const wickColor = c.bullish ? `rgba(34,197,94,${c.opacity * 0.7})` : `rgba(239,68,68,${c.opacity * 0.7})`;
+
+    // wick
+    ctx.strokeStyle = wickColor;
+    ctx.lineWidth = 2;
+    ctx.beginPath();
+    ctx.moveTo(cx, cy - c.bodyH/2 - c.wickTop);
+    ctx.lineTo(cx, cy + c.bodyH/2 + c.wickBot);
+    ctx.stroke();
+
+    // body
+    ctx.fillStyle = color;
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 1;
+    const bx = cx - c.bodyW/2;
+    const by = cy - c.bodyH/2;
+    ctx.fillRect(bx, by, c.bodyW, c.bodyH);
+    ctx.strokeRect(bx, by, c.bodyW, c.bodyH);
+  }
+
+  // ── BULL SVG paths drawn via canvas ──────────────────────
+  function drawBull(ctx, x, y, scale, alpha){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = '#c9a227';
+    ctx.lineWidth = 3.5 / scale;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.fillStyle = 'rgba(201,162,39,0.06)';
+
+    // Body
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 70, 45, 0, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Head
+    ctx.beginPath();
+    ctx.ellipse(68, -18, 32, 26, -0.3, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Snout
+    ctx.beginPath();
+    ctx.ellipse(92, -10, 14, 10, 0.2, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Nostrils
+    ctx.fillStyle = 'rgba(201,162,39,0.3)';
+    ctx.beginPath(); ctx.ellipse(87, -8, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(96, -6, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
+
+    // Eye
+    ctx.fillStyle = '#c9a227';
+    ctx.beginPath(); ctx.arc(78, -26, 4, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#08111f';
+    ctx.beginPath(); ctx.arc(79, -26, 2, 0, Math.PI*2); ctx.fill();
+
+    // Horns (upward — bullish!)
+    ctx.strokeStyle = '#c9a227';
+    ctx.lineWidth = 4 / scale;
+    ctx.beginPath();
+    ctx.moveTo(65, -38);
+    ctx.quadraticCurveTo(55, -72, 72, -80);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(80, -40);
+    ctx.quadraticCurveTo(85, -74, 104, -76);
+    ctx.stroke();
+
+    // Legs
+    ctx.lineWidth = 3 / scale;
+    const legs = [[-40,40],[-18,40],[18,40],[40,40]];
+    legs.forEach(([lx])=>{
+      ctx.beginPath();
+      ctx.moveTo(lx, 38);
+      ctx.lineTo(lx - 4, 85);
+      ctx.lineTo(lx + 10, 85);
+      ctx.stroke();
+    });
+
+    // Tail
+    ctx.beginPath();
+    ctx.moveTo(-68, -8);
+    ctx.quadraticCurveTo(-92, -30, -80, -52);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── BEAR SVG paths drawn via canvas ──────────────────────
+  function drawBear(ctx, x, y, scale, alpha){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    ctx.globalAlpha = alpha;
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 3.5 / scale;
+    ctx.lineCap = 'round';
+    ctx.lineJoin = 'round';
+    ctx.fillStyle = 'rgba(148,163,184,0.06)';
+
+    // Body
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 72, 48, 0, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Head
+    ctx.beginPath();
+    ctx.ellipse(-66, -20, 34, 28, 0.3, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Snout
+    ctx.beginPath();
+    ctx.ellipse(-90, -10, 16, 11, -0.2, 0, Math.PI*2);
+    ctx.fill();
+    ctx.stroke();
+
+    // Nostrils
+    ctx.fillStyle = 'rgba(148,163,184,0.3)';
+    ctx.beginPath(); ctx.ellipse(-85, -8, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
+    ctx.beginPath(); ctx.ellipse(-95, -6, 3, 2.5, 0, 0, Math.PI*2); ctx.fill();
+
+    // Eye
+    ctx.fillStyle = '#94a3b8';
+    ctx.beginPath(); ctx.arc(-76, -28, 4, 0, Math.PI*2); ctx.fill();
+    ctx.fillStyle = '#08111f';
+    ctx.beginPath(); ctx.arc(-77, -28, 2, 0, Math.PI*2); ctx.fill();
+
+    // Ears (round bear ears)
+    ctx.fillStyle = 'rgba(148,163,184,0.15)';
+    ctx.strokeStyle = '#94a3b8';
+    ctx.lineWidth = 3 / scale;
+    ctx.beginPath(); ctx.arc(-58, -46, 12, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+    ctx.beginPath(); ctx.arc(-80, -44, 12, 0, Math.PI*2); ctx.fill(); ctx.stroke();
+
+    // Claws / paws (downward — bearish)
+    ctx.lineWidth = 3 / scale;
+    const legs = [[-40,40],[-18,40],[18,40],[40,40]];
+    legs.forEach(([lx])=>{
+      ctx.beginPath();
+      ctx.moveTo(lx, 38);
+      ctx.lineTo(lx - 4, 85);
+      ctx.lineTo(lx + 10, 85);
+      ctx.stroke();
+      // claw marks pointing down
+      ctx.beginPath();
+      ctx.moveTo(lx, 85); ctx.lineTo(lx-5, 96); ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(lx+5, 85); ctx.lineTo(lx+2, 96); ctx.stroke();
+    });
+
+    // Tail
+    ctx.beginPath();
+    ctx.moveTo(70, -5);
+    ctx.quadraticCurveTo(90, -20, 82, -40);
+    ctx.stroke();
+
+    ctx.restore();
+  }
+
+  // ── ANIMATION LOOP ────────────────────────────────────────
+  let t = 0;
+  function draw(){
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    t++;
+
+    // Draw all candlesticks
+    candles.forEach(c => drawCandle(c, t));
+
+    // Bull — left side, large, moderate opacity
+    const bullFloat = Math.sin(t * 0.008) * 10;
+    drawBull(ctx, canvas.width * 0.13, canvas.height * 0.42 + bullFloat, 1.0, 0.22);
+
+    // Bear — right side, large, moderate opacity
+    const bearFloat = Math.sin(t * 0.007 + 1.5) * 10;
+    drawBear(ctx, canvas.width * 0.87, canvas.height * 0.58 + bearFloat, 1.0, 0.20);
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
+</script>
 </body>
 </html>
