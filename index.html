@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pratik Deshmukh | Researching Businesses. Studying Markets. Thinking Long Term.</title>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<!-- UPGRADE: Added Noto Sans Devanagari explicitly so Hindi & Marathi script renders in pristine high-fidelity -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 /* ════════════ BASE & TYPOGRAPHY ════════════ */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -14,24 +15,29 @@ body{
   color:#f8fafc;
   font-family:Inter,sans-serif;
   overflow-x:hidden;
-  font-size:1.15rem;
+  font-size:1.2rem;
   font-weight:400;
-  line-height:1.75;
+  line-height:1.8;
 }
 body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);z-index:-3}
 .container{max-width:1200px;margin:auto;padding:0 24px}
 
+/* Frosted glass shield reserved exclusively for paragraph blocks */
 .text-mat {
   position:relative;
   z-index:2;
-  background:radial-gradient(ellipse at center, rgba(8,17,31,0.95) 0%, rgba(8,17,31,0.65) 60%, transparent 100%);
-  padding:40px;
-  border-radius:24px;
+  background:rgba(5, 10, 20, 0.85);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  padding:45px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 20px 40px rgba(0,0,0,0.4);
 }
 
 /* ════════════ GLOBAL NAVIGATION ════════════ */
-nav{position:sticky;top:0;display:flex;justify-content:center;gap:35px;padding:22px;background:rgba(8,17,31,.85);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid rgba(255,255,255,0.05);}
-nav a{color:#94a3b8;font-size:0.95rem;text-decoration:none;transition:0.3s;font-weight:500;}
+nav{position:sticky;top:0;display:flex;justify-content:center;gap:45px;padding:22px;background:rgba(8,17,31,.85);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid rgba(255,255,255,0.05);}
+nav a{color:#94a3b8;font-size:1.15rem;text-decoration:none;transition:0.3s;font-weight:600;letter-spacing:0.02em;}
 nav a:hover{color:#c9a227}
 nav a.active { color:#c9a227; text-shadow: 0 0 12px rgba(201,162,39,0.4); }
 
@@ -41,195 +47,176 @@ h1{font-family:"Playfair Display",serif;font-size:5.5rem;color:#fff;line-height:
 .goldline{width:140px;height:3px;background:#c9a227;margin:25px auto;border-radius:99px}
 .subtitle{color:#c9a227;font-size:1.35rem;max-width:850px;margin:0 auto 25px;font-weight:500;}
 .hero p{max-width:800px;margin:auto;color:#cbd5e1}
-.btn{display:inline-block;margin:12px;padding:14px 28px;border:1px solid #c9a227;border-radius:8px;text-decoration:none;color:#c9a227;transition:.3s;font-weight:500;font-size:1rem;}
-.btn:hover{background:#c9a227;color:#08111f}
+.btn{display:inline-block;margin:12px;padding:14px 28px;border:1px solid #c9a227;border-radius:8px;text-decoration:none;color:#c9a227;transition:.3s;font-weight:500;font-size:1.05rem;}
+.btn:hover{background:#c9a227;color:#08111f;box-shadow:0 0 15px rgba(201,162,39,0.4);}
 
 section{padding:100px 0}
-.section-title{text-align:center;font-size:2.8rem;font-family:"Playfair Display",serif;color:#c9a227;margin-bottom:50px}
+.section-title{text-align:center;font-size:3rem;font-family:"Playfair Display",serif;color:#c9a227;margin-bottom:50px}
 .about{max-width:900px;margin:auto;}
 
 .tags{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
 .tag,.card{background:#111827;border:1px solid rgba(201,162,39,.18)}
-.tag{padding:12px 18px;border-radius:999px;font-size:1rem;}
+.tag{padding:12px 20px;border-radius:999px;font-size:1.05rem;font-weight:500;}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 
-.card{padding:28px;border-radius:14px;transition:.35s;text-decoration:none;display:block}
+.card{padding:32px;border-radius:14px;transition:.35s;text-decoration:none;display:block}
 .card:hover{transform:translateY(-10px);border-color:#c9a227;box-shadow:0 20px 40px rgba(201,162,39,.15)}
-.card h3{color:#c9a227;margin-bottom:12px;font-size:1.3rem;}
-.card p{color:#94a3b8;font-size:1.05rem;}
+.card h3{color:#c9a227;margin-bottom:12px;font-size:1.4rem;}
+.card p{color:#94a3b8;font-size:1.1rem;line-height:1.7;}
 
 .book{text-align:center;}
 .book img{width:100%;height:360px;object-fit:cover;border-radius:10px;background:#1a2537;margin-bottom:20px;box-shadow:0 10px 20px rgba(0,0,0,0.4)}
-.book h3 { font-size:1.15rem; margin-bottom:8px; }
-.btn-sm{display:inline-block;margin-top:10px;padding:8px 16px;border:1px solid rgba(201,162,39,0.4);border-radius:6px;color:#c9a227;font-size:0.85rem;text-decoration:none;transition:0.3s;}
+.book h3 { font-size:1.2rem; margin-bottom:8px; }
+.btn-sm{display:inline-block;margin-top:10px;padding:8px 18px;border:1px solid rgba(201,162,39,0.4);border-radius:6px;color:#c9a227;font-size:0.9rem;text-decoration:none;transition:0.3s;font-weight:500;}
 .btn-sm:hover{background:rgba(201,162,39,0.1);border-color:#c9a227;}
 
 .contact{text-align:center}
-.contact a{display:inline-block;margin:10px 20px;color:#c9a227;text-decoration:none;font-size:1.1rem}
-footer{text-align:center;padding:50px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08);font-size:0.95rem;}
+.contact a{display:inline-block;margin:10px 20px;color:#c9a227;text-decoration:none;font-size:1.15rem;font-weight:500;}
+footer{text-align:center;padding:50px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08);font-size:1rem;}
 
-#backToTop { position:fixed; bottom:30px; right:30px; z-index:1000; background:rgba(201,162,39,0.15); border:1px solid rgba(201,162,39,0.4); backdrop-filter:blur(10px); color:#c9a227; padding:12px 20px; border-radius:8px; cursor:pointer; opacity:0; pointer-events:none; transition:all 0.3s ease; font-weight:600; font-family:Inter,sans-serif; font-size:0.9rem; }
+#backToTop { position:fixed; bottom:30px; right:30px; z-index:1000; background:rgba(201,162,39,0.15); border:1px solid rgba(201,162,39,0.4); backdrop-filter:blur(10px); color:#c9a227; padding:12px 20px; border-radius:8px; cursor:pointer; opacity:0; pointer-events:none; transition:all 0.3s ease; font-weight:600; font-family:Inter,sans-serif; font-size:0.95rem; }
 #backToTop.show { opacity:1; pointer-events:auto; transform:translateY(0); }
 #backToTop:hover { background:#c9a227; color:#08111f; box-shadow:0 10px 20px rgba(201,162,39,0.2); }
 
 /* ════════════ TICKER BAR ════════════ */
-.ticker-wrap{width:100%;overflow:hidden;background:rgba(8,17,31,0.97);border-bottom:1px solid rgba(201,162,39,.25);padding:10px 0;position:sticky;top:0;z-index:1000}
+.ticker-wrap{width:100%;overflow:hidden;background:rgba(8,17,31,0.97);border-bottom:1px solid rgba(201,162,39,.25);padding:12px 0;position:sticky;top:0;z-index:1000}
 .ticker-track{display:flex;white-space:nowrap;animation:ticker 45s linear infinite}
 .ticker-track:hover{animation-play-state:paused}
-.ticker-item{display:inline-flex;align-items:center;gap:8px;padding:0 28px;font-size:0.85rem;font-weight:500;border-right:1px solid rgba(201,162,39,.12)}
+.ticker-item{display:inline-flex;align-items:center;gap:10px;padding:0 30px;font-size:0.9rem;font-weight:600;border-right:1px solid rgba(201,162,39,.12)}
 .ticker-name{color:#94a3b8}.ticker-price{color:#e5e7eb}
 .ticker-up{color:#22c55e}.ticker-down{color:#ef4444}
-.ticker-label{color:#c9a227;font-size:0.75rem;font-weight:700;letter-spacing:.12em;padding:0 24px 0 0;text-transform:uppercase}
+.ticker-label{color:#c9a227;font-size:0.8rem;font-weight:700;letter-spacing:.12em;padding:0 24px 0 0;text-transform:uppercase}
 @keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
 /* ════════════ QUOTES CAROUSEL ════════════ */
-.carousel-section{padding:70px 0;text-align:center}
-.carousel-wrap{position:relative;max-width:820px;margin:0 auto;min-height:140px}
+.carousel-section{padding:80px 0;text-align:center}
+.carousel-wrap{position:relative;max-width:820px;margin:0 auto;min-height:150px}
 .carousel-quote{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.8s ease;pointer-events:none;padding:0 20px}
 .carousel-quote.active{opacity:1;pointer-events:auto}
-.carousel-quote blockquote{font-size:1.7rem;font-style:italic;color:#e5e7eb;line-height:1.65;margin:0 0 16px}
-.carousel-quote cite{color:#c9a227;font-style:normal;font-size:1rem;letter-spacing:.06em}
+.carousel-quote blockquote{font-size:1.8rem;font-style:italic;color:#e5e7eb;line-height:1.65;margin:0 0 16px}
+.carousel-quote cite{color:#c9a227;font-style:normal;font-size:1.05rem;letter-spacing:.06em;font-weight:500;}
 .carousel-dots{margin-top:160px;display:flex;justify-content:center;gap:10px}
 .carousel-dots span{width:8px;height:8px;border-radius:50%;background:rgba(201,162,39,.25);cursor:pointer;transition:.3s;display:inline-block}
 .carousel-dots span.active{background:#c9a227;transform:scale(1.4)}
 
 /* ════════════ ARTICLE CARDS ════════════ */
-.article-card{display:block;text-decoration:none;background:#111827;border:1px solid rgba(201,162,39,.35);padding:32px;border-radius:14px;transition:.35s;position:relative;overflow:hidden}
+.article-card{display:block;text-decoration:none;background:#111827;border:1px solid rgba(201,162,39,.35);padding:36px;border-radius:14px;transition:.35s;position:relative;overflow:hidden}
 .article-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c9a227,#f0c940)}
 .article-card:hover{transform:translateY(-8px);border-color:#c9a227;box-shadow:0 20px 40px rgba(201,162,39,.2)}
-.article-card h3{color:#fff;margin:12px 0;font-size:1.25rem;line-height:1.4}
-.article-card p{color:#94a3b8;font-size:1rem;line-height:1.6;margin:0 0 20px}
-.article-tag{display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(201,162,39,.15);color:#c9a227;font-size:0.75rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.article-card h3{color:#fff;margin:14px 0;font-size:1.35rem;line-height:1.4}
+.article-card p{color:#94a3b8;font-size:1.1rem;line-height:1.6;margin:0 0 20px}
+.article-tag{display:inline-block;padding:5px 14px;border-radius:999px;background:rgba(201,162,39,.15);color:#c9a227;font-size:0.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .article-tag.soon{background:rgba(148,163,184,.1);color:#64748b}
-.article-meta{display:flex;justify-content:space-between;font-size:0.9rem;color:#64748b;margin-bottom:16px;border-top:1px solid rgba(255,255,255,0.05);padding-top:16px;}
-.article-cta{color:#c9a227;font-size:0.95rem;font-weight:600}
+.article-meta{display:flex;justify-content:space-between;font-size:0.95rem;color:#64748b;margin-bottom:16px;border-top:1px solid rgba(255,255,255,0.05);padding-top:16px;font-weight:500;}
+.article-cta{color:#c9a227;font-size:1rem;font-weight:600}
 .coming-soon{opacity:.6}.coming-soon h3{color:#c9a227}
 
 /* ════════════ MAIN FINANCE BACKGROUND ELEMENTS ════════════ */
 .market-line{position:fixed;left:0;right:0;top:18%;height:2px;background:linear-gradient(90deg,transparent,#c9a227,transparent);animation:slide 6s linear infinite;opacity:.4;z-index:-2}
 @keyframes slide{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
 
-.bg-bull, .bg-bear { position:fixed; top:50%; transform:translateY(-50%); width:320px; height:320px; z-index:-1; pointer-events:none; transition:opacity 1s ease; }
-.bg-bull { left: -30px; }
-.bg-bear { right: -30px; }
-.bg-bull svg { width:100%; height:100%; }
-.bg-bear svg { width:100%; height:100%; transform:scaleX(-1); }
+.bg-bull, .bg-bear { position:fixed; top:50%; transform:translateY(-50%); width:480px !important; height:480px !important; z-index:-1; pointer-events:none; transition:opacity 1s ease; }
+.bg-bull { left: 10px !important; }
+.bg-bear { right: 10px !important; }
+.bg-bull svg { width:100%; height:100%; opacity: 0.32 !important; }
+.bg-bear svg { width:100%; height:100%; transform:scaleX(-1); opacity: 0.28 !important; }
 #market-canvas{position:fixed;inset:0;z-index:-2;pointer-events:none; transition:opacity 1s ease;}
 
 /* ════════════ THEME OVERLAYS & HIDING MECHANISM ════════════ */
 .theme-overlay{position:fixed;inset:0;z-index:-1;opacity:0;transition:opacity 1.2s ease;pointer-events:none;}
 .theme-overlay.active{opacity:1}
 
-#overlay-philosophy{background:radial-gradient(ellipse at center,#1a0a2e 0%,#0d0618 60%,#080111 100%)}
+#overlay-words{background:radial-gradient(ellipse at center,#140e08 0%,#0e0b08 60%,#080503 100%)}
 #overlay-travel{background:radial-gradient(ellipse at center,#020b18 0%,#010810 60%,#000508 100%)}
 #overlay-podcasts{background:radial-gradient(ellipse at center,#0a0a0f 0%,#060608 60%,#030304 100%)}
 
-body.theme-philosophy .bg-bull, body.theme-philosophy .bg-bear, body.theme-philosophy #market-canvas, body.theme-philosophy .market-line,
+body.theme-words .bg-bull, body.theme-words .bg-bear, body.theme-words #market-canvas, body.theme-words .market-line,
 body.theme-travel .bg-bull, body.theme-travel .bg-bear, body.theme-travel #market-canvas, body.theme-travel .market-line,
 body.theme-podcast .bg-bull, body.theme-podcast .bg-bear, body.theme-podcast #market-canvas, body.theme-podcast .market-line { opacity:0; }
 
-/* ════════════ SECTION CANVAS SYSTEM (AUTHORITATIVE) ════════════ */
-#philosophy, #travel, #podcasts { position: relative; overflow: hidden; padding: 100px 0; min-height: 100vh; }
-#phil-canvas, #travel-canvas, #pod-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
-.phil-content, .travel-content, .pod-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
+/* ════════════ SECTION CANVAS SYSTEM ════════════ */
+#words, #travel, #podcasts { position: relative; overflow: hidden; padding: 100px 0; min-height: 100vh; }
+#words-canvas, #travel-canvas, #pod-canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+.words-content, .travel-content, .pod-content { position: relative; z-index: 2; max-width: 1200px; margin: 0 auto; padding: 0 24px; width: 100%; }
 
 /* ════════════ AVOCATION MEGA-SECTION STYLES ════════════ */
 .archive-header { text-align:center; padding: 120px 0 40px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 0; background: #050a14; }
-.archive-header h2 { font-size:3.5rem; font-family:"Playfair Display",serif; color:#fff; letter-spacing: -0.5px; }
-.archive-header p { color:#94a3b8; font-size:1.15rem; max-width:600px; margin:15px auto 0; }
+.archive-header h2 { font-size:4rem; font-family:"Playfair Display",serif; color:#fff; letter-spacing: -0.5px; }
+.archive-header p { color:#94a3b8; font-size:1.2rem; max-width:700px; margin:15px auto 0; }
 
-/* Philosophy */
-#philosophy { background: #0d0618; }
-#philosophy .section-title { color:#c9a0ff; }
-.phil-portrait-layer { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 1; }
-.phil-flowchart-wrap { margin:60px auto 0; max-width:1100px; background:rgba(20,8,40,0.75); border:1px solid rgba(180,120,255,0.15); border-radius:16px; padding:40px 20px; position:relative; z-index:2; overflow-x:auto; }
-.phil-flowchart-wrap h3 { text-align:center; color:#c9a0ff; font-family:"Playfair Display",serif; font-size:1.6rem; margin-bottom:6px; }
-.phil-flowchart-wrap p { text-align:center; color:#6b4f9e; font-size:0.9rem; letter-spacing:.06em; text-transform:uppercase; margin-bottom:30px; }
-#phil-flowchart-canvas { display:block; margin:0 auto; }
+/* ════════════ WORDS SECTION STYLES ════════════ */
+#words { background: #0e0b08; }
+.words-content { max-width: 860px; }
+#words .section-title { color: #d4a853; font-family: "Playfair Display", serif; }
+#words .section-subtitle { text-align: center; color: #a08060; font-size: 1.05rem; margin: -30px auto 50px; max-width: 600px; line-height: 1.7; font-style: italic; }
 
-/* Travel */
+.words-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 48px; }
+.words-tab { padding: 9px 22px; border-radius: 999px; border: 1px solid rgba(212,168,83,0.2); background: rgba(212,168,83,0.04); color: #a08060; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 7px; }
+.words-tab:hover { border-color: rgba(212,168,83,0.5); color: #d4a853; }
+.words-tab.active { background: rgba(212,168,83,0.14); border-color: #d4a853; color: #d4a853; box-shadow: 0 0 20px rgba(212,168,83,0.1); }
+
+.words-panel { display: none; }
+.words-panel.active { display: block; }
+
+.poem-card { background: rgba(20,14,8,0.85); border: 1px solid rgba(212,168,83,0.12); border-radius: 16px; padding: 40px 44px; margin-bottom: 28px; position: relative; backdrop-filter: blur(6px); transition: 0.35s; }
+.poem-card:hover { border-color: rgba(212,168,83,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
+.poem-card::before { content: '"'; position: absolute; top: 12px; left: 24px; font-size: 5rem; color: rgba(212,168,83,0.08); font-family: "Playfair Display", serif; line-height: 1; }
+.poem-lines { font-family: "Playfair Display", serif; font-size: 1.3rem; color: #e8dcc8; line-height: 1.9; margin-bottom: 20px; font-style: italic; text-align: center; }
+.poem-lines.devanagari { font-family: "Noto Sans Devanagari", "Mangal", serif; font-size: 1.25rem; font-style: normal; line-height: 2.1; }
+.poem-divider { width: 48px; height: 1px; background: rgba(212,168,83,0.3); margin: 0 auto 14px; }
+.poem-author { text-align: center; color: #d4a853; font-size: 0.82rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
+.poem-type { text-align: center; color: rgba(212,168,83,0.4); font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 16px; text-transform: uppercase; }
+
+.words-coming { text-align: center; padding: 60px 20px; color: rgba(212,168,83,0.3); font-style: italic; font-size: 1.05rem; border: 1px dashed rgba(212,168,83,0.12); border-radius: 16px; }
+.words-coming span { display: block; font-size: 2rem; margin-bottom: 12px; }
+
+/* ════════════ TRAVEL SECTION — REDESIGN ════════════ */
 #travel { background: #020b18; }
-#travel .section-title { color:#38bdf8; }
-.travel-places { display:flex; flex-wrap:wrap; gap:14px; justify-content:center; margin-top:30px; position:relative; z-index:2; }
-.travel-place { padding:8px 20px; border-radius:999px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.25); color:#38bdf8; font-size:0.95rem; font-weight:500; }
+#travel .section-title { color: #38bdf8; }
+.travel-places { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 auto 50px; max-width: 850px; position:relative; z-index:2; }
+.travel-place { padding: 8px 18px; border-radius: 999px; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); color: #7dd3fc; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em; cursor: default; transition: 0.3s; }
+.travel-place:hover { background: rgba(56,189,248,0.15); border-color: rgba(56,189,248,0.5); color: #38bdf8; }
+
+.travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 20px; position:relative; z-index:2; }
+.travel-card { background: rgba(2,15,35,0.75); border: 1px solid rgba(56,189,248,0.15); border-radius: 14px; padding: 32px 24px; backdrop-filter: blur(8px); transition: 0.35s; }
+.travel-card:hover { border-color: rgba(56,189,248,0.45); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,30,60,0.5); }
+.travel-card .t-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+.travel-card h3 { color: #38bdf8; font-size: 1.25rem; margin-bottom: 8px; font-family:"Playfair Display",serif; }
+.travel-card p { color: #7dd3fc; font-size: 0.95rem; line-height: 1.7; margin: 0; opacity: 0.85; }
+.travel-card .t-coords { font-size: 0.8rem; color: rgba(56,189,248,0.45); margin-top: 15px; font-family: monospace; }
 
 /* Podcasts (Learning Archive - Pure Links Directory) */
 #podcasts { background: #0a0a0f; }
 #podcasts .section-title { color:#f472b6; }
 .pod-master-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; position:relative; z-index:2; }
-.pod-master-card { background:rgba(10,10,18,0.85); border:1px solid rgba(244,114,182,0.25); backdrop-filter:blur(12px); padding:32px 24px; border-radius:16px; display:flex; flex-direction:column; gap:20px; transition:transform 0.35s ease, border-color 0.35s ease; }
+.pod-master-card { background:rgba(10,10,18,0.85); border:1px solid rgba(244,114,182,0.25); backdrop-filter:blur(16px); padding:36px 28px; border-radius:16px; display:flex; flex-direction:column; gap:24px; transition:transform 0.35s ease, border-color 0.35s ease; }
 .pod-master-card:hover { transform:translateY(-8px); border-color:rgba(244,114,182,0.6); box-shadow:0 20px 40px rgba(236,72,153,.15); }
-.pod-master-card h3 { color:#f9a8d4; font-size:1.15rem; font-family:"Playfair Display",serif; text-align:center; margin-bottom:5px; border-bottom:1px solid rgba(244,114,182,0.15); padding-bottom:15px; }
+.pod-master-card h3 { color:#f9a8d4; font-size:1.25rem; font-family:"Playfair Display",serif; text-align:center; margin-bottom:5px; border-bottom:1px solid rgba(244,114,182,0.15); padding-bottom:15px; }
 
-.pod-links-container { display:flex; flex-direction:column; gap:12px; }
-.pod-link-pill { display:flex; justify-content:space-between; align-items:center; background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.2); padding:14px 18px; border-radius:10px; text-decoration:none; transition:all 0.25s ease; }
+.pod-links-container { display:flex; flex-direction:column; gap:14px; }
+.pod-link-pill { display:flex; justify-content:space-between; align-items:center; background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.2); padding:16px 20px; border-radius:10px; text-decoration:none; transition:all 0.25s ease; }
 .pod-link-pill:hover { background:rgba(244,114,182,0.2); border-color:#f472b6; transform:translateX(4px); }
-.pod-link-name { color:#fff; font-weight:600; font-size:1rem; }
-.pod-link-host { color:#f472b6; font-size:0.85rem; font-weight:500; }
-
-/* Responsive */
-@media(max-width:992px){ .pod-master-grid{grid-template-columns:1fr; gap:20px;} }
-@media(max-width:768px){ h1{font-size:3.5rem} nav{flex-wrap:wrap; gap:15px;} .bg-bull,.bg-bear{width:180px;height:180px} .carousel-quote blockquote{font-size:1.25rem} .text-mat{padding:20px;} }
+.pod-link-name { color:#fff; font-weight:600; font-size:1.05rem; }
+.pod-link-host { color:#f472b6; font-size:0.9rem; font-weight:600; }
 
 /* ════════════ SCROLL PROGRESS BAR ════════════ */
-#scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  width: 0%;
-  height: 3px;
-  background: linear-gradient(90deg, #c9a227, #f0c940, #c9a227);
-  z-index: 9999;
-  transition: width 0.1s linear;
-  box-shadow: 0 0 8px rgba(201,162,39,0.6);
-}
+#scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #c9a227, #f0c940, #c9a227); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(201,162,39,0.6); }
 
 /* ════════════ DARK / LIGHT MODE ════════════ */
-#theme-toggle {
-  position: fixed;
-  bottom: 90px;
-  right: 30px;
-  z-index: 1000;
-  width: 44px; height: 44px;
-  border-radius: 50%;
-  border: 1px solid rgba(201,162,39,0.4);
-  background: rgba(8,17,31,0.85);
-  backdrop-filter: blur(10px);
-  cursor: pointer;
-  font-size: 1.2rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: all 0.3s ease;
-  color: #c9a227;
-}
-#theme-toggle:hover {
-  background: rgba(201,162,39,0.15);
-  box-shadow: 0 0 16px rgba(201,162,39,0.3);
-  transform: scale(1.1);
-}
+#theme-toggle { position: fixed; bottom: 90px; right: 30px; z-index: 1000; width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(201,162,39,0.4); background: rgba(8,17,31,0.85); backdrop-filter: blur(10px); cursor: pointer; font-size: 1.2rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; color: #c9a227; }
+#theme-toggle:hover { background: rgba(201,162,39,0.15); box-shadow: 0 0 16px rgba(201,162,39,0.3); transform: scale(1.1); }
 
 /* Light mode overrides */
-body.light-mode {
-  background: #f5f0e8;
-  color: #1a1a2e;
-}
-body.light-mode nav {
-  background: rgba(245,240,232,0.92);
-  border-bottom: 1px solid rgba(201,162,39,0.3);
-}
+body.light-mode { background: #f5f0e8; color: #1a1a2e; }
+body.light-mode nav { background: rgba(245,240,232,0.92); border-bottom: 1px solid rgba(201,162,39,0.3); }
 body.light-mode nav a { color: #4a4a6a; }
-body.light-mode nav a:hover,
-body.light-mode nav a.active { color: #9a7a10; }
+body.light-mode nav a:hover, body.light-mode nav a.active { color: #9a7a10; }
 body.light-mode .ticker-wrap { background: rgba(245,240,232,0.97); border-bottom-color: rgba(201,162,39,0.3); }
 body.light-mode .ticker-name { color: #6a6a8a; }
 body.light-mode .ticker-price { color: #1a1a2e; }
-body.light-mode .card, body.light-mode .tag {
-  background: #fff;
-  border-color: rgba(154,122,16,0.25);
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-}
+body.light-mode .card, body.light-mode .tag { background: #fff; border-color: rgba(154,122,16,0.25); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 body.light-mode .card p, body.light-mode .about { color: #4a4a6a; }
-body.light-mode .card h3 { color: #9a7a10; }
-body.light-mode .section-title { color: #9a7a10; }
-body.light-mode .subtitle { color: #9a7a10; }
+body.light-mode .card h3, body.light-mode .section-title, body.light-mode .subtitle { color: #9a7a10; }
 body.light-mode h1 { color: #1a1a2e; }
 body.light-mode .hero p { color: #4a4a6a; }
 body.light-mode footer { color: #6a6a8a; border-top-color: rgba(0,0,0,0.1); }
@@ -238,19 +225,9 @@ body.light-mode .article-card h3 { color: #1a1a2e; }
 body.light-mode .article-card p { color: #4a4a6a; }
 body.light-mode .goldline { background: #9a7a10; }
 body.light-mode body:before { opacity: 0.3; }
-body.light-mode .text-mat {
-  background: rgba(245,240,232,0.85);
-}
-body.light-mode #theme-toggle {
-  background: rgba(245,240,232,0.9);
-  border-color: rgba(154,122,16,0.4);
-  color: #9a7a10;
-}
-body.light-mode #backToTop {
-  background: rgba(154,122,16,0.12);
-  border-color: rgba(154,122,16,0.4);
-  color: #9a7a10;
-}
+body.light-mode .text-mat { background: rgba(245,240,232,0.85); }
+body.light-mode #theme-toggle { background: rgba(245,240,232,0.9); border-color: rgba(154,122,16,0.4); color: #9a7a10; }
+body.light-mode #backToTop { background: rgba(154,122,16,0.12); border-color: rgba(154,122,16,0.4); color: #9a7a10; }
 body.light-mode .carousel-quote blockquote { color: #1a1a2e; }
 body.light-mode .carousel-quote cite { color: #9a7a10; }
 body.light-mode .bg-bull svg path { fill: #b8890f; }
@@ -258,72 +235,32 @@ body.light-mode .bg-bear svg path { fill: #6a7a8a; }
 body.light-mode #market-canvas { opacity: 0.35; }
 
 /* ════════════ LANGUAGE BADGE ════════════ */
-.lang-bar {
-  display: flex;
-  gap: 10px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 28px auto 0;
-  max-width: 500px;
-}
-.lang-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  padding: 7px 16px;
-  border-radius: 999px;
-  border: 1px solid rgba(201,162,39,0.25);
-  background: rgba(201,162,39,0.06);
-  font-size: 0.88rem;
-  font-weight: 500;
-  color: #cbd5e1;
-  transition: 0.3s;
-  letter-spacing: 0.02em;
-}
-.lang-pill:hover {
-  border-color: rgba(201,162,39,0.6);
-  background: rgba(201,162,39,0.12);
-  color: #c9a227;
-}
+.lang-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 28px auto 0; max-width: 500px; }
+.lang-pill { display: inline-flex; align-items: center; gap: 7px; padding: 7px 16px; border-radius: 999px; border: 1px solid rgba(201,162,39,0.25); background: rgba(201,162,39,0.06); font-size: 0.88rem; font-weight: 500; color: #cbd5e1; transition: 0.3s; letter-spacing: 0.02em; }
+.lang-pill:hover { border-color: rgba(201,162,39,0.6); background: rgba(201,162,39,0.12); color: #c9a227; }
 .lang-flag { font-size: 1.1rem; }
-.lang-level {
-  font-size: 0.72rem;
-  color: #c9a227;
-  background: rgba(201,162,39,0.1);
-  padding: 1px 7px;
-  border-radius: 999px;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-}
+.lang-level { font-size: 0.72rem; color: #c9a227; background: rgba(201,162,39,0.1); padding: 1px 7px; border-radius: 999px; font-weight: 600; letter-spacing: 0.05em; }
 body.light-mode .lang-pill { color: #4a4a6a; border-color: rgba(154,122,16,0.25); }
 body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); }
 
 /* ════════════ FADE-IN ANIMATIONS ════════════ */
-.fade-in-up {
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-}
-.fade-in-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.fade-in-up { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.fade-in-up.visible { opacity: 1; transform: translateY(0); }
 .fade-in-up.delay-1 { transition-delay: 0.1s; }
 .fade-in-up.delay-2 { transition-delay: 0.2s; }
 .fade-in-up.delay-3 { transition-delay: 0.3s; }
 .fade-in-up.delay-4 { transition-delay: 0.4s; }
 .fade-in-up.delay-5 { transition-delay: 0.5s; }
 
-/* ════════════ BIGGER BULL & BEAR ════════════ */
-.bg-bull, .bg-bear {
-  width: 480px !important;
-  height: 480px !important;
+/* Responsive */
+@media(max-width:992px){ .pod-master-grid{grid-template-columns:1fr; gap:24px;} }
+@media(max-width:768px){ 
+  h1{font-size:3.5rem} 
+  nav{flex-wrap:wrap; gap:20px; padding:15px;} 
+  .bg-bull,.bg-bear{width:220px !important;height:220px !important} 
+  .carousel-quote blockquote{font-size:1.35rem} 
+  .text-mat{padding:25px;} 
 }
-.bg-bull { left: 10px !important; }
-.bg-bear { right: 10px !important; }
-.bg-bull svg { opacity: 0.32 !important; }
-.bg-bear svg { opacity: 0.28 !important; }
-
 </style>
 </head>
 <body>
@@ -335,7 +272,7 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 <div class="ticker-wrap">
   <div style="display:flex;align-items:center;height:36px" id="ticker-status">
     <span class="ticker-label" style="padding-left:16px">MARKETS</span>
-    <span style="color:#64748b;font-size:0.8rem;padding:0 16px" id="ticker-loading">Fetching live prices...</span>
+    <span style="color:#64748b;font-size:0.85rem;font-weight:500;padding:0 16px" id="ticker-loading">Fetching live prices...</span>
   </div>
   <div class="ticker-track" id="ticker-track" style="display:none"></div>
 </div>
@@ -343,18 +280,18 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 <div class="market-line"></div>
 <canvas id="market-canvas"></canvas>
 
-<div class="theme-overlay" id="overlay-philosophy"></div>
+<div class="theme-overlay" id="overlay-words"></div>
 <div class="theme-overlay" id="overlay-travel"></div>
 <div class="theme-overlay" id="overlay-podcasts"></div>
 
 <div class="bg-bull">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="opacity:0.22">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
     <path fill="#c9a227" d="M509.988,75.807c-6,3.281-26.203,9.156-56-3.563c-30.078-12.828-61.031,6.141-72.438,15.422l-31.828-28.594c-1.188-1.078-2.734-1.656-4.344-1.641l-95.891,1.375c-1.844,0.031-3.594,0.859-4.766,2.25l-70.203,83.094c-0.813,0.969-1.906,1.672-3.125,2.016l-75.171,21.266c-1.453,0.422-2.719,1.344-3.563,2.609l-31.813,48.047c-3.969-0.031-7.359-0.75-10.25-1.984c-4.359-1.891-7.672-4.906-10.016-8.781c-2.328-3.875-3.641-8.641-3.641-13.766c0.016-6.844,2.313-14.266,7.469-20.969c5.141-6.688,13.141-12.703,24.828-16.531c15.797-5.172,27.281-10.922,35.688-16.703c18.078-1.984,21.859-17.547,21.906-30.125c0.078-0.797,0.125-1.531,0.125-2.109c0-0.797-0.063-1.359-0.094-1.625l-0.125,0.016c-0.375-7.125-1.703-12.547-1.703-12.547s-0.641,5.734-11.984,10.781c-16.422,4.703-21.047,17.438-19.266,26.797c-6.891,4.219-16.156,8.609-28.734,12.719c-13.953,4.547-24.422,12.125-31.313,21.125c-6.922,8.984-10.266,19.313-10.266,29.172c0,9.844,3.344,19.328,9.844,26.438c3.25,3.547,7.297,6.469,11.969,8.484c3.688,1.578,7.828,2.391,12.172,2.75l-0.891,72.422c0,0.391-0.047,0.781-0.125,1.172l-11.625,58.141c-0.156,0.75-0.422,1.453-0.828,2.094L0.942,435.182c-0.984,1.594-1.203,3.547-0.609,5.328c0.578,1.781,1.938,3.203,3.672,3.906l24.328,9.703c2.406,0.953,5.156,0.359,6.953-1.5l51.141-53.328c0.047-0.031,0.078-0.063,0.109-0.094l56.046-56.063l134.672-74.063l20.156,27.484c1.125,1.531,1.5,3.469,1.047,5.313c-0.469,1.828-1.719,3.375-3.422,4.188l-43.375,20.828c-1.531,0.719-2.719,2.047-3.266,3.672c-0.563,1.594-0.438,3.375,0.328,4.906l5.703,11.375c1.484,2.969,5.016,4.313,8.094,3.047l87.906-35.969c3.047-1.234,4.641-4.609,3.672-7.75l-19.766-64.234c-0.594-1.984-0.219-4.141,1.047-5.766l5.453-7.047c1.125-1.453,2.813-2.344,4.625-2.469c1.828-0.109,3.609,0.563,4.906,1.859l27.672,27.563c1.734,1.734,4.297,2.297,6.609,1.484l31.531-11.156c2.219-0.781,3.828-2.719,4.172-5.047l13.563-89.781c26.859-1.438,28.516-24.781,28.516-24.781l-37.031-7.922c6.234-5.828,14.813-12.391,23.766-14.844c13.219-3.609,28.906,0.094,45.156-6.406C510.566,91.104,515.128,74.198,509.988,75.807z"/>
   </svg>
 </div>
 
 <div class="bg-bear">
-  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571.081 571.081" style="opacity:0.20">
+  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 571.081 571.081">
     <path fill="#94a3b8" d="M568.739,218.52c-7.923-5.402-12.57-13.753-18.98-20.502c-0.424-0.449-0.734-1.016-1.179-1.436c-3.007-2.832-4.455-5.92-2.501-10.09c0.894-1.91,0.343-3.986-1.273-5.504c-3.101-2.913-6.01-6.12-9.465-8.536c-4.773-3.337-10.029-5.973-14.979-9.078c-1.529-0.959-2.766-2.412-4.055-3.717c-1.489-1.51-2.718-3.325-4.37-4.611c-2.158-1.672-3.949-1.379-6.128,0.257c-0.489,0.367-1.229,0.575-1.849,0.571c-2.333-0.008-4.671-0.074-7.001-0.237c-2.395-0.163-4.826-0.253-7.16-0.743c-7.066-1.485-14.056-3.358-21.146-4.692c-9.196-1.734-18.454-2.979-27.888-2.46c-5.487,0.302-10.726-0.938-15.842-3.154c-12.362-5.349-25.436-8.495-38.45-11.787c-6.594-1.668-13.093-3.827-19.768-5.039c-6.957-1.265-14.108-2.105-21.139-0.343c-8.886,2.232-17.426,5.5-25.725,9.4c-1.293,0.608-2.934,0.897-4.354,0.75c-11.212-1.142-22.398-2.378-33.688-2.676c-6.304-0.167-12.579-1.363-18.874-2.028c-7.254-0.767-14.533-1.326-21.771-2.211c-8.127-0.991-16.226-2.231-24.333-3.391c-4.146-0.591-8.274-1.285-12.424-1.848c-16.361-2.228-32.726-4.169-49.315-2.893c-13.362,1.028-26.814,1.277-39.748,5.365c-1.293,0.408-2.378,1.444-3.631,2.036c-2.362,1.114-4.696,2.407-7.189,3.109c-5.945,1.668-11.11,4.786-16.137,8.176c-6.046,4.08-12.46,7.789-17.875,12.603c-9.804,8.727-19.106,17.928-26.214,29.274c-7.939,12.677-12.815,26.438-16.916,40.616c-2.371,8.189-4.929,16.329-7.099,24.57c-1.261,4.778-2.064,9.69-2.803,14.586c-0.551,3.656,0.045,7.234,1.563,10.689c0.551,1.253,0.285,2.84,0.571,4.235c0.551,2.729,0.388,6.251,2.048,7.964c2.403,2.477,3.015,6.234,6.356,7.961c0.914-0.433,1.95-0.927,3.231-1.534c0,1.081,0,1.971,0,2.978c4.076-1.105,1.714,2.236,2.762,3.742c0.788-0.592,1.587-1.195,2.444-1.841c1.139,2.526,2.052-0.004,3.301-0.322c0.42,2.081,0.539,4.26,1.314,6.169c1.624,4.003-0.119,7.381-1.563,10.816c-4.663,11.09-10.653,21.437-17.76,31.131c-4.439,6.05-8.968,12.031-13.529,17.992c-1.416,1.853-2.958,3.64-4.643,5.243c-1.894,1.799-2.795,3.798-2.55,6.426c0.22,2.37,0.698,4.822-0.906,6.985c-0.11,0.146-0.13,0.403-0.102,0.596c0.404,3.035,0.841,6.066,1.232,9.103c0.13,1.016,0.286,2.056,0.196,3.063c-0.196,2.195,0.636,3.864,2.256,5.255c0.334,0.286,0.856,0.771,0.792,1.041c-0.588,2.383,1.387,3.717,2.129,5.545c0.437,1.072,0.686,2.235,0.894,3.378c0.563,3.104,1.024,6.23,1.612,9.327c0.085,0.461,0.542,0.982,0.971,1.224c1.975,1.102,2.415,2.896,1.873,4.79c-1.281,4.472-0.718,8.535,1.921,12.391c0.375,0.547,0.143,1.624-0.041,2.403c-0.188,0.783-0.682,1.493-1.012,2.248c-0.474,1.077-0.241,1.669,0.983,2.167c1.636,0.665,3.289,1.497,4.635,2.619c2.211,1.84,4.675,2.383,7.425,2.309c14.452-0.392,28.903-0.771,43.354-1.134c1.134-0.028,1.914-0.208,2.734-1.293c0.734-0.968,2.309-1.339,3.566-1.853c2.416-0.987,2.787-3.387,2.717-5.247c-0.135-3.402-0.951-6.806-1.738-10.146c-0.514-2.175-1.889-3.844-3.778-5.235c-0.938-0.693-1.604-2.269-1.702-3.496c-0.265-3.317-2.75-5.157-5.002-6.349c-2.493-1.322-3.129-3.02-3.358-5.337c-0.085-0.877-0.012-1.774,0.465-2.379c0.514-0.591,1.118-1.134,1.522-1.795c0.424-0.697,0.624-1.525,0.991-2.265c0.241-0.485,0.6-1.301,0.918-1.305c2.864-0.05,3.9-2.926,6.198-3.917c1.379-0.596,2.358-2.175,3.459-3.362c1.53-1.656,2.995-3.37,4.509-5.043c1.783-1.975,3.59-3.929,5.377-5.903c0.481-0.535,0.934-1.094,1.469-1.722c0.261,0.392,0.444,0.547,0.473,0.726c1.363,9.393,3.35,18.744,2.24,28.323c-0.261,2.249-0.816,4.464-1.232,6.695c-0.478,2.571,1.02,4.496,3.664,4.468c3.158-0.036,5.255,1.474,7.377,3.705c1.167,1.228,3.513,1.738,5.369,1.844c5.834,0.331,11.689,0.485,17.532,0.404c10.596-0.147,21.191-0.453,31.779-0.828c2.484-0.086,4.941-0.755,7.421-1.073c0.942-0.122,1.909-0.021,2.942-0.021c2.056-3.076,0.844-8.046-2.424-9.874c-0.653-0.367-1.273-1.036-1.595-1.713c-1.379-2.913-2.897-5.513-6.247-6.716c-2.244-0.808-3.264-3.035-3.459-5.284c-0.302-3.483-0.375-7.001-0.306-10.497c0.147-7.434,0.147-14.888,0.775-22.285c0.592-6.94,1.718-13.855,2.975-20.714c1.375-7.508,3.162-14.938,4.798-22.396c0.176-0.8,0.486-1.579,0.792-2.342c1.204-3.044,1.212-2.896,4.513-2.877c2.876,0.017,5.753-0.326,8.629-0.521c0.469-0.033,0.935-0.123,1.653-0.217c0,1.384,0,2.648,0,4.015c0.489,0,0.767,0.074,0.983-0.012c2.534-1.021,5.043-1.489,7.809-0.727c2.358,0.648,4.554-0.139,6.541-2.652c0,1.648,0,2.547,0,3.868c1.946-0.8,3.542-1.55,5.206-2.089c0.608-0.195,1.387,0.086,2.077,0.225c0.62,0.122,1.245,0.551,1.824,0.485c1.706-0.191,3.529-0.249,5.055-0.926c3.529-1.567,7.279-0.751,10.963-1.534c0.155,0.681,0.286,1.257,0.522,2.284c1.134-0.562,2.203-0.93,3.076-1.57c1.163-0.853,2.215-1.253,3.774-1.061c1.391,0.171,3.133-0.164,4.28-0.931c2.028-1.358,4.052-2.154,6.426-1.868c0.481,0.538,1.044,1.027,1.42,1.628c0.306,0.493,0.392,1.121,0.693,2.06c0.935-0.6,2.016-1.048,2.762-1.823c1.853-1.922,4.108-2.852,6.63-3.533c2.069-0.56,4.011-1.583,6.25-2.501c1.412,1.126,2.954,0.065,4.402-0.935c1.432-0.991,2.672-2.15,4.521-0.689c0.51,0.404,1.452,0.285,2.199,0.359c1.367,0.13,2.717-1.021,4.206,0.289c0.384,0.339,2.211-0.734,3.215-1.399c1.403-0.93,2.66-2.085,3.982-3.146c0.159,0.114,0.322,0.232,0.481,0.347c-2.04,4.305-4.08,8.609-6.218,13.121c0.771,0,1.379,0,2.411,0c-1.155,1.832-2.17,3.448-3.19,5.063c0.11,0.143,0.224,0.286,0.334,0.429c0.833-0.307,1.661-0.612,2.942-1.081c-0.816,1.648-1.481,2.99-2.363,4.773c1.501-0.277,2.526-0.465,4.007-0.738c-0.645,1.375-1.093,2.558-1.73,3.627c-1.514,2.533-2.705,4.957-2.893,8.164c-0.208,3.57-1.734,7.099-2.942,10.555c-0.755,2.162-1.591,4.142-1.134,6.569c0.261,1.391-0.416,2.945-0.571,4.438c-0.094,0.91,0.004,1.836,0.021,2.754c0.788-0.367,1.575-0.734,2.84-1.321c-0.175,0.901-0.286,1.717-0.51,2.505c-0.208,0.742-0.942,1.452,0.392,1.986c0.261,0.106,0.29,1.257,0.143,1.853c-1.351,5.463-2.762,10.914-4.227,16.65c0.008,0.009,0.441,0.298,0.943,0.641c-0.698,1.448-1.383,2.885-2.093,4.357c3.729,1.159,4.243,1.926,3.505,5.672c-0.518,2.61-1.416,5.148-1.942,7.76c-0.82,4.056-1.464,8.144-2.199,12.289c4.084,0.155,4.015,0.159,4.161,3.893c0.033,0.873,0.706,1.718,1.061,2.582c0.155,0.371,0.404,0.775,0.363,1.139c-0.233,2.158,1.191,3.235,2.685,4.271c4.394,3.048,9.413,3.448,14.565,3.766c13.595,0.837,27.169,1.935,40.756,2.926c1.028,0.073,2.068,0.298,3.08,0.196c3.272-0.327,6.373,0.326,9.571,0.954c3.102,0.608,6.414,0.139,9.629,0.106c0.229-0.004,0.515-0.237,0.674-0.44c1.236-1.596,2.574-2,4.414-0.804c0.502,0.326,1.547-0.184,2.645-0.359c0.705,1.754,1.954,1.265,3.398,0.086c1.473-1.208,3.007-0.906,4.631-0.123c1.334,0.641,2.807,0.987,4.541,1.575c-0.103-2.733-1.392-4.011-2.738-5.3c-0.502-0.481-1.158-1.208-1.113-1.775c0.229-2.803-0.914-5.137-2.338-7.344c-1.229-1.901-2.387-4.026-4.104-5.386c-1.616-1.272-3.868-1.889-5.94-2.407c-3.713-0.934-7.503-1.554-11.249-2.37c-0.469-0.102-0.971-0.519-1.24-0.931c-0.379-0.575-0.555-1.28-0.82-1.934c-0.269,0.249-0.542,0.502-0.812,0.751c-0.481,1.004-0.963,2.007-1.44,3.011c-0.212-0.065-0.424-0.131-0.636-0.191c-1.51-6.014-2.285-12.032-0.367-18.185c0.75-2.411,1.207-4.912,1.722-7.394c0.795-3.831,1.424-7.698,2.312-11.51c0.539-2.305,1.592-4.373,3.827-5.65c0.571-0.326,0.906-1.154,1.236-1.808c0.894-1.754,1.84-3.496,2.559-5.324c0.738-1.877,1.448-3.811,1.778-5.785c0.318-1.914,0.425-3.709,1.849-5.312c0.718-0.808,0.706-2.297,0.959-3.488c0.73-3.439,1.432-6.883,2.19-10.559c1.514,1.746,2.13,0.979,2.656-0.779c0.425-1.408,1.236-2.697,1.967-4.219c0.763,0.583,1.272,0.975,1.991,1.521c0.637-1.399,1.407-2.685,1.803-4.072c0.596-2.089,0.902-4.255,1.375-6.381c0.196-0.881,0.144-2.012,1.678-1.795c0.272,0.036,0.864-0.763,0.967-1.249c0.261-1.199,0.322-2.443,0.469-3.725c2.146,1.032,1.987-0.604,2.252-1.824c1.094-4.969,3.211-9.51,5.565-13.953c0.196,0.008,0.392,0.021,0.583,0.028c0.196,1.375,0.511,2.746,0.567,4.125c0.143,3.366,0.163,6.74,0.249,10.11c0.045,1.804,0.624,2.99,2.86,2.076c0.236,1.359,0.526,2.555,0.632,3.767c0.147,1.648,0.453,2.909,2.501,1.688c0.461,0.951,0.841,1.742,1.208,2.501c1.783-0.143,4.504,2.412,4.378,4.117c-0.2,2.758-0.367,5.402,1.832,7.67c0.722,0.743,0.832,2.154,1.053,3.293c0.294,1.526,1.134,2.46,2.529,1.596c2.261-1.404,4.26,0.375,6.386,0.179c0.252-0.024,0.648,0.629,0.836,1.037c0.669,1.436,1.236,2.917,1.913,4.345c1.2,2.521,1.514,2.652,4.179,1.914c0.306,0.808,0.551,1.664,0.958,2.436c0.258,0.489,0.723,1.15,1.163,1.212c2.004,0.277,2.272,1.632,2.403,3.26c0.29,3.537,1.188,4.545,4.455,5.545c0.551,0.167,1.086,0.718,1.412,1.228c0.478,0.743,0.693,1.648,1.134,2.424c1.465,2.57,2.02,2.582,3.578,0.028c2.061,1.253,3.889,0.534,5.729-1.167c0.543,1.167,1.016,2.13,1.444,3.113c0.882,2.003,1.971,3.709,4.231,4.521c0.559,0.2,1.109,1.591,0.979,2.317c-0.343,1.954,0.294,3.224,1.853,4.321c1,0.705,1.738,1.778,2.722,2.513c2.26,1.677,3.093,1.452,4.614-1.379c2.383,0.976,4.937,1.763,7.226,3.031c2.432,1.347,4.672,2.272,7.353,0.747c0.591-0.335,1.465-0.217,2.211-0.221c1.559-0.008,3.134-0.065,4.676,0.106c0.991,0.11,2.008,0.473,2.893,0.95c1.146,0.616,2.188,1.433,3.248,2.195c2.007,1.452,4.17,1.819,6.438,0.796c7.123-3.216,14.386-1.853,21.648-0.755c0.6,0.09,1.228,0.212,1.819,0.143c4.729-0.575,9.445-1.163,14.08,0.661c0.343,0.135,1.098-0.453,1.485-0.869c0.298-0.318,0.298-0.901,0.469-1.347c0.172-0.44,0.392-0.86,0.498-1.081c1.362,0,2.823,0.42,3.631-0.126c0.698-0.474,0.653-2.045,0.976-3.285c2.358,0.914,3.309,0.355,2.644-2.13c-0.082-0.306,0.706-1.13,1.191-1.235c0.689-0.147,1.473,0.171,2.22,0.253c0.718,0.077,1.44,0.098,2.162,0.146c-0.053-0.849-0.008-1.722-0.195-2.538c-0.147-0.641-0.584-1.22-1.135-2.301c1.946,0,3.599,0,5.373,0c-1.195-3.533-2.79-4.941-5.728-5.753c-1.045-1.42-1.616-2.542-2.493-3.321c-2.497-2.231-5.264-3.998-8.756-4.247c-0.538-0.037-1.102-0.188-1.595-0.412c-4.402-1.999-8.789-1.975-13.171,0.163c-3.908-6.418-7.735-12.737-11.611-19.025c-0.755-1.224-1.779-2.276-2.57-3.479c-1.195-1.815-2.293-3.696-3.436-5.549c-0.322-0.526-0.547-1.159-0.983-1.559c-3.149-2.856-4.757-6.688-6.736-10.307c-1.574-2.884-3.443-5.613-5.186-8.408c-0.146-0.232-0.354-0.429-0.481-0.669c-2.126-3.971-4.247-7.944-6.36-11.922c-0.123-0.232-0.217-0.522-0.212-0.784c0.053-2.432-1.212-4.202-2.942-5.667c-2.175-1.836-3.007-4.223-3.696-6.919c-1.203-4.692-2.9-9.258-4.378-13.881c-0.461-1.44-0.828-2.913-1.334-4.337c-0.897-2.509-1.869-4.994-3.023-8.062c1.652-0.591,3.619-1.293,5.77-2.064c0.277,1.118,0.433,1.746,0.697,2.811c1.363-0.824,2.587-1.562,3.938-2.375c0.804,1.893,1.971,1.012,3.052,0.306c0.979-0.637,1.849-1.44,2.827-2.081c1.069-0.702,2.008-1.958,3.599-0.742c0.359,0.273,1.318-0.135,1.959-0.355c2.402-0.833,4.765-1.808,7.196-2.534c0.743-0.225,1.673,0.171,2.518,0.286c0.033,0.281,0.062,0.559,0.094,0.84c1.498-0.759,2.999-1.514,4.786-2.416c0.216,1.175,0.392,2.134,0.616,3.342c1.546-0.865,2.99-1.73,4.492-2.493c1.901-0.967,3.843-1.848,5.777-2.754c0.371-0.175,0.93-0.526,1.134-0.392c1.832,1.212,3.101-0.575,4.647-0.767c1.579-0.196,3.203-0.033,4.781-0.237c1.808-0.232,3.587-0.702,5.455-1.081c1.191,1.709,1.461,1.657,2.999-0.232c0.563-0.689,1.437-1.489,2.235-1.571c3.877-0.4,7.858-0.159,11.645-0.926c4.521-0.918,8.323,1.281,12.461,1.926c3.479,0.547,6.605,0.363,9.017-2.542c1.302-1.566,3.027-1.848,4.916-2.06c1.229-0.139,2.534-0.6,3.566-1.277c3.194-2.101,6.274-4.578,7.658-8.176c1.248-3.251,2.84-6.039,5.312-8.478C571.726,222.996,571.146,220.16,568.739,218.52z"/>
   </svg>
 </div>
@@ -364,12 +301,14 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 <a href="#research" class="nav-link">Research</a>
 <a href="#reading" class="nav-link">Library</a>
 <a href="#archive" class="nav-link">Avocation</a>
+<a href="#words" class="nav-link">Words</a>
 <a href="#contact" class="nav-link">Connect</a>
 </nav>
 
 <div class="container">
 
 <section class="hero" id="top">
+<!-- UPGRADE: Name sits safely on open canvas, un-boxed -->
 <div style="position:relative; z-index:2;">
 <h1>Pratik Deshmukh</h1>
 <div class="goldline"></div>
@@ -464,12 +403,12 @@ Beyond finance, I bring multilingual communication skills across four languages:
 <div class="card coming-soon">
   <div class="article-tag soon">Coming Soon</div>
   <h3>Market Notes & Observations</h3>
-  <p>Shorter-form thoughts on market cycles, capital allocation decisions, and broader market behaviour trends.</p>
+  <p>High-signal observations on cyclical market shifts, executive capital allocation, and behavioral economics.</p>
 </div>
 <div class="card coming-soon">
   <div class="article-tag soon">Coming Soon</div>
   <h3>Company Deep Dives</h3>
-  <p>Long-form, structural analysis of businesses and industries across Indian markets.</p>
+  <p>Comprehensive, structural teardowns of monopoly-style businesses and emerging industry vectors across Indian equity markets.</p>
 </div>
 </div>
 </section>
@@ -505,57 +444,264 @@ Beyond finance, I bring multilingual communication skills across four languages:
 </div>
 </section>
 
-</div> <div id="archive">
+</div> <!-- End Main Container -->
+
+<!-- ════════════ AVOCATION MEGA-SECTION ════════════ -->
+<div id="archive">
   
   <div class="archive-header">
     <h2>Avocation</h2>
-    <p>A deeper exploration into the disciplines, places, and voices that shape my broader worldview.</p>
+    <p>An exploration into the philosophical frameworks, global geographies, and critical conversations that shape my overarching worldview.</p>
   </div>
 
-  <section id="philosophy">
-    <canvas id="phil-canvas"></canvas>
-    <div class="phil-portrait-layer" id="phil-portrait-layer"></div>
-
-    <div class="phil-content">
-      <h2 class="section-title fade-in-up">Philosophy</h2>
-      <p style="text-align:center;color:#a89cc0;max-width:700px;margin:0 auto 20px;line-height:1.8">
-        Beyond the balance sheet lies a deeper inquiry — into consciousness, meaning, ethics, and the nature of reality. These are the questions that shape how I think about everything else.
+  <!-- ══ WORDS SECTION ══ -->
+  <section id="words">
+    <canvas id="words-canvas"></canvas>
+    <div class="words-content">
+      <h2 class="section-title fade-in-up">Words</h2>
+      <p class="section-subtitle fade-in-up">
+        Some things can only be said in a certain language, at a certain hour, in a certain mood.
       </p>
 
-      <div class="phil-flowchart-wrap">
-        <h3>The Lineage of Ideas</h3>
-        <p>How philosophical traditions influenced each other across 2,500 years</p>
-        <canvas id="phil-flowchart-canvas" width="1040" height="720"></canvas>
+      <!-- Language Tabs -->
+      <div class="words-tabs">
+        <button class="words-tab active" data-lang="hindi">🇮🇳 &nbsp; Hindi</button>
+        <button class="words-tab" data-lang="marathi">🌸 &nbsp; Marathi</button>
+        <button class="words-tab" data-lang="english">🇬🇧 &nbsp; English</button>
+        <button class="words-tab" data-lang="spanish">🇪🇸 &nbsp; Spanish</button>
       </div>
+
+      <!-- HINDI -->
+      <div class="words-panel active" id="panel-hindi">
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Doha · Kabir Das</div>
+          <div class="poem-lines devanagari">
+            दुःख में सुमिरन सब करें, सुख में करें न कोय।<br>
+            जो सुख में सुमिरन करें, तो दुःख काहे को होय।।
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Kabir Das</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Shloka · Bhagavad Gita</div>
+          <div class="poem-lines devanagari">
+            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
+            मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Bhagavad Gita · 2.47</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Shayari · Rahat Indori</div>
+          <div class="poem-lines devanagari">
+            बुलाती है मगर जाने का नहीं,<br>
+            ये दुनिया है यहाँ जाने का नहीं।<br>
+            ये दुनिया है यहाँ किसको पता है,<br>
+            कि क्या खोने का क्या पाने का नहीं।
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Rahat Indori</div>
+        </div>
+        <div class="words-coming">
+          <span>✍️</span>
+          More lines will be added here — words that have stopped me mid-page.
+        </div>
+      </div>
+
+      <!-- MARATHI -->
+      <div class="words-panel" id="panel-marathi">
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Kavita · Suresh Bhat</div>
+          <div class="poem-lines devanagari">
+            रात्र वेडी काळोखाची, सूर झाले आसवांचे,<br>
+            स्वप्न माझे विझत गेले, दीप डोळ्यांतील साचे।
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Suresh Bhat</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Kavita · Kusumagraj</div>
+          <div class="poem-lines devanagari">
+            जे न देखे रवि, ते देखे कवि —<br>
+            जे न देखे कवि, ते देखे रसिक।
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Kusumagraj (V. V. Shirwadkar)</div>
+        </div>
+        <div class="words-coming">
+          <span>✍️</span>
+          अजून बरेच शब्द यायचे आहेत इथे — तुमचे आवडते.
+        </div>
+      </div>
+
+      <!-- ENGLISH -->
+      <div class="words-panel" id="panel-english">
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Poetry · Rudyard Kipling</div>
+          <div class="poem-lines">
+            If you can keep your head when all about you<br>
+            Are losing theirs and blaming it on you,<br>
+            If you can trust yourself when all men doubt you,<br>
+            But make allowance for their doubting too —<br>
+            Yours is the Earth and everything that's in it,<br>
+            And — which is more — you'll be a Man, my son!
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Rudyard Kipling · If</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Stoic Reflection · Marcus Aurelius</div>
+          <div class="poem-lines">
+            You have power over your mind — not outside events.<br>
+            Realise this, and you will find strength.<br><br>
+            The impediment to action advances action.<br>
+            What stands in the way becomes the way.
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Marcus Aurelius · Meditations</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Poetry · Robert Frost</div>
+          <div class="poem-lines">
+            Two roads diverged in a wood, and I —<br>
+            I took the one less travelled by,<br>
+            And that has made all the difference.
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Robert Frost · The Road Not Taken</div>
+        </div>
+        <div class="words-coming">
+          <span>✍️</span>
+          More lines to be added — words that changed something.
+        </div>
+      </div>
+
+      <!-- SPANISH -->
+      <div class="words-panel" id="panel-spanish">
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Poema · Pablo Neruda</div>
+          <div class="poem-lines">
+            Puedo escribir los versos más tristes esta noche.<br>
+            Escribir, por ejemplo: "La noche está estrellada,<br>
+            y tiritan, azules, los astros, a lo lejos."<br><br>
+            La quise, y a veces ella también me quería.
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Pablo Neruda · Veinte Poemas de Amor</div>
+        </div>
+        <div class="poem-card fade-in-up">
+          <div class="poem-type">Reflexión · Jorge Luis Borges</div>
+          <div class="poem-lines">
+            El tiempo se bifurca perpetuamente<br>
+            hacia futuros innumerables.<br><br>
+            No nos une el amor, sino el espanto;<br>
+            será por eso que la quiero tanto.
+          </div>
+          <div class="poem-divider"></div>
+          <div class="poem-author">Jorge Luis Borges</div>
+        </div>
+        <div class="words-coming">
+          <span>✍️</span>
+          Más palabras vendrán — las que no se olvidan.
+        </div>
+      </div>
+
     </div>
   </section>
 
+  <!-- ══ TRAVEL SECTION — RESTORED 9-CARD MASTER ══ -->
   <section id="travel">
     <canvas id="travel-canvas"></canvas>
     <div class="travel-content">
       <h2 class="section-title fade-in-up">Travel</h2>
-      <p style="text-align:center;color:#94a3b8;max-width:700px;margin:0 auto 10px;line-height:1.8">
-        Every journey is a lens through which the world reveals a different version of itself. From the sacred peaks of the Himalayas to the pulse of Indian cities.
+      <p style="text-align:center;color:#7dd3fc;max-width:750px;margin:0 auto 10px;line-height:1.8;font-size:1.15rem;" class="fade-in-up">
+        Geography shapes perspective. From the extreme altitudes of the Himalayas to the structural density of India's commercial hubs, every expedition acts as a lens into human and economic behavior.
       </p>
       <div class="travel-places">
-        <span class="travel-place">📍 Badrinath Dham</span>
-        <span class="travel-place">📍 Pune</span>
-        <span class="travel-place">📍 Mumbai</span>
-        <span class="travel-place">📍 Delhi</span>
+        <span class="travel-place">🏔 Badrinath Dham</span>
+        <span class="travel-place">🌿 Mana Village</span>
+        <span class="travel-place">🕉 Ujjain</span>
+        <span class="travel-place">🏙 Pune</span>
+        <span class="travel-place">🌆 Nagpur</span>
+        <span class="travel-place">🌊 Chennai</span>
+        <span class="travel-place">🐚 Rameshwaram</span>
+        <span class="travel-place">🌄 Rishikesh</span>
+        <span class="travel-place">🌊 Puri</span>
+        <span class="travel-place">🪔 Kashi</span>
+        <span class="travel-place">🏹 Ayodhya</span>
+        <span class="travel-place">🛕 Madurai</span>
+      </div>
+      <div class="travel-grid">
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🏔️</span>
+          <h3>Badrinath Dham</h3>
+          <p>At 3,133m in the Garhwal Himalayas — where devotion meets the raw edge of the world. One of the Char Dham, and one of the most transformative journeys of my life.</p>
+          <div class="t-coords">30.7433° N, 79.4938° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🌿</span>
+          <h3>Mana Village</h3>
+          <p>The last inhabited village before the Indo-Tibet border. A place that feels like the edge of the map — where India ends and the mountains take over.</p>
+          <div class="t-coords">30.7798° N, 79.5631° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🕉️</span>
+          <h3>Ujjain</h3>
+          <p>One of the seven sacred cities of India. Home of the Mahakaleshwar Jyotirlinga — a city where time feels different, older, slower, more permanent.</p>
+          <div class="t-coords">23.1765° N, 75.7885° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🌄</span>
+          <h3>Rishikesh</h3>
+          <p>The Yoga Capital of the World, where the Ganga descends from the mountains into the plains. A city of seekers and sadhus, bridges and bells.</p>
+          <div class="t-coords">30.0869° N, 78.2676° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🪔</span>
+          <h3>Kashi (Varanasi)</h3>
+          <p>The oldest living city in the world. Every evening the Ganga Aarti at Dashashwamedh Ghat is a reminder that some traditions outlast everything — empires, ideologies, time itself.</p>
+          <div class="t-coords">25.3176° N, 82.9739° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🏹</span>
+          <h3>Ayodhya</h3>
+          <p>The birthplace of Shri Ram — a city that carries the weight of civilisation in its very soil. To walk here is to walk through thousands of years of cultural memory.</p>
+          <div class="t-coords">26.7922° N, 82.1998° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🐚</span>
+          <h3>Rameshwaram</h3>
+          <p>Where the land meets the sea and the legend of Ram Setu begins. The Ramanathaswamy Temple corridors are the longest in the world — a kilometre of pillars and prayer.</p>
+          <div class="t-coords">9.2876° N, 79.3129° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🛕</span>
+          <h3>Madurai</h3>
+          <p>The city that never sleeps — the Meenakshi Amman Temple towers over everything, its gopurams covered in thousands of sculpted figures, a city within a city.</p>
+          <div class="t-coords">9.9252° N, 78.1198° E</div>
+        </div>
+        <div class="travel-card fade-in-up">
+          <span class="t-icon">🌊</span>
+          <h3>Puri</h3>
+          <p>Home of the Jagannath Temple and the great Rath Yatra. Standing before the sea here is different — the Bay of Bengal carries a particular vastness that stills the mind.</p>
+          <div class="t-coords">19.8135° N, 85.8312° E</div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ══ LEARNING ARCHIVE (PODCASTS) ══ -->
   <section id="podcasts">
     <canvas id="pod-canvas"></canvas>
     <div class="pod-content">
       <h2 class="section-title fade-in-up">Learning Archive</h2>
-      <p style="text-align:center;color:#94a3b8;max-width:700px;margin:0 auto 20px;line-height:1.8">
-        The conversations and capital allocation frameworks that continuously shape how I think about business, investing, economics, and life.
+      <p style="text-align:center;color:#94a3b8;max-width:750px;margin:0 auto 20px;line-height:1.8;font-size:1.15rem;" class="fade-in-up">
+        A curated directory of the high-leverage conversations, macro-economic debates, and capital allocation frameworks that continuously refine my mental models.
       </p>
 
       <div class="pod-master-grid">
-        <div class="pod-master-card">
+        <!-- Box 1: Founders -->
+        <div class="pod-master-card fade-in-up">
           <h3>🏛️ &nbsp;Founders &amp; Entrepreneurship</h3>
           <div class="pod-links-container">
             <a href="https://www.founderspodcast.com/" target="_blank" class="pod-link-pill">
@@ -569,7 +715,8 @@ Beyond finance, I bring multilingual communication skills across four languages:
           </div>
         </div>
 
-        <div class="pod-master-card">
+        <!-- Box 2: Investing -->
+        <div class="pod-master-card fade-in-up">
           <h3>📈 &nbsp;Investing &amp; Markets</h3>
           <div class="pod-links-container">
             <a href="https://www.theinvestorspodcast.com/we-study-billionaires/" target="_blank" class="pod-link-pill">
@@ -587,7 +734,8 @@ Beyond finance, I bring multilingual communication skills across four languages:
           </div>
         </div>
 
-        <div class="pod-master-card">
+        <!-- Box 3: Economics -->
+        <div class="pod-master-card fade-in-up">
           <h3>🌐 &nbsp;Economics &amp; Ideas</h3>
           <div class="pod-links-container">
             <a href="https://seenunseen.in/" target="_blank" class="pod-link-pill">
@@ -604,10 +752,14 @@ Beyond finance, I bring multilingual communication skills across four languages:
             </a>
           </div>
         </div>
-      </div> </div>
+      </div> <!-- End 3 Master Boxes Grid -->
+
+    </div>
   </section>
 
-</div> <div class="container">
+</div> <!-- End Avocation Mega-Section Wrapper -->
+
+<div class="container">
 <section id="contact">
 <h2 class="section-title fade-in-up">Connect</h2>
 <div class="contact">
@@ -641,7 +793,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
     entries.forEach(entry => {
       if(entry.isIntersecting && entry.intersectionRatio > 0.2) {
         let currentId = entry.target.getAttribute('id');
-        if(['philosophy', 'travel', 'podcasts'].includes(currentId)) { currentId = 'archive'; }
+        if(['words', 'travel', 'podcasts'].includes(currentId)) { currentId = 'archive'; }
         navLinks.forEach(link => {
           link.classList.remove('active');
           if(link.getAttribute('href') === '#' + currentId) { link.classList.add('active'); }
@@ -791,7 +943,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
 // ══════════════════════════════════════════
 (function(){
   const sections = {
-    'philosophy': { overlay: document.getElementById('overlay-philosophy'), bodyClass: 'theme-philosophy' },
+    'words':      { overlay: document.getElementById('overlay-words'), bodyClass: 'theme-words' },
     'travel':     { overlay: document.getElementById('overlay-travel'), bodyClass: 'theme-travel' },
     'podcasts':   { overlay: document.getElementById('overlay-podcasts'), bodyClass: 'theme-podcast' }
   };
@@ -800,7 +952,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
   function activateTheme(name){
     if(activeTheme === name) return;
     Object.keys(sections).forEach(k => { sections[k].overlay.classList.remove('active'); });
-    document.body.classList.remove('theme-philosophy','theme-travel','theme-podcast');
+    document.body.classList.remove('theme-words','theme-travel','theme-podcast');
     if(name && sections[name]){
       sections[name].overlay.classList.add('active');
       document.body.classList.add(sections[name].bodyClass);
@@ -817,37 +969,177 @@ Beyond finance, I bring multilingual communication skills across four languages:
     });
   }, { threshold: 0.25 });
 
-  ['philosophy','travel','podcasts','about','hero','reading','research'].forEach(id => {
+  ['words','travel','podcasts','about','hero','reading','research'].forEach(id => {
     const el = document.getElementById(id) || document.querySelector('.hero');
     if(el) observer.observe(el);
   });
 
   // ──────────────────────────────────────────
-  // PHILOSOPHY ABSTRACT NETWORK CANVAS
+  // WORDS BACKGROUND CANVAS
   // ──────────────────────────────────────────
   (function(){
-    const canvas = document.getElementById('phil-canvas');
+    const canvas = document.getElementById('words-canvas');
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
-    function resize(){
-      const rect = document.getElementById('philosophy').getBoundingClientRect();
-      canvas.width = rect.width; canvas.height = rect.height;
-    }
-    window.addEventListener('resize', resize); resize();
 
-    const nodes = Array.from({length:35}, () => ({ x: Math.random()*canvas.width, y: Math.random()*canvas.height, vx: (Math.random()-0.5)*0.2, vy: (Math.random()-0.5)*0.2 }));
-    function drawPhil(){
-      ctx.clearRect(0,0,canvas.width,canvas.height);
-      nodes.forEach(n => { n.x += n.vx; n.y += n.vy; if(n.x<0||n.x>canvas.width) n.vx*=-1; if(n.y<0||n.y>canvas.height) n.vy*=-1; });
-      for(let i=0;i<nodes.length;i++){
-        for(let j=i+1;j<nodes.length;j++){
-          const dx=nodes[i].x-nodes[j].x, dy=nodes[i].y-nodes[j].y, dist=Math.sqrt(dx*dx+dy*dy);
-          if(dist<160){ ctx.strokeStyle=`rgba(180,120,255,${0.06*(1-dist/160)})`; ctx.beginPath(); ctx.moveTo(nodes[i].x,nodes[i].y); ctx.lineTo(nodes[j].x,nodes[j].y); ctx.stroke(); }
+    function resize(){
+      const section = document.getElementById('words');
+      canvas.width  = section ? section.offsetWidth  : window.innerWidth;
+      canvas.height = section ? section.offsetHeight : Math.max(window.innerHeight, 900);
+    }
+    setTimeout(resize, 100);
+    setTimeout(resize, 600);
+    window.addEventListener('resize', resize);
+
+    const engLetters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+    const devLetters = ['क','ख','ग','घ','च','छ','ज','झ','ट','ड','त','थ','द','ध','न','प','फ','ब','भ','म','य','र','ल','व','श','ष','स','ह','अ','आ','इ','ई','उ','ऊ','ए','ओ','ा','ि','ी','ु','ू','े','ो','म','र','ध','क','स'];
+    const allLetters = [...engLetters, ...devLetters];
+
+    const letters = Array.from({length: 60}, () => {
+      const ch = allLetters[Math.floor(Math.random() * allLetters.length)];
+      const isDevanagari = ch.charCodeAt(0) > 2300;
+      return {
+        ch,
+        x: Math.random(),
+        y: Math.random(),
+        size: isDevanagari ? (14 + Math.random() * 20) : (12 + Math.random() * 18),
+        vx: (Math.random() - 0.5) * 0.0003,
+        vy: -(0.00015 + Math.random() * 0.0002),
+        alpha: 0.05 + Math.random() * 0.18,
+        rot: (Math.random() - 0.5) * 0.4,
+        rotSpeed: (Math.random() - 0.5) * 0.002,
+        phase: Math.random() * Math.PI * 2,
+        phaseSpd: 0.008 + Math.random() * 0.012,
+        isDevanagari
+      };
+    });
+
+    const drops = [];
+    function spawnDrop(){
+      drops.push({
+        x: Math.random(),
+        y: -0.05,
+        vy: 0.001 + Math.random() * 0.0015,
+        r: 0,
+        maxR: 0.02 + Math.random() * 0.04,
+        alpha: 0.12 + Math.random() * 0.1,
+        spreading: false,
+        spreadR: 0,
+        maxSpreadR: 0.06 + Math.random() * 0.06,
+        done: false
+      });
+    }
+    setInterval(spawnDrop, 3200);
+
+    const dust = Array.from({length: 80}, () => ({
+      x: Math.random(),
+      y: Math.random(),
+      r: 0.5 + Math.random() * 1.5,
+      vy: -(0.0001 + Math.random() * 0.0002),
+      alpha: 0.05 + Math.random() * 0.15,
+      phase: Math.random() * Math.PI * 2,
+      phaseSpd: 0.02 + Math.random() * 0.03
+    }));
+
+    let penStroke = null;
+    let penTimer = 0;
+    function spawnPenStroke(W, H){
+      const y = 0.1 + Math.random() * 0.8;
+      penStroke = {
+        x1: 0.1 + Math.random() * 0.2,
+        y1: y,
+        x2: 0.6 + Math.random() * 0.3,
+        y2: y + (Math.random() - 0.5) * 0.15,
+        progress: 0,
+        alpha: 0.18 + Math.random() * 0.12
+      };
+    }
+
+    let t = 0;
+    function drawWords(){
+      const W = canvas.width, H = canvas.height;
+      if(W < 10 || H < 10){ requestAnimationFrame(drawWords); return; }
+      ctx.clearRect(0,0,W,H);
+      t++;
+
+      letters.forEach(l => {
+        l.x += l.vx;
+        l.y += l.vy;
+        l.rot += l.rotSpeed;
+        l.phase += l.phaseSpd;
+        if(l.y < -0.08){
+          l.y = 1.05;
+          l.x = Math.random();
+        }
+        if(l.x < -0.05 || l.x > 1.05) l.vx *= -1;
+
+        const alpha = l.alpha * (0.6 + 0.4 * Math.sin(l.phase));
+        ctx.save();
+        ctx.translate(l.x * W, l.y * H);
+        ctx.rotate(l.rot);
+        ctx.font = `${l.size}px ${l.isDevanagari ? '"Noto Sans Devanagari", serif' : '"Playfair Display", cursive'}`;
+        ctx.fillStyle = `rgba(212,168,83,${alpha})`;
+        ctx.textAlign = 'center';
+        ctx.fillText(l.ch, 0, 0);
+        ctx.restore();
+      });
+
+      drops.forEach((d, i) => {
+        if(d.done) return;
+        if(!d.spreading){
+          d.y += d.vy;
+          ctx.beginPath();
+          ctx.ellipse(d.x*W, d.y*H, 3, 5, 0, 0, Math.PI*2);
+          ctx.fillStyle = `rgba(180,130,50,${d.alpha})`;
+          ctx.fill();
+          if(d.y >= 1.0){
+            d.spreading = true;
+            d.spreadY = d.y;
+          }
+        } else {
+          d.spreadR += 0.001;
+          const alpha = d.alpha * (1 - d.spreadR / d.maxSpreadR);
+          if(alpha <= 0){ d.done = true; return; }
+          ctx.beginPath();
+          ctx.ellipse(d.x*W, H*0.98, d.spreadR*W, d.spreadR*W*0.18, 0, 0, Math.PI*2);
+          ctx.strokeStyle = `rgba(180,130,50,${alpha})`;
+          ctx.lineWidth = 1;
+          ctx.stroke();
+        }
+      });
+
+      dust.forEach(d => {
+        d.y += d.vy;
+        d.phase += d.phaseSpd;
+        if(d.y < -0.02) d.y = 1.02;
+        const alpha = d.alpha * (0.5 + 0.5 * Math.sin(d.phase));
+        ctx.beginPath();
+        ctx.arc(d.x*W, d.y*H, d.r, 0, Math.PI*2);
+        ctx.fillStyle = `rgba(230,190,100,${alpha})`;
+        ctx.fill();
+      });
+
+      penTimer++;
+      if(penTimer > 280 && !penStroke) spawnPenStroke(W, H);
+      if(penStroke){
+        penStroke.progress = Math.min(penStroke.progress + 0.012, 1);
+        const cx = penStroke.x1*W + (penStroke.x2*W - penStroke.x1*W) * penStroke.progress;
+        const cy = penStroke.y1*H + (penStroke.y2*H - penStroke.y1*H) * penStroke.progress;
+        ctx.beginPath();
+        ctx.moveTo(penStroke.x1*W, penStroke.y1*H);
+        ctx.lineTo(cx, cy);
+        ctx.strokeStyle = `rgba(212,168,83,${penStroke.alpha})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+        if(penStroke.progress >= 1){
+          setTimeout(() => { penStroke = null; penTimer = 0; }, 2000);
+          penStroke = null;
         }
       }
-      requestAnimationFrame(drawPhil);
+
+      requestAnimationFrame(drawWords);
     }
-    drawPhil();
+    drawWords();
   })();
 
   // ──────────────────────────────────────────
@@ -984,92 +1276,35 @@ Beyond finance, I bring multilingual communication skills across four languages:
     drawPodcast();
   })();
 
+  // ══════════════════════════════════════════
+  // WORDS SECTION — Tab switching
+  // ══════════════════════════════════════════
+  (function(){
+    const tabs = document.querySelectorAll('.words-tab');
+    const panels = document.querySelectorAll('.words-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        const panel = document.getElementById('panel-' + tab.dataset.lang);
+        if(panel){
+          panel.classList.add('active');
+          panel.querySelectorAll('.fade-in-up').forEach((el,i) => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(24px)';
+            setTimeout(() => {
+              el.style.transition = 'opacity 0.6s ease ' + (i*0.1) + 's, transform 0.6s ease ' + (i*0.1) + 's';
+              el.style.opacity = '1';
+              el.style.transform = 'translateY(0)';
+            }, 30);
+          });
+        }
+      });
+    });
+  })();
+
 })(); // end theme switcher IIFE
-
-// ══════════════════════════════════════════
-// PHILOSOPHER SVG PORTRAIT SILHOUETTES
-// ══════════════════════════════════════════
-(function(){
-  const layer = document.getElementById('phil-portrait-layer');
-  if(!layer) return;
-  const philosophers = [
-    { name:'Socrates', x:4, y:8, sz:200, rot:-8 }, { name:'Plato', x:78, y:5, sz:180, rot:6 },
-    { name:'Aristotle', x:88, y:55, sz:190, rot:-5 }, { name:'Kant', x:2, y:55, sz:170, rot:10 },
-    { name:'Nietzsche', x:42, y:3, sz:160, rot:-4 }, { name:'Chanakya', x:60, y:70, sz:185, rot:7 },
-    { name:'Vivekananda', x:15, y:72, sz:175, rot:-6 }, { name:'Marcus Aurelius', x:70, y:2, sz:165, rot:5 },
-  ];
-  function makeBustSVG(philosopher, color){
-    const cx = 100, cy = 100;
-    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320" width="200" height="320">
-      <g fill="${color}" opacity="1"><path d="M30,320 L30,210 Q40,190 60,185 L${cx},180 L${200-60},185 Q${200-40},190 ${200-30},210 L${200-30},320 Z"/>
-      <rect x="${cx-14}" y="155" width="28" height="32" rx="4"/><ellipse cx="${cx}" cy="${cy}" rx="25" ry="28"/></g>
-    </svg>`;
-  }
-  philosophers.forEach((p, i) => {
-    const wrapper = document.createElement('div');
-    wrapper.style.cssText = `position:absolute; left:${p.x}%; top:${p.y}%; width:${p.sz}px; height:${p.sz*1.6}px; transform:rotate(${p.rot}deg); opacity:0; transition:opacity 3s ease ${i*0.4}s;`;
-    wrapper.innerHTML = makeBustSVG(p.name, 'rgba(180,120,255,0.18)');
-    layer.appendChild(wrapper);
-    setTimeout(() => { wrapper.style.opacity = '1'; }, 800 + i * 300);
-  });
-})();
-
-// ══════════════════════════════════════════
-// PHILOSOPHER LINEAGE FLOWCHART
-// ══════════════════════════════════════════
-(function(){
-  const canvas = document.getElementById('phil-flowchart-canvas');
-  if(!canvas) return;
-  const ctx = canvas.getContext('2d');
-  const W = canvas.offsetWidth || 1040, H = 720;
-  canvas.width = W; canvas.height = H;
-
-  const COLORS = { presocratic:{bg:'#5c3d00',border:'#c9a227',text:'#f5d78e'}, platonic:{bg:'#1e1060',border:'#7c5cfc',text:'#c4b5fd'}, aristotelian:{bg:'#003d2b',border:'#10b981',text:'#6ee7b7'}, stoic:{bg:'#0f3d4a',border:'#0ea5e9',text:'#7dd3fc'}, empiricist:{bg:'#2d1b4e',border:'#a855f7',text:'#d8b4fe'}, existentialist:{bg:'#4a0f1a',border:'#f43f5e',text:'#fda4af'}, indian:{bg:'#3d2000',border:'#f97316',text:'#fdba74'}, rationalist:{bg:'#1a2e1a',border:'#84cc16',text:'#bef264'} };
-
-  const nodes = [ {id:'pythagoras',name:'Pythagoras',dates:'570–495 BCE',t:'presocratic',col:1,row:0}, {id:'heraclitus',name:'Heraclitus',dates:'535–475 BCE',t:'presocratic',col:3,row:0}, {id:'parmenides',name:'Parmenides',dates:'515–450 BCE',t:'presocratic',col:5,row:0}, {id:'democritus',name:'Democritus',dates:'460–370 BCE',t:'presocratic',col:7,row:0}, {id:'socrates',name:'Socrates',dates:'470–399 BCE',t:'platonic',col:4,row:1.5}, {id:'plato',name:'Plato',dates:'428–348 BCE',t:'platonic',col:2,row:3}, {id:'cynics',name:'Cynics',dates:'Diogenes',t:'stoic',col:4.5,row:3}, {id:'cyrenaics',name:'Cyrenaics',dates:'Aristippus',t:'empiricist',col:7,row:3}, {id:'aristotle',name:'Aristotle',dates:'384–322 BCE',t:'aristotelian',col:1,row:4.5}, {id:'epicurus',name:'Epicurus',dates:'341–270 BCE',t:'empiricist',col:3.5,row:4.5}, {id:'stoics',name:'Stoics',dates:'Zeno c.334',t:'stoic',col:5.5,row:4.5}, {id:'marcus',name:'Marcus Aurelius',dates:'121–180 CE',t:'stoic',col:5.5,row:6}, {id:'plotinus',name:'Plotinus',dates:'204–270 CE',t:'platonic',col:2,row:6}, {id:'chanakya',name:'Chanakya',dates:'350–275 BCE',t:'indian',col:8,row:1.5}, {id:'descartes',name:'Descartes',dates:'1596–1650',t:'rationalist',col:1,row:7.5}, {id:'kant',name:'Kant',dates:'1724–1804',t:'rationalist',col:3,row:7.5}, {id:'nietzsche',name:'Nietzsche',dates:'1844–1900',t:'existentialist',col:5.5,row:7.5}, {id:'vivekananda',name:'Vivekananda',dates:'1863–1902',t:'indian',col:8,row:7.5} ];
-  const edges = [ ['pythagoras','socrates',false],['heraclitus','socrates',false],['parmenides','socrates',false],['democritus','epicurus',true],['socrates','plato',false],['socrates','cynics',false],['socrates','cyrenaics',false],['plato','aristotle',false],['cynics','stoics',false],['cyrenaics','epicurus',true],['aristotle','plotinus',true],['stoics','marcus',false],['stoics','nietzsche',true],['aristotle','descartes',true],['plato','plotinus',false],['kant','nietzsche',true],['chanakya','vivekananda',true],['plotinus','descartes',true],['descartes','kant',false] ];
-
-  const COLS = 9, ROWS = 8.5, PAD_X = 60, PAD_Y = 40, nodeW = 110, nodeH = 48;
-  function nodePos(n){ return {x: PAD_X + (n.col / COLS) * (W - PAD_X*2) + nodeW/2, y: PAD_Y + (n.row / ROWS) * (H - PAD_Y*2) + nodeH/2}; }
-  const nodeMap = {}; nodes.forEach(n => { nodeMap[n.id] = n; });
-  const eras = [ { label:'ANCIENT GREEK · c. 600–200 BCE', row:0 }, { label:'HELLENISTIC & ROMAN · c. 300 BCE – 300 CE', row:3 }, { label:'EARLY MODERN & CONTEMPORARY · 1600–1900', row:7 } ];
-
-  function draw(){
-    ctx.clearRect(0, 0, W, H);
-    eras.forEach(era => {
-      const y = PAD_Y + (era.row / ROWS) * (H - PAD_Y*2) - 14;
-      ctx.fillStyle = 'rgba(140,100,220,0.25)'; ctx.fillRect(0, y - 14, W, 1);
-      ctx.font = '10px Inter, sans-serif'; ctx.fillStyle = 'rgba(180,140,255,0.4)'; ctx.letterSpacing = '0.1em'; ctx.textAlign = 'center'; ctx.fillText(era.label, W/2, y);
-    });
-
-    edges.forEach(([fromId, toId, dashed]) => {
-      const from = nodeMap[fromId], to = nodeMap[toId]; if(!from || !to) return;
-      const fp = nodePos(from), tp = nodePos(to);
-      ctx.beginPath(); ctx.setLineDash(dashed ? [4,5] : []); ctx.strokeStyle = dashed ? 'rgba(150,100,255,0.25)' : 'rgba(180,140,255,0.45)'; ctx.lineWidth = 1.5;
-      const mx = (fp.x + tp.x)/2, my = (fp.y + tp.y)/2 - 20;
-      ctx.moveTo(fp.x, fp.y + nodeH/2); ctx.quadraticCurveTo(mx, my, tp.x, tp.y - nodeH/2); ctx.stroke(); ctx.setLineDash([]);
-      
-      const dx = tp.x - mx, dy = (tp.y - nodeH/2) - my, angle = Math.atan2(dy, dx);
-      ctx.fillStyle = 'rgba(180,140,255,0.45)'; ctx.beginPath();
-      ctx.moveTo(tp.x, tp.y - nodeH/2); ctx.lineTo(tp.x - 8*Math.cos(angle-0.4), tp.y - nodeH/2 - 8*Math.sin(angle-0.4)); ctx.lineTo(tp.x - 8*Math.cos(angle+0.4), tp.y - nodeH/2 - 8*Math.sin(angle+0.4)); ctx.fill();
-    });
-
-    nodes.forEach(n => {
-      const {x, y} = nodePos(n), c = COLORS[n.t], nx = x - nodeW/2, ny = y - nodeH/2;
-      ctx.shadowColor = c.border; ctx.shadowBlur = 10;
-      ctx.fillStyle = c.bg; ctx.strokeStyle = c.border; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.roundRect(nx, ny, nodeW, nodeH, 8); ctx.fill(); ctx.stroke(); ctx.shadowBlur = 0;
-      ctx.fillStyle = c.text; ctx.font = 'bold 11px Inter, sans-serif'; ctx.textAlign = 'center'; ctx.fillText(n.name, x, y - 4);
-      ctx.fillStyle = c.border; ctx.font = '9px Inter, sans-serif'; ctx.fillText(n.dates, x, y + 10);
-    });
-
-    let lx = 20; const ly = H - 18; ctx.font = '10px Inter, sans-serif';
-    Object.keys(COLORS).forEach(k => {
-      ctx.fillStyle = COLORS[k].border; ctx.fillRect(lx, ly - 8, 12, 10);
-      ctx.fillStyle = 'rgba(200,180,255,0.7)'; ctx.textAlign = 'left'; ctx.fillText(k, lx + 16, ly); lx += ctx.measureText(k).width + 36;
-    });
-  }
-  draw();
-})();
 
 // ══════════════════════════════════════════
 // SCROLL PROGRESS BAR
@@ -1117,8 +1352,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
 // SECTION FADE-IN ANIMATIONS
 // ══════════════════════════════════════════
 (function(){
-  // Add staggered delay classes to cards within grids
-  document.querySelectorAll('.grid, .pod-master-grid').forEach(grid => {
+  document.querySelectorAll('.grid, .pod-master-grid, .travel-grid').forEach(grid => {
     grid.querySelectorAll('.fade-in-up').forEach((el, i) => {
       el.classList.add('delay-' + Math.min(i + 1, 5));
     });
