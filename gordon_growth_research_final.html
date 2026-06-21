@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Formula Behind Billions | Pratik Deshmukh</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════ BASE STYLES & TYPOGRAPHY ════════════ */
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background:#08111f;
+  color:#f8fafc;
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+  font-size:1.15rem;
+  font-weight:400;
+  line-height:1.8;
+}
+/* Subtle grid background matching the main site */
+body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);z-index:-3}
+
+/* ════════════ NAVIGATION ════════════ */
+nav {
+  position:sticky; top:0; padding:22px 40px;
+  background:rgba(8,17,31,.85); backdrop-filter:blur(10px);
+  z-index:999; border-bottom:1px solid rgba(255,255,255,0.05);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.back-btn {
+  color:#c9a227; text-decoration:none; font-weight:500; font-size:1rem;
+  transition:all 0.3s ease; display:flex; align-items:center; gap:8px;
+}
+.back-btn:hover { color:#f0c940; transform:translateX(-4px); }
+.nav-brand { color:#94a3b8; font-family:"Playfair Display",serif; font-size:1.2rem; }
+
+/* ════════════ ARTICLE LAYOUT ════════════ */
+.article-container {
+  max-width:800px; /* Narrower width for optimal reading */
+  margin:80px auto 120px;
+  padding:0 24px;
+  position:relative;
+  z-index:2;
+}
+
+.article-header { margin-bottom:50px; text-align:center; }
+.article-tag {
+  display:inline-block; padding:4px 12px; border-radius:999px;
+  background:rgba(201,162,39,.15); color:#c9a227;
+  font-size:0.8rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+  margin-bottom:20px;
+}
+.article-header h1 {
+  font-family:"Playfair Display",serif; font-size:3.5rem;
+  color:#fff; line-height:1.2; margin-bottom:20px; letter-spacing:-0.5px;
+}
+.article-meta {
+  color:#64748b; font-size:0.95rem; display:flex; justify-content:center; gap:20px;
+  border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:30px;
+}
+
+/* ════════════ ARTICLE CONTENT ════════════ */
+.content {
+  color:#cbd5e1;
+}
+.content p { margin-bottom:28px; }
+.content h2 {
+  font-family:"Playfair Display",serif; font-size:2rem;
+  color:#c9a227; margin:60px 0 20px;
+}
+.content h3 { color:#fff; margin:40px 0 15px; font-size:1.4rem; }
+.content blockquote {
+  border-left:4px solid #c9a227; padding-left:24px; margin:40px 0;
+  font-style:italic; font-size:1.3rem; color:#f8fafc;
+}
+.content ul, .content ol { margin-bottom:28px; padding-left:24px; }
+.content li { margin-bottom:12px; }
+
+/* Math/Formula Box */
+.formula-box {
+  background:rgba(255,255,255,0.03); border:1px solid rgba(201,162,39,0.2);
+  padding:30px; border-radius:12px; text-align:center; margin:40px 0;
+}
+.formula-box code {
+  font-family:monospace; font-size:1.4rem; color:#c9a227; letter-spacing:1px;
+}
+
+/* Footer */
+footer { text-align:center; padding:50px; color:#94a3b8; border-top:1px solid rgba(255,255,255,.08); font-size:0.95rem; }
+
+@media(max-width:768px){
+  .article-header h1 { font-size:2.5rem; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="back-btn">← Back to Portfolio</a>
+  <div class="nav-brand">Pratik Deshmukh</div>
+</nav>
+
+<div class="article-container">
+  
+  <header class="article-header">
+    <span class="article-tag">Valuation</span>
+    <h1>The Formula Behind Billions in Equity Valuation</h1>
+    <div class="article-meta">
+      <span>By Pratik Deshmukh</span>
+      <span>•</span>
+      <span>10 min read</span>
+    </div>
+  </header>
+
+  <article class="content">
+    <p>When valuing mature, dividend-paying companies—the kind that form the bedrock of global indices and long-term portfolios—analysts repeatedly turn to a surprisingly elegant mathematical framework: The Gordon Growth Model (GGM).</p>
+
+    <p>Despite the proliferation of complex discounted cash flow (DCF) models, stochastic modeling, and highly mechanized Excel forecasts, the GGM remains uniquely powerful. It forces an investor to strip away the noise of quarterly earnings calls and isolate the three fundamental drivers of equity value: the cash generated for shareholders today, the rate at which that cash will grow into perpetuity, and the risk premium required to hold the asset.</p>
+
+    <h2>The Mechanics of Constant Growth</h2>
+    <p>At its core, the Gordon Growth Model operates on the premise that a company's intrinsic value is the present value of all its future dividends, assuming those dividends grow at a constant rate forever.</p>
+
+    <div class="formula-box">
+      <code>Value = D₁ / (r - g)</code>
+    </div>
+
+    <p>Where:</p>
+    <ul>
+      <li><strong>D₁</strong> = The expected dividend per share one year from now.</li>
+      <li><strong>r</strong> = The required rate of return for the equity investor.</li>
+      <li><strong>g</strong> = The constant growth rate in dividends (in perpetuity).</li>
+    </ul>
+
+    <blockquote>
+      "The simplicity of the model is both its greatest strength and its most dangerous vulnerability."
+    </blockquote>
+
+    <h2>The "g" Problem and DuPont Analysis</h2>
+    <p>The most heavily scrutinized variable in the GGM is <strong>g</strong> (the growth rate). A common trap for junior analysts is plugging in a historical growth rate without verifying if it is structurally sustainable. A company cannot grow faster than the broader economy forever; otherwise, the mathematical outcome is that the company eventually becomes the entire economy.</p>
+
+    <p>To fundamentally validate the 'g' input, we bridge the GGM with <strong>DuPont Analysis</strong>. Sustainable growth is largely a function of how much profit a company retains, and the return it generates on that retained capital.</p>
+
+    <p>We can express this as: <em>g = Retention Ratio × Return on Equity (ROE)</em>.</p>
+
+    <p>By breaking ROE down via the DuPont framework into Operating Margin, Asset Turnover, and Financial Leverage, an analyst can see exactly <em>how</em> a company is manufacturing its growth. Are they improving operational efficiency, or are they artificially inflating ROE by piling on debt? If the growth is debt-fueled, the 'r' (required rate of return) must be adjusted upward to account for the increased financial risk, immediately compressing the valuation.</p>
+
+    <h2>Where the Model Breaks Down</h2>
+    <p>Critics rightly point out that the GGM is highly sensitive to the spread between <em>r</em> and <em>g</em>. If the required return (r) and the growth rate (g) are too close, the denominator approaches zero, and the implied valuation explodes to infinity.</p>
+    
+    <p>Furthermore, the model is entirely useless for high-growth tech startups or companies that do not return capital to shareholders. It is a tool specifically calibrated for mature, monopoly-like businesses with predictable cash flows and established capital allocation policies.</p>
+
+    <h2>Concluding Thoughts</h2>
+    <p>Valuation is less about finding a precise mathematical truth and more about defining a range of reasonable probabilities. The Gordon Growth Model doesn't promise exactness. Instead, it provides a disciplined framework for testing assumptions. When you understand the mechanics behind the formula, you stop seeing just a share price, and start seeing the underlying physics of the business.</p>
+
+  </article>
+
+</div>
+
+<footer>Pratik Deshmukh • Markets • Businesses • Investing</footer>
+
+</body>
+</html>
