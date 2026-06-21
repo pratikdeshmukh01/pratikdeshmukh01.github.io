@@ -170,10 +170,166 @@ body.theme-podcast .bg-bull, body.theme-podcast .bg-bear, body.theme-podcast #ma
 /* Responsive */
 @media(max-width:992px){ .pod-master-grid{grid-template-columns:1fr; gap:20px;} }
 @media(max-width:768px){ h1{font-size:3.5rem} nav{flex-wrap:wrap; gap:15px;} .bg-bull,.bg-bear{width:180px;height:180px} .carousel-quote blockquote{font-size:1.25rem} .text-mat{padding:20px;} }
+
+/* ════════════ SCROLL PROGRESS BAR ════════════ */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 3px;
+  background: linear-gradient(90deg, #c9a227, #f0c940, #c9a227);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px rgba(201,162,39,0.6);
+}
+
+/* ════════════ DARK / LIGHT MODE ════════════ */
+#theme-toggle {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  z-index: 1000;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,162,39,0.4);
+  background: rgba(8,17,31,0.85);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+  font-size: 1.2rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.3s ease;
+  color: #c9a227;
+}
+#theme-toggle:hover {
+  background: rgba(201,162,39,0.15);
+  box-shadow: 0 0 16px rgba(201,162,39,0.3);
+  transform: scale(1.1);
+}
+
+/* Light mode overrides */
+body.light-mode {
+  background: #f5f0e8;
+  color: #1a1a2e;
+}
+body.light-mode nav {
+  background: rgba(245,240,232,0.92);
+  border-bottom: 1px solid rgba(201,162,39,0.3);
+}
+body.light-mode nav a { color: #4a4a6a; }
+body.light-mode nav a:hover,
+body.light-mode nav a.active { color: #9a7a10; }
+body.light-mode .ticker-wrap { background: rgba(245,240,232,0.97); border-bottom-color: rgba(201,162,39,0.3); }
+body.light-mode .ticker-name { color: #6a6a8a; }
+body.light-mode .ticker-price { color: #1a1a2e; }
+body.light-mode .card, body.light-mode .tag {
+  background: #fff;
+  border-color: rgba(154,122,16,0.25);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+body.light-mode .card p, body.light-mode .about { color: #4a4a6a; }
+body.light-mode .card h3 { color: #9a7a10; }
+body.light-mode .section-title { color: #9a7a10; }
+body.light-mode .subtitle { color: #9a7a10; }
+body.light-mode h1 { color: #1a1a2e; }
+body.light-mode .hero p { color: #4a4a6a; }
+body.light-mode footer { color: #6a6a8a; border-top-color: rgba(0,0,0,0.1); }
+body.light-mode .article-card { background: #fff; }
+body.light-mode .article-card h3 { color: #1a1a2e; }
+body.light-mode .article-card p { color: #4a4a6a; }
+body.light-mode .goldline { background: #9a7a10; }
+body.light-mode body:before { opacity: 0.3; }
+body.light-mode .text-mat {
+  background: rgba(245,240,232,0.85);
+}
+body.light-mode #theme-toggle {
+  background: rgba(245,240,232,0.9);
+  border-color: rgba(154,122,16,0.4);
+  color: #9a7a10;
+}
+body.light-mode #backToTop {
+  background: rgba(154,122,16,0.12);
+  border-color: rgba(154,122,16,0.4);
+  color: #9a7a10;
+}
+body.light-mode .carousel-quote blockquote { color: #1a1a2e; }
+body.light-mode .carousel-quote cite { color: #9a7a10; }
+body.light-mode .bg-bull svg path { fill: #b8890f; }
+body.light-mode .bg-bear svg path { fill: #6a7a8a; }
+body.light-mode #market-canvas { opacity: 0.35; }
+
+/* ════════════ LANGUAGE BADGE ════════════ */
+.lang-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 28px auto 0;
+  max-width: 500px;
+}
+.lang-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(201,162,39,0.25);
+  background: rgba(201,162,39,0.06);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #cbd5e1;
+  transition: 0.3s;
+  letter-spacing: 0.02em;
+}
+.lang-pill:hover {
+  border-color: rgba(201,162,39,0.6);
+  background: rgba(201,162,39,0.12);
+  color: #c9a227;
+}
+.lang-flag { font-size: 1.1rem; }
+.lang-level {
+  font-size: 0.72rem;
+  color: #c9a227;
+  background: rgba(201,162,39,0.1);
+  padding: 1px 7px;
+  border-radius: 999px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+body.light-mode .lang-pill { color: #4a4a6a; border-color: rgba(154,122,16,0.25); }
+body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); }
+
+/* ════════════ FADE-IN ANIMATIONS ════════════ */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.fade-in-up.delay-1 { transition-delay: 0.1s; }
+.fade-in-up.delay-2 { transition-delay: 0.2s; }
+.fade-in-up.delay-3 { transition-delay: 0.3s; }
+.fade-in-up.delay-4 { transition-delay: 0.4s; }
+.fade-in-up.delay-5 { transition-delay: 0.5s; }
+
+/* ════════════ BIGGER BULL & BEAR ════════════ */
+.bg-bull, .bg-bear {
+  width: 480px !important;
+  height: 480px !important;
+}
+.bg-bull { left: 10px !important; }
+.bg-bear { right: 10px !important; }
+.bg-bull svg { opacity: 0.32 !important; }
+.bg-bear svg { opacity: 0.28 !important; }
+
 </style>
 </head>
 <body>
 
+<div id="scroll-progress"></div>
+<button id="theme-toggle" title="Toggle light/dark mode">🌙</button>
 <button id="backToTop" title="Go to top">↑ Top</button>
 
 <div class="ticker-wrap">
@@ -214,27 +370,32 @@ body.theme-podcast .bg-bull, body.theme-podcast .bg-bear, body.theme-podcast #ma
 <div class="container">
 
 <section class="hero" id="top">
-<div class="text-mat">
+<div style="position:relative; z-index:2;">
 <h1>Pratik Deshmukh</h1>
 <div class="goldline"></div>
 <div class="subtitle">Researching Businesses. Studying Markets. Thinking Long Term.</div>
-<p>Understanding how businesses create value, how capital is allocated, and how markets reflect these dynamics over time.</p>
-<div style="margin-top:20px; display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+<p>Identifying how businesses create enduring value, analyzing capital allocation frameworks, and tracking how global markets reflect these dynamics over time.</p>
+<div style="margin-top:20px; display:flex; gap:16px; justify-content:center; flex-wrap:wrap;">
 <a class="btn" href="https://www.linkedin.com/in/pratikdeshmukh1/" target="_blank">LinkedIn</a>
 <a class="btn" href="https://github.com/pratikdeshmukh01" target="_blank">GitHub</a>
-<!-- EXECUTIVE UPGRADE: Custom CV Button parked directly in Hero -->
 <a class="btn" href="#" target="_blank">View CV</a>
 </div>
 </div>
 </section>
 
 <section id="about">
-<h2 class="section-title">About</h2>
-<div class="about text-mat">
+<h2 class="section-title fade-in-up">About</h2>
+<div class="about text-mat fade-in-up">
 I am deeply interested in understanding how businesses create value, how capital is allocated, and how financial markets reflect these dynamics over time.<br><br>
 My focus lies at the intersection of investing, business analysis, and financial decision-making. I enjoy studying companies, analyzing financial statements, evaluating business models, and exploring the factors that drive long-term growth and shareholder value.<br><br>
 Alongside my academic foundation in commerce and finance, I continue to develop practical skills in financial modeling, valuation, business analytics, and market research. I believe that sound investment decisions emerge from a combination of rigorous analysis, intellectual curiosity, and a long-term perspective.<br><br>
-Beyond finance, I bring multilingual communication skills in English, Spanish, Marathi, and Hindi.
+Beyond finance, I bring multilingual communication skills across four languages:
+<div class="lang-bar">
+  <span class="lang-pill"><span class="lang-flag">🇬🇧</span> English <span class="lang-level">Native</span></span>
+  <span class="lang-pill"><span class="lang-flag">🇪🇸</span> Spanish <span class="lang-level">B1</span></span>
+  <span class="lang-pill"><span class="lang-flag">🇮🇳</span> Marathi <span class="lang-level">Native</span></span>
+  <span class="lang-pill"><span class="lang-flag">🇮🇳</span> Hindi <span class="lang-level">Fluent</span></span>
+</div>
 </div>
 </section>
 
@@ -277,7 +438,7 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section>
-<h2 class="section-title">Areas of Interest</h2>
+<h2 class="section-title fade-in-up">Areas of Interest</h2>
 <div class="tags">
 <div class="tag">Investment Analysis</div>
 <div class="tag">Valuation</div>
@@ -291,9 +452,9 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section id="research">
-<h2 class="section-title">Research</h2>
+<h2 class="section-title fade-in-up">Research</h2>
 <div class="grid">
-<a href="gordon_growth_research_final.html" target="_blank" class="article-card">
+<a href="gordon_growth_research_final.html" target="_blank" class="article-card fade-in-up">
   <div class="article-tag">Valuation</div>
   <h3>The Formula Behind Billions in Equity Valuation</h3>
   <p>Why analysts use the Gordon Growth Model, why critics attack it, and what DuPont analysis reveals about constant growth assumptions.</p>
@@ -314,7 +475,7 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </section>
 
 <section id="reading">
-<h2 class="section-title">Library</h2>
+<h2 class="section-title fade-in-up">Library</h2>
 <p style="text-align:center;color:#CBD5E1;margin-bottom:50px;">Books that have influenced my thinking on investing, business, decision-making, personal growth, and life.</p>
 
 <h3 style="color:#C9A227;text-align:center;margin-bottom:25px;">Finance & Investing</h3>
@@ -344,23 +505,19 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
 </div>
 </section>
 
-</div> <!-- End Main Container -->
-
-<!-- ════════════ AVOCATION MEGA-SECTION ════════════ -->
-<div id="archive">
+</div> <div id="archive">
   
   <div class="archive-header">
     <h2>Avocation</h2>
     <p>A deeper exploration into the disciplines, places, and voices that shape my broader worldview.</p>
   </div>
 
-  <!-- ══ PHILOSOPHY SECTION ══ -->
   <section id="philosophy">
     <canvas id="phil-canvas"></canvas>
     <div class="phil-portrait-layer" id="phil-portrait-layer"></div>
 
     <div class="phil-content">
-      <h2 class="section-title">Philosophy</h2>
+      <h2 class="section-title fade-in-up">Philosophy</h2>
       <p style="text-align:center;color:#a89cc0;max-width:700px;margin:0 auto 20px;line-height:1.8">
         Beyond the balance sheet lies a deeper inquiry — into consciousness, meaning, ethics, and the nature of reality. These are the questions that shape how I think about everything else.
       </p>
@@ -373,15 +530,13 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
     </div>
   </section>
 
-  <!-- ══ TRAVEL SECTION ══ -->
   <section id="travel">
     <canvas id="travel-canvas"></canvas>
     <div class="travel-content">
-      <h2 class="section-title">Travel</h2>
+      <h2 class="section-title fade-in-up">Travel</h2>
       <p style="text-align:center;color:#94a3b8;max-width:700px;margin:0 auto 10px;line-height:1.8">
         Every journey is a lens through which the world reveals a different version of itself. From the sacred peaks of the Himalayas to the pulse of Indian cities.
       </p>
-      <!-- TRAVEL UPGRADE: Minimalist Coordinate Footprint below text -->
       <div class="travel-places">
         <span class="travel-place">📍 Badrinath Dham</span>
         <span class="travel-place">📍 Pune</span>
@@ -391,19 +546,15 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
     </div>
   </section>
 
-  <!-- ══ LEARNING ARCHIVE (PODCASTS) ══ -->
   <section id="podcasts">
     <canvas id="pod-canvas"></canvas>
     <div class="pod-content">
-      <h2 class="section-title">Learning Archive</h2>
+      <h2 class="section-title fade-in-up">Learning Archive</h2>
       <p style="text-align:center;color:#94a3b8;max-width:700px;margin:0 auto 20px;line-height:1.8">
         The conversations and capital allocation frameworks that continuously shape how I think about business, investing, economics, and life.
       </p>
 
-      <!-- UPGRADE: 3 Master Focus Boxes (Pure Link Hub - Zero Writing) -->
       <div class="pod-master-grid">
-        
-        <!-- Box 1: Founders -->
         <div class="pod-master-card">
           <h3>🏛️ &nbsp;Founders &amp; Entrepreneurship</h3>
           <div class="pod-links-container">
@@ -418,7 +569,6 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
           </div>
         </div>
 
-        <!-- Box 2: Investing -->
         <div class="pod-master-card">
           <h3>📈 &nbsp;Investing &amp; Markets</h3>
           <div class="pod-links-container">
@@ -437,7 +587,6 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
           </div>
         </div>
 
-        <!-- Box 3: Economics -->
         <div class="pod-master-card">
           <h3>🌐 &nbsp;Economics &amp; Ideas</h3>
           <div class="pod-links-container">
@@ -455,17 +604,12 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
             </a>
           </div>
         </div>
-
-      </div> <!-- End 3 Master Boxes Grid -->
-
-    </div>
+      </div> </div>
   </section>
 
-</div> <!-- End Avocation Mega-Section Wrapper -->
-
-<div class="container">
+</div> <div class="container">
 <section id="contact">
-<h2 class="section-title">Connect</h2>
+<h2 class="section-title fade-in-up">Connect</h2>
 <div class="contact">
 <a href="https://www.linkedin.com/in/pratikdeshmukh1/" target="_blank">LinkedIn</a>
 <a href="https://github.com/pratikdeshmukh01" target="_blank">GitHub</a>
@@ -523,7 +667,8 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
       x:(window.innerWidth/18)*i+(window.innerWidth/36),
       y:80+Math.random()*(window.innerHeight-220),
       bH:28+Math.random()*80,bW:14+Math.random()*12,
-      bullish:bul,op:0.10+Math.random()*0.14,
+      bullish:bul,
+      op:0.25+Math.random()*0.25, // UPGRADE: Opacity doubled for intense glow
       ph:Math.random()*Math.PI*2,spd:0.004+Math.random()*0.005
     };
     c.wT=c.bH*(0.3+Math.random()*0.5);
@@ -539,10 +684,17 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
       const fy=Math.sin(t*c.spd+c.ph)*5;
       const cy=c.y+fy;
       const col=c.bullish?`rgba(34,197,94,${c.op})`:`rgba(239,68,68,${c.op})`;
+      
+      // UPGRADE: Native shadowBlur for the glowing terminal effect
+      ctx.shadowBlur = 15;
+      ctx.shadowColor = col;
+
       ctx.strokeStyle=col; ctx.lineWidth=1.5;
       ctx.beginPath(); ctx.moveTo(c.x,cy-c.bH/2-c.wT); ctx.lineTo(c.x,cy+c.bH/2+c.wB); ctx.stroke();
       ctx.fillStyle=col;
       ctx.fillRect(c.x-c.bW/2,cy-c.bH/2,c.bW,c.bH);
+
+      ctx.shadowBlur = 0; // Reset
     });
     requestAnimationFrame(draw);
   }
@@ -918,6 +1070,72 @@ Beyond finance, I bring multilingual communication skills in English, Spanish, M
   }
   draw();
 })();
+
+// ══════════════════════════════════════════
+// SCROLL PROGRESS BAR
+// ══════════════════════════════════════════
+(function(){
+  const bar = document.getElementById('scroll-progress');
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    bar.style.width = pct + '%';
+  }, { passive: true });
+})();
+
+// ══════════════════════════════════════════
+// DARK / LIGHT MODE TOGGLE
+// ══════════════════════════════════════════
+(function(){
+  const btn = document.getElementById('theme-toggle');
+  const STORAGE_KEY = 'pd-theme';
+  let isLight = localStorage.getItem(STORAGE_KEY) === 'light';
+
+  function applyTheme(){
+    if(isLight){
+      document.body.classList.add('light-mode');
+      btn.textContent = '☀️';
+      btn.title = 'Switch to dark mode';
+    } else {
+      document.body.classList.remove('light-mode');
+      btn.textContent = '🌙';
+      btn.title = 'Switch to light mode';
+    }
+  }
+
+  applyTheme();
+
+  btn.addEventListener('click', () => {
+    isLight = !isLight;
+    localStorage.setItem(STORAGE_KEY, isLight ? 'light' : 'dark');
+    applyTheme();
+  });
+})();
+
+// ══════════════════════════════════════════
+// SECTION FADE-IN ANIMATIONS
+// ══════════════════════════════════════════
+(function(){
+  // Add staggered delay classes to cards within grids
+  document.querySelectorAll('.grid, .pod-master-grid').forEach(grid => {
+    grid.querySelectorAll('.fade-in-up').forEach((el, i) => {
+      el.classList.add('delay-' + Math.min(i + 1, 5));
+    });
+  });
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+})();
+
 </script>
 </body>
 </html>
