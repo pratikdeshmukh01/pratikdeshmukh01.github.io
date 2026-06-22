@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pratik Deshmukh | Researching Businesses. Studying Markets. Thinking Long Term.</title>
+<!-- Explicitly importing Noto Sans Devanagari alongside Inter and Playfair for pristine Indian script rendering -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 <style>
 /* ════════════ BASE & TYPOGRAPHY ════════════ */
@@ -21,6 +22,7 @@ body{
 body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);z-index:-3}
 .container{max-width:1200px;margin:auto;padding:0 24px}
 
+/* Frosted glass shield reserved exclusively for text blocks */
 .text-mat {
   position:relative;
   z-index:2;
@@ -142,60 +144,58 @@ body.theme-podcast .bg-bull, body.theme-podcast .bg-bear, body.theme-podcast #ma
 .archive-header h2 { font-size:4rem; font-family:"Playfair Display",serif; color:#fff; letter-spacing: -0.5px; }
 .archive-header p { color:#94a3b8; font-size:1.2rem; max-width:700px; margin:15px auto 0; }
 
-/* ════════════ WORDS SECTION STYLES ════════════ */
+/* ════════════ WORDS SECTION STYLES (ISO MONOLITH) ════════════ */
 #words { background: #0e0b08; }
 .words-content { max-width: 860px; }
 #words .section-title { color: #d4a853; font-family: "Playfair Display", serif; }
 #words .section-subtitle { text-align: center; color: #a08060; font-size: 1.05rem; margin: -30px auto 50px; max-width: 600px; line-height: 1.7; font-style: italic; }
 
-.words-tabs { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 48px; }
-.words-tab { padding: 9px 22px; border-radius: 999px; border: 1px solid rgba(212,168,83,0.2); background: rgba(212,168,83,0.04); color: #a08060; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
-.words-tab:hover { border-color: rgba(212,168,83,0.5); color: #d4a853; }
-.words-tab.active { background: rgba(212,168,83,0.14); border-color: #d4a853; color: #d4a853; box-shadow: 0 0 20px rgba(212,168,83,0.1); }
+.words-tabs { display: flex; justify-content: center; gap: 14px; flex-wrap: wrap; margin-bottom: 48px; }
+.words-tab { padding: 8px 20px; border-radius: 6px; border: 1px solid rgba(212,168,83,0.25); background: rgba(212,168,83,0.05); color: #a08060; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.05em; cursor: pointer; transition: all 0.25s ease; font-family: monospace; }
+.words-tab:hover { border-color: rgba(212,168,83,0.6); color: #d4a853; background: rgba(212,168,83,0.1); }
+.words-tab.active { background: rgba(212,168,83,0.2); border-color: #d4a853; color: #d4a853; box-shadow: 0 0 15px rgba(212,168,83,0.2); font-weight: 700; }
 
 .words-panel { display: none; }
 .words-panel.active { display: block; }
 
-.poem-card { background: rgba(20,14,8,0.85); border: 1px solid rgba(212,168,83,0.12); border-radius: 16px; padding: 40px 44px; margin-bottom: 28px; position: relative; backdrop-filter: blur(6px); transition: 0.35s; }
-.poem-card:hover { border-color: rgba(212,168,83,0.3); box-shadow: 0 12px 40px rgba(0,0,0,0.4); }
-.poem-card::before { content: '"'; position: absolute; top: 12px; left: 24px; font-size: 5rem; color: rgba(212,168,83,0.08); font-family: "Playfair Display", serif; line-height: 1; }
-.poem-lines { font-family: "Playfair Display", serif; font-size: 1.3rem; color: #e8dcc8; line-height: 1.9; margin-bottom: 20px; font-style: italic; text-align: center; }
+.poem-card { background: rgba(20,14,8,0.85); border: 1px solid rgba(212,168,83,0.15); border-radius: 12px; padding: 40px 44px; margin-bottom: 28px; position: relative; backdrop-filter: blur(6px); transition: 0.35s; }
+.poem-card:hover { border-color: rgba(212,168,83,0.4); box-shadow: 0 12px 40px rgba(0,0,0,0.5); }
+.poem-card::before { content: '"'; position: absolute; top: 10px; left: 20px; font-size: 5rem; color: rgba(212,168,83,0.08); font-family: "Playfair Display", serif; line-height: 1; }
+.poem-lines { font-family: "Playfair Display", serif; font-size: 1.35rem; color: #e8dcc8; line-height: 1.9; margin-bottom: 20px; font-style: italic; text-align: center; }
 .poem-lines.devanagari { font-family: "Noto Sans Devanagari", "Mangal", serif; font-size: 1.3rem; font-style: normal; line-height: 2.1; font-weight: 500; }
 .poem-divider { width: 48px; height: 1px; background: rgba(212,168,83,0.3); margin: 0 auto 14px; }
 .poem-author { text-align: center; color: #d4a853; font-size: 0.85rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 .poem-type { text-align: center; color: rgba(212,168,83,0.4); font-size: 0.75rem; letter-spacing: 0.08em; margin-bottom: 16px; text-transform: uppercase; }
 
-.words-coming { text-align: center; padding: 60px 20px; color: rgba(212,168,83,0.3); font-style: italic; font-size: 1.05rem; border: 1px dashed rgba(212,168,83,0.12); border-radius: 16px; }
-.words-coming span { display: block; font-size: 2rem; margin-bottom: 12px; }
+.words-coming { text-align: center; padding: 50px 20px; color: rgba(212,168,83,0.4); font-style: italic; font-size: 1.05rem; border: 1px dashed rgba(212,168,83,0.2); border-radius: 12px; font-family: monospace; }
 
 /* ════════════ TRAVEL SECTION — REDESIGN ════════════ */
 #travel { background: #020b18; }
 #travel .section-title { color: #38bdf8; }
 .travel-places { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 auto 50px; max-width: 850px; position:relative; z-index:2; }
-.travel-place { padding: 8px 18px; border-radius: 999px; background: rgba(56,189,248,0.08); border: 1px solid rgba(56,189,248,0.2); color: #7dd3fc; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.02em; cursor: default; transition: 0.3s; }
-.travel-place:hover { background: rgba(56,189,248,0.15); border-color: rgba(56,189,248,0.5); color: #38bdf8; }
+.travel-place { padding: 6px 16px; border-radius: 4px; background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.25); color: #7dd3fc; font-size: 0.9rem; font-family: monospace; font-weight: 500; letter-spacing: 0.05em; cursor: default; transition: 0.3s; }
+.travel-place:hover { background: rgba(56,189,248,0.15); border-color: #38bdf8; color: #fff; }
 
 .travel-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; margin-top: 20px; position:relative; z-index:2; }
-.travel-card { background: rgba(2,15,35,0.75); border: 1px solid rgba(56,189,248,0.15); border-radius: 14px; padding: 32px 24px; backdrop-filter: blur(8px); transition: 0.35s; }
-.travel-card:hover { border-color: rgba(56,189,248,0.45); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,30,60,0.5); }
-.travel-card .t-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
-.travel-card h3 { color: #38bdf8; font-size: 1.25rem; margin-bottom: 8px; font-family:"Playfair Display",serif; }
+.travel-card { background: rgba(2,15,35,0.75); border: 1px solid rgba(56,189,248,0.15); border-radius: 12px; padding: 32px 24px; backdrop-filter: blur(8px); transition: 0.35s; }
+.travel-card:hover { border-color: rgba(56,189,248,0.5); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,30,60,0.5); }
+.travel-card h3 { color: #38bdf8; font-size: 1.25rem; margin-bottom: 8px; font-family:"Playfair Display",serif; letter-spacing: 0.02em; }
 .travel-card p { color: #7dd3fc; font-size: 0.95rem; line-height: 1.7; margin: 0; opacity: 0.85; }
-.travel-card .t-coords { font-size: 0.8rem; color: rgba(56,189,248,0.45); margin-top: 15px; font-family: monospace; }
+.travel-card .t-coords { font-size: 0.8rem; color: rgba(56,189,248,0.5); margin-top: 15px; font-family: monospace; letter-spacing: 0.05em; }
 
-/* Podcasts (Learning Archive - Pure Links Directory) */
+/* Podcasts (Learning Archive - Institutional Monolith) */
 #podcasts { background: #0a0a0f; }
 #podcasts .section-title { color:#f472b6; }
 .pod-master-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:28px; margin-top:40px; position:relative; z-index:2; }
-.pod-master-card { background:rgba(10,10,18,0.85); border:1px solid rgba(244,114,182,0.25); backdrop-filter:blur(16px); padding:36px 28px; border-radius:16px; display:flex; flex-direction:column; gap:24px; transition:transform 0.35s ease, border-color 0.35s ease; }
+.pod-master-card { background:rgba(10,10,18,0.85); border:1px solid rgba(244,114,182,0.25); backdrop-filter:blur(16px); padding:36px 28px; border-radius:12px; display:flex; flex-direction:column; gap:24px; transition:transform 0.35s ease, border-color 0.35s ease; }
 .pod-master-card:hover { transform:translateY(-8px); border-color:rgba(244,114,182,0.6); box-shadow:0 20px 40px rgba(236,72,153,.15); }
-.pod-master-card h3 { color:#f9a8d4; font-size:1.25rem; font-family:"Playfair Display",serif; text-align:center; margin-bottom:5px; border-bottom:1px solid rgba(244,114,182,0.15); padding-bottom:15px; }
+.pod-master-card h3 { color:#f9a8d4; font-size:1.15rem; font-family:"Inter",sans-serif; font-weight:700; letter-spacing:0.05em; text-align:center; margin-bottom:5px; border-bottom:1px solid rgba(244,114,182,0.15); padding-bottom:15px; }
 
 .pod-links-container { display:flex; flex-direction:column; gap:14px; }
-.pod-link-pill { display:flex; justify-content:space-between; align-items:center; background:rgba(244,114,182,0.08); border:1px solid rgba(244,114,182,0.2); padding:16px 20px; border-radius:10px; text-decoration:none; transition:all 0.25s ease; }
-.pod-link-pill:hover { background:rgba(244,114,182,0.2); border-color:#f472b6; transform:translateX(4px); }
-.pod-link-name { color:#fff; font-weight:600; font-size:1.05rem; }
-.pod-link-host { color:#f472b6; font-size:0.9rem; font-weight:600; }
+.pod-link-pill { display:flex; justify-content:space-between; align-items:center; background:rgba(244,114,182,0.05); border:1px solid rgba(244,114,182,0.2); padding:16px 20px; border-radius:8px; text-decoration:none; transition:all 0.25s ease; }
+.pod-link-pill:hover { background:rgba(244,114,182,0.18); border-color:#f472b6; transform:translateX(4px); }
+.pod-link-name { color:#fff; font-weight:600; font-size:1.05rem; font-family:"Playfair Display",serif; }
+.pod-link-host { color:#f472b6; font-size:0.85rem; font-weight:600; font-family:monospace; }
 
 /* ════════════ SCROLL PROGRESS BAR ════════════ */
 #scroll-progress { position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(90deg, #c9a227, #f0c940, #c9a227); z-index: 9999; transition: width 0.1s linear; box-shadow: 0 0 8px rgba(201,162,39,0.6); }
@@ -231,6 +231,21 @@ body.light-mode .carousel-quote cite { color: #9a7a10; }
 body.light-mode .bg-bull svg path { fill: #b8890f; }
 body.light-mode .bg-bear svg path { fill: #6a7a8a; }
 body.light-mode #market-canvas { opacity: 0.35; }
+body.light-mode .words-tab { background: rgba(154,122,16,0.05); border-color: rgba(154,122,16,0.3); color: #6a6a8a; }
+body.light-mode .words-tab.active { background: rgba(154,122,16,0.15); border-color: #9a7a10; color: #9a7a10; }
+body.light-mode .poem-card { background: rgba(245,240,232,0.9); border-color: rgba(154,122,16,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+body.light-mode .poem-lines { color: #1a1a2e; }
+body.light-mode .poem-author { color: #9a7a10; }
+body.light-mode .poem-type { color: #6a6a8a; }
+body.light-mode .travel-card { background: rgba(245,240,232,0.9); border-color: rgba(154,122,16,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+body.light-mode .travel-card h3 { color: #1a1a2e; }
+body.light-mode .travel-card p { color: #4a4a6a; }
+body.light-mode .travel-place { color: #4a4a6a; border-color: rgba(154,122,16,0.25); background: rgba(154,122,16,0.05); }
+body.light-mode .pod-master-card { background: rgba(245,240,232,0.9); border-color: rgba(154,122,16,0.3); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+body.light-mode .pod-master-card h3 { color: #1a1a2e; border-bottom-color: rgba(0,0,0,0.1); }
+body.light-mode .pod-link-pill { background: #fff; border-color: rgba(154,122,16,0.25); }
+body.light-mode .pod-link-name { color: #1a1a2e; }
+body.light-mode .pod-link-host { color: #9a7a10; }
 
 /* ════════════ LANGUAGE BADGE ════════════ */
 .lang-bar { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin: 28px auto 0; max-width: 500px; }
@@ -299,6 +314,7 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 <a href="#research" class="nav-link">Research</a>
 <a href="#reading" class="nav-link">Library</a>
 <a href="#archive" class="nav-link">Avocation</a>
+<a href="#words" class="nav-link">Words</a>
 <a href="#contact" class="nav-link">Connect</a>
 </nav>
 
@@ -450,7 +466,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
     <p>A deeper exploration into the disciplines, places, and voices that shape my broader worldview.</p>
   </div>
 
-  <!-- ══ WORDS SECTION ══ -->
+  <!-- ══ WORDS SECTION (INSTITUTIONAL MONOLITH) ══ -->
   <section id="words">
     <canvas id="words-canvas"></canvas>
     <div class="words-content">
@@ -459,18 +475,17 @@ Beyond finance, I bring multilingual communication skills across four languages:
         Some things can only be said in a certain language, at a certain hour, in a certain mood.
       </p>
 
-      <!-- Language Tabs — UPGRADE: Dedicated Sanskrit tab explicitly parked at the front -->
+      <!-- Language Tabs — UPGRADE: ISO Lexicon styling paired to bulletproof dataset mapping -->
       <div class="words-tabs">
-        <button class="words-tab active" data-lang="sa">🇮🇳 &nbsp; Sanskrit</button>
-<button class="words-tab" data-lang="hi">🇮🇳 &nbsp; Hindi</button>
-<button class="words-tab" data-lang="mr">🇮🇳 &nbsp; Marathi</button>
-<button class="words-tab" data-lang="en">🇬🇧 &nbsp; English</button>
-<button class="words-tab" data-lang="es">🇪🇸 &nbsp; Spanish</button>
-
+        <button class="words-tab active" data-lang="sk">[ SK ] Sanskrit</button>
+        <button class="words-tab" data-lang="hi">[ HI ] Hindi</button>
+        <button class="words-tab" data-lang="mr">[ MR ] Marathi</button>
+        <button class="words-tab" data-lang="en">[ EN ] English</button>
+        <button class="words-tab" data-lang="es">[ ES ] Spanish</button>
       </div>
 
       <!-- SANSKRIT PANEL -->
-      <div class="words-panel active" id="panel-sanskrit">
+      <div class="words-panel active" id="panel-sk">
         <div class="poem-card fade-in-up">
           <div class="poem-type">Shloka · Bhagavad Gita</div>
           <div class="poem-lines devanagari">
@@ -489,13 +504,12 @@ Beyond finance, I bring multilingual communication skills across four languages:
           <div class="poem-author">Katha Upanishad · 1.3.14</div>
         </div>
         <div class="words-coming">
-          <span>✍️</span>
           More timeless Sanskrit verses to be archived here.
         </div>
       </div>
 
       <!-- HINDI PANEL -->
-      <div class="words-panel" id="panel-hindi">
+      <div class="words-panel" id="panel-hi">
         <div class="poem-card fade-in-up">
           <div class="poem-type">Doha · Kabir Das</div>
           <div class="poem-lines devanagari">
@@ -528,13 +542,12 @@ Beyond finance, I bring multilingual communication skills across four languages:
           <div class="poem-author">Rahat Indori</div>
         </div>
         <div class="words-coming">
-          <span>✍️</span>
           More lines will be added here — words that stop you mid-page.
         </div>
       </div>
 
       <!-- MARATHI PANEL -->
-      <div class="words-panel" id="panel-marathi">
+      <div class="words-panel" id="panel-mr">
         <div class="poem-card fade-in-up">
           <div class="poem-type">Abhang · Sant Tukaram</div>
           <div class="poem-lines devanagari">
@@ -563,13 +576,12 @@ Beyond finance, I bring multilingual communication skills across four languages:
           <div class="poem-author">Kusumagraj (V. V. Shirwadkar)</div>
         </div>
         <div class="words-coming">
-          <span>✍️</span>
           अजून बरेच शब्द यायचे आहेत इथे — तुमचे आवडते.
         </div>
       </div>
 
       <!-- ENGLISH PANEL -->
-      <div class="words-panel" id="panel-english">
+      <div class="words-panel" id="panel-en">
         <div class="poem-card fade-in-up">
           <div class="poem-type">Poetry · Rudyard Kipling</div>
           <div class="poem-lines">
@@ -605,13 +617,12 @@ Beyond finance, I bring multilingual communication skills across four languages:
           <div class="poem-author">Robert Frost · The Road Not Taken</div>
         </div>
         <div class="words-coming">
-          <span>✍️</span>
           More lines to be added — words that changed something.
         </div>
       </div>
 
       <!-- SPANISH PANEL -->
-      <div class="words-panel" id="panel-spanish">
+      <div class="words-panel" id="panel-es">
         <div class="poem-card fade-in-up">
           <div class="poem-type">Poema · Pablo Neruda</div>
           <div class="poem-lines">
@@ -635,7 +646,6 @@ Beyond finance, I bring multilingual communication skills across four languages:
           <div class="poem-author">Jorge Luis Borges</div>
         </div>
         <div class="words-coming">
-          <span>✍️</span>
           Más palabras vendrán — las que no se olvidan.
         </div>
       </div>
@@ -724,7 +734,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
     </div>
   </section>
 
-  <!-- ══ LEARNING ARCHIVE (PODCASTS) ══ -->
+  <!-- ══ LEARNING ARCHIVE (PODCASTS - INSTITUTIONAL MONOLITH) ══ -->
   <section id="podcasts">
     <canvas id="pod-canvas"></canvas>
     <div class="pod-content">
@@ -734,9 +744,9 @@ Beyond finance, I bring multilingual communication skills across four languages:
       </p>
 
       <div class="pod-master-grid">
-        <!-- Box 1: Founders -->
+        <!-- Box I: Founders -->
         <div class="pod-master-card fade-in-up">
-          <h3>🏛️ &nbsp;Founders &amp; Entrepreneurship</h3>
+          <h3>I. &nbsp;FOUNDERS &amp; ENTREPRENEURSHIP</h3>
           <div class="pod-links-container">
             <a href="https://www.founderspodcast.com/" target="_blank" class="pod-link-pill">
               <span class="pod-link-name">Founders</span>
@@ -749,9 +759,9 @@ Beyond finance, I bring multilingual communication skills across four languages:
           </div>
         </div>
 
-        <!-- Box 2: Investing -->
+        <!-- Box II: Investing -->
         <div class="pod-master-card fade-in-up">
-          <h3>📈 &nbsp;Investing &amp; Markets</h3>
+          <h3>II. &nbsp;INVESTING &amp; MARKETS</h3>
           <div class="pod-links-container">
             <a href="https://www.theinvestorspodcast.com/we-study-billionaires/" target="_blank" class="pod-link-pill">
               <span class="pod-link-name">We Study Billionaires</span>
@@ -768,9 +778,9 @@ Beyond finance, I bring multilingual communication skills across four languages:
           </div>
         </div>
 
-        <!-- Box 3: Economics -->
+        <!-- Box III: Economics -->
         <div class="pod-master-card fade-in-up">
-          <h3>🌐 &nbsp;Economics &amp; Ideas</h3>
+          <h3>III. &nbsp;ECONOMICS &amp; IDEAS</h3>
           <div class="pod-links-container">
             <a href="https://seenunseen.in/" target="_blank" class="pod-link-pill">
               <span class="pod-link-name">The Seen and the Unseen</span>
@@ -1382,7 +1392,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
 })();
 
 // ══════════════════════════════════════════
-// SECTION FADE-IN ANIMATIONS
+// SECTION FADE-IN ANIMATIONS (BULLETPROOF TRIGGER)
 // ══════════════════════════════════════════
 (function(){
   document.querySelectorAll('.grid, .pod-master-grid, .travel-grid').forEach(grid => {
@@ -1391,6 +1401,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
     });
   });
 
+  // Upgraded rootMargin to trigger early before bottom limit lockout
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -1398,7 +1409,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  }, { threshold: 0, rootMargin: '200px 0px 200px 0px' });
 
   document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 })();
