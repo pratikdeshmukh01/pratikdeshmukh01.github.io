@@ -696,85 +696,161 @@ Beyond finance, I bring multilingual communication skills across four languages:
   </section>
 
   <!-- ══ TRAVEL SECTION — RESTORED 9-CARD MASTER ══ -->
-  <section id="travel">
-    <canvas id="travel-canvas"></canvas>
-    <div class="travel-content">
-      <h2 class="section-title fade-in-up">Travel</h2>
-      <p style="text-align:center;color:#7dd3fc;max-width:750px;margin:0 auto 10px;line-height:1.8;font-size:1.15rem;" class="fade-in-up">
-        Geography shapes perspective. From the extreme altitudes of the Himalayas to the structural density of India's commercial hubs, every expedition acts as a lens into human and economic behavior.
-      </p>
-      <div class="travel-places">
-        <span class="travel-place">🏔 Badrinath Dham</span>
-        <span class="travel-place">🌿 Mana Village</span>
-        <span class="travel-place">🕉 Ujjain</span>
-        <span class="travel-place">🏙 Pune</span>
-        <span class="travel-place">🌆 Nagpur</span>
-        <span class="travel-place">🌊 Chennai</span>
-        <span class="travel-place">🐚 Rameshwaram</span>
-        <span class="travel-place">🌄 Rishikesh</span>
-        <span class="travel-place">🌊 Puri</span>
-        <span class="travel-place">🪔 Kashi</span>
-        <span class="travel-place">🏹 Ayodhya</span>
-        <span class="travel-place">🛕 Madurai</span>
-      </div>
-      <div class="travel-grid">
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🏔️</span>
+  <style>
+/* Scoped CSS for the new Photo Cards */
+.travel-card { background: rgba(2,15,35,0.75); border: 1px solid rgba(56,189,248,0.15); border-radius: 12px; overflow: hidden; backdrop-filter: blur(8px); transition: 0.35s; display: flex; flex-direction: column; text-decoration: none; }
+.travel-card:hover { border-color: rgba(56,189,248,0.5); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,30,60,0.5); }
+.t-img-wrap { width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(56,189,248,0.15); position: relative; background: #010810; }
+.t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: block; opacity: 0.85; }
+.travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
+.t-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; position: relative; z-index: 2; background: rgba(2,15,35,0.9); }
+.t-content h3 { color: #38bdf8; font-size: 1.25rem; margin-bottom: 8px; font-family:"Playfair Display",serif; letter-spacing: 0.02em; }
+.t-content p { color: #7dd3fc; font-size: 0.95rem; line-height: 1.7; margin: 0; opacity: 0.85; }
+.t-coords { font-size: 0.8rem; color: rgba(56,189,248,0.5); margin-top: 15px; font-family: monospace; letter-spacing: 0.05em; }
+
+/* Light Mode Overrides */
+body.light-mode .travel-card { background: rgba(245,240,232,0.9); border-color: rgba(154,122,16,0.25); box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+body.light-mode .t-content { background: rgba(245,240,232,0.95); }
+body.light-mode .t-content h3 { color: #1a1a2e; }
+body.light-mode .t-content p { color: #4a4a6a; }
+body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); background: #e5e0d8; }
+</style>
+
+<section id="travel">
+  <canvas id="travel-canvas"></canvas>
+  <div class="travel-content">
+    <h2 class="section-title fade-in-up">Travel</h2>
+    <p style="text-align:center;color:#7dd3fc;max-width:750px;margin:0 auto 10px;line-height:1.8;font-size:1.15rem;" class="fade-in-up">
+      Geography shapes perspective. From the extreme altitudes of the Himalayas to the structural density of India's commercial hubs, every expedition acts as a lens into human and economic behavior.
+    </p>
+    
+    <div class="travel-places">
+      <span class="travel-place">🏔 Badrinath Dham</span>
+      <span class="travel-place">🌿 Mana Village</span>
+      <span class="travel-place">🕉 Ujjain</span>
+      <span class="travel-place">🏙 Pune</span>
+      <span class="travel-place">🌆 Nagpur</span>
+      <span class="travel-place">🌊 Chennai</span>
+      <span class="travel-place">🐚 Rameshwaram</span>
+      <span class="travel-place">🌄 Rishikesh</span>
+      <span class="travel-place">🌊 Puri</span>
+      <span class="travel-place">🪔 Kashi</span>
+      <span class="travel-place">🏹 Ayodhya</span>
+      <span class="travel-place">🛕 Madurai</span>
+    </div>
+    
+    <div class="travel-grid">
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="badrinath.jpg" alt="Badrinath Dham" loading="lazy"></div>
+        <div class="t-content">
           <h3>Badrinath Dham</h3>
           <p>At 3,133m in the Garhwal Himalayas — where devotion meets the raw edge of the world. One of the Char Dham, and one of the most transformative journeys of my life.</p>
           <div class="t-coords">30.7433° N, 79.4938° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🌿</span>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="mana.jpg" alt="Mana Village" loading="lazy"></div>
+        <div class="t-content">
           <h3>Mana Village</h3>
           <p>The last inhabited village before the Indo-Tibet border. A place that feels like the edge of the map — where India ends and the mountains take over.</p>
           <div class="t-coords">30.7798° N, 79.5631° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🕉️</span>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="ujjain.jpg" alt="Ujjain" loading="lazy"></div>
+        <div class="t-content">
           <h3>Ujjain</h3>
           <p>One of the seven sacred cities of India. Home of the Mahakaleshwar Jyotirlinga — a city where time feels different, older, slower, more permanent.</p>
           <div class="t-coords">23.1765° N, 75.7885° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🌄</span>
+      </div>
+
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="pune.jpg" alt="Pune" loading="lazy"></div>
+        <div class="t-content">
+          <h3>Pune</h3>
+          <p>The cultural and IT hub of Maharashtra. A city that perfectly balances deep-rooted Maratha history with rapid modern economic growth and institutional scaling.</p>
+          <div class="t-coords">18.5204° N, 73.8567° E</div>
+        </div>
+      </div>
+
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="nagpur.jpg" alt="Nagpur" loading="lazy"></div>
+        <div class="t-content">
+          <h3>Nagpur</h3>
+          <p>The winter capital and the geographic center of India. A key logistical and commercial pivot point anchored right at the Zero Mile marker.</p>
+          <div class="t-coords">21.1458° N, 79.0882° E</div>
+        </div>
+      </div>
+
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="chennai.jpg" alt="Chennai" loading="lazy"></div>
+        <div class="t-content">
+          <h3>Chennai</h3>
+          <p>The Detroit of India. A massive industrial and cultural powerhouse anchored by the vast expanse of the Marina Beach and deep architectural heritage.</p>
+          <div class="t-coords">13.0827° N, 80.2707° E</div>
+        </div>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="rameshwaram.jpg" alt="Rameshwaram" loading="lazy"></div>
+        <div class="t-content">
+          <h3>Rameshwaram</h3>
+          <p>Where the land meets the sea and the legend of Ram Setu begins. The Ramanathaswamy Temple corridors are a kilometre of pillars and prayer.</p>
+          <div class="t-coords">9.2876° N, 79.3129° E</div>
+        </div>
+      </div>
+
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="rishikesh.jpg" alt="Rishikesh" loading="lazy"></div>
+        <div class="t-content">
           <h3>Rishikesh</h3>
           <p>The Yoga Capital of the World, where the Ganga descends from the mountains into the plains. A city of seekers and sadhus, bridges and bells.</p>
           <div class="t-coords">30.0869° N, 78.2676° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🪔</span>
+      </div>
+
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="puri.jpg" alt="Puri" loading="lazy"></div>
+        <div class="t-content">
+          <h3>Puri</h3>
+          <p>Home of the Jagannath Temple and the great Rath Yatra. Standing before the sea here is different — the Bay of Bengal carries a particular vastness.</p>
+          <div class="t-coords">19.8135° N, 85.8312° E</div>
+        </div>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="kashi.jpg" alt="Kashi (Varanasi)" loading="lazy"></div>
+        <div class="t-content">
           <h3>Kashi (Varanasi)</h3>
-          <p>The oldest living city in the world. Every evening the Ganga Aarti at Dashashwamedh Ghat is a reminder that some traditions outlast everything — empires, ideologies, time itself.</p>
+          <p>The oldest living city in the world. Every evening the Ganga Aarti at Dashashwamedh Ghat is a reminder that some traditions outlast everything.</p>
           <div class="t-coords">25.3176° N, 82.9739° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🏹</span>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="ayodhya.jpg" alt="Ayodhya" loading="lazy"></div>
+        <div class="t-content">
           <h3>Ayodhya</h3>
           <p>The birthplace of Shri Ram — a city that carries the weight of civilisation in its very soil. To walk here is to walk through thousands of years of cultural memory.</p>
           <div class="t-coords">26.7922° N, 82.1998° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🐚</span>
-          <h3>Rameshwaram</h3>
-          <p>Where the land meets the sea and the legend of Ram Setu begins. The Ramanathaswamy Temple corridors are the longest in the world — a kilometre of pillars and prayer.</p>
-          <div class="t-coords">9.2876° N, 79.3129° E</div>
-        </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🛕</span>
+      </div>
+      
+      <div class="travel-card fade-in-up">
+        <div class="t-img-wrap"><img src="madurai.jpg" alt="Madurai" loading="lazy"></div>
+        <div class="t-content">
           <h3>Madurai</h3>
           <p>The city that never sleeps — the Meenakshi Amman Temple towers over everything, its gopurams covered in thousands of sculpted figures, a city within a city.</p>
           <div class="t-coords">9.9252° N, 78.1198° E</div>
         </div>
-        <div class="travel-card fade-in-up">
-          <span class="t-icon">🌊</span>
-          <h3>Puri</h3>
-          <p>Home of the Jagannath Temple and the great Rath Yatra. Standing before the sea here is different — the Bay of Bengal carries a particular vastness that stills the mind.</p>
-          <div class="t-coords">19.8135° N, 85.8312° E</div>
-        </div>
       </div>
+      
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- ══ LEARNING ARCHIVE (PODCASTS - INSTITUTIONAL MONOLITH) ══ -->
   <section id="podcasts">
