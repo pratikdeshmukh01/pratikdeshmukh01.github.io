@@ -325,7 +325,8 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
   overflow: hidden;
   border-radius: 12px 12px 0 0;
   background: #020b18;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
+  min-height: 320px;
 }
 .t-gallery-track {
   display: flex;
@@ -393,7 +394,7 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 }
 
 /* Keep old t-img-wrap for cards without gallery */
-.t-img-wrap { overflow: hidden; aspect-ratio: 4/3; border-radius: 12px 12px 0 0; }
+.t-img-wrap { overflow: hidden; aspect-ratio: 3/2; min-height: 320px; border-radius: 12px 12px 0 0; }
 .t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.5s ease; opacity: 0.85; }
 .travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
 
@@ -780,7 +781,7 @@ Beyond finance, I bring multilingual communication skills across four languages:
 /* Scoped CSS for the new Photo Cards */
 .travel-card { background: rgba(2,15,35,0.75); border: 1px solid rgba(56,189,248,0.15); border-radius: 12px; overflow: hidden; backdrop-filter: blur(8px); transition: 0.35s; display: flex; flex-direction: column; text-decoration: none; }
 .travel-card:hover { border-color: rgba(56,189,248,0.5); transform: translateY(-6px); box-shadow: 0 16px 40px rgba(0,30,60,0.5); }
-.t-img-wrap { width: 100%; height: 220px; overflow: hidden; border-bottom: 1px solid rgba(56,189,248,0.15); position: relative; background: #010810; }
+.t-img-wrap { width: 100%; height: 320px; overflow: hidden; border-bottom: 1px solid rgba(56,189,248,0.15); position: relative; background: #010810; }
 .t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94); display: block; opacity: 0.85; }
 .travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
 .t-content { padding: 24px; display: flex; flex-direction: column; flex-grow: 1; position: relative; z-index: 2; background: rgba(2,15,35,0.9); }
@@ -802,7 +803,8 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
   overflow: hidden;
   border-radius: 12px 12px 0 0;
   background: #020b18;
-  aspect-ratio: 4/3;
+  aspect-ratio: 3/2;
+  min-height: 320px;
 }
 .t-gallery-track {
   display: flex;
@@ -870,7 +872,7 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
 }
 
 /* Keep old t-img-wrap for cards without gallery */
-.t-img-wrap { overflow: hidden; aspect-ratio: 4/3; border-radius: 12px 12px 0 0; }
+.t-img-wrap { overflow: hidden; aspect-ratio: 3/2; min-height: 320px; border-radius: 12px 12px 0 0; }
 .t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.5s ease; opacity: 0.85; }
 .travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
 
