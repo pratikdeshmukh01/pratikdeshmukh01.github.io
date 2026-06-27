@@ -398,6 +398,35 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 .t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.5s ease; opacity: 0.85; }
 .travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
 
+
+/* ════════ WORDS ACCORDION SUBSECTIONS ════════ */
+.words-accordion { margin-bottom: 12px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,168,83,0.12); }
+.words-acc-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 22px; cursor: pointer;
+  background: rgba(20,14,8,0.7);
+  transition: background 0.25s;
+  user-select: none;
+}
+.words-acc-header:hover { background: rgba(212,168,83,0.08); }
+.words-acc-header.open { background: rgba(212,168,83,0.1); border-bottom: 1px solid rgba(212,168,83,0.12); }
+.words-acc-left { display: flex; align-items: center; gap: 12px; }
+.words-acc-icon { font-size: 1.2rem; }
+.words-acc-title { font-size: 1rem; font-weight: 600; color: #e8dcc8; }
+.words-acc-count { font-size: 0.72rem; color: rgba(212,168,83,0.5); background: rgba(212,168,83,0.08); padding: 2px 9px; border-radius: 999px; border: 1px solid rgba(212,168,83,0.15); }
+.words-acc-arrow { color: rgba(212,168,83,0.5); font-size: 0.85rem; transition: transform 0.3s ease; }
+.words-acc-header.open .words-acc-arrow { transform: rotate(180deg); color: #d4a853; }
+.words-acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+  padding: 0 20px;
+  background: rgba(14,11,8,0.6);
+}
+.words-acc-body.open {
+  max-height: 2000px;
+  padding: 20px 20px 8px;
+}
+
 </style>
 </head>
 <body>
@@ -609,168 +638,448 @@ Beyond finance, I bring multilingual communication skills across four languages:
 
       <!-- SANSKRIT PANEL -->
       <div class="words-panel active" id="panel-sk">
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Shloka · Bhagavad Gita</div>
-          <div class="poem-lines devanagari">
-            कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
-            मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।
+
+        <!-- Shloka -->
+        <div class="words-accordion">
+          <div class="words-acc-header open" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">📜</span>
+              <span class="words-acc-title">Shloka</span>
+              <span class="words-acc-count">2 verses</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Bhagavad Gita · 2.47</div>
-        </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Mantra · Katha Upanishad</div>
-          <div class="poem-lines devanagari">
-            उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत।
+          <div class="words-acc-body open">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Bhagavad Gita · 2.47</div>
+              <div class="poem-lines devanagari">
+                कर्मण्येवाधिकारस्ते मा फलेषु कदाचन।<br>
+                मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि।।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Bhagavad Gita</div>
+            </div>
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Katha Upanishad · 1.3.14</div>
+              <div class="poem-lines devanagari">
+                उत्तिष्ठत जाग्रत प्राप्य वरान्निबोधत।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Katha Upanishad</div>
+            </div>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Katha Upanishad · 1.3.14</div>
         </div>
-        <div class="words-coming">
-          More timeless Sanskrit verses to be archived here.
+
+        <!-- Mantra -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🕉️</span>
+              <span class="words-acc-title">Mantra</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🕉️</span>Timeless mantras to be added here.</div>
+          </div>
         </div>
+
+        <!-- Stotra -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🪔</span>
+              <span class="words-acc-title">Stotra</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🪔</span>Sacred stotras to be archived here.</div>
+          </div>
+        </div>
+
       </div>
 
       <!-- HINDI PANEL -->
       <div class="words-panel" id="panel-hi">
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Doha · Kabir Das</div>
-          <div class="poem-lines devanagari">
-            दुःख में सुमिरन सब करें, सुख में करें न कोय।<br>
-            जो सुख में सुमिरन करें, तो दुःख काहे को होय।।
+
+        <!-- Shayari -->
+        <div class="words-accordion">
+          <div class="words-acc-header open" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">✍️</span>
+              <span class="words-acc-title">Shayari</span>
+              <span class="words-acc-count">1 verse</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Kabir Das</div>
-        </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Kavita · Harivansh Rai Bachchan</div>
-          <div class="poem-lines devanagari">
-            तू न थकेगा कभी, तू न थमेगा कभी,<br>
-            तू न मुड़ेगा कभी—<br>
-            कर शपथ, कर शपथ, कर शपथ,<br>
-            अग्निपथ! अग्निपथ! अग्निपथ!
+          <div class="words-acc-body open">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Rahat Indori</div>
+              <div class="poem-lines devanagari">
+                बुलाती है मगर जाने का नहीं,<br>
+                ये दुनिया है यहाँ जाने का नहीं।<br>
+                ये दुनिया है यहाँ किसको पता है,<br>
+                कि क्या खोने का क्या पाने का नहीं।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Rahat Indori</div>
+            </div>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Harivansh Rai Bachchan</div>
         </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Shayari · Rahat Indori</div>
-          <div class="poem-lines devanagari">
-            बुलाती है मगर जाने का नहीं,<br>
-            ये दुनिया है यहाँ जाने का नहीं।<br>
-            ये दुनिया है यहाँ किसको पता है,<br>
-            कि क्या खोने का क्या पाने का नहीं।
+
+        <!-- Kavita -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">📖</span>
+              <span class="words-acc-title">Kavita</span>
+              <span class="words-acc-count">1 poem</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Rahat Indori</div>
+          <div class="words-acc-body">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Harivansh Rai Bachchan</div>
+              <div class="poem-lines devanagari">
+                तू न थकेगा कभी, तू न थमेगा कभी,<br>
+                तू न मुड़ेगा कभी—<br>
+                कर शपथ, कर शपथ, कर शपथ,<br>
+                अग्निपथ! अग्निपथ! अग्निपथ!
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Harivansh Rai Bachchan</div>
+            </div>
+          </div>
         </div>
-        <div class="words-coming">
-          More lines will be added here — words that stop you mid-page.
+
+        <!-- Doha -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🪷</span>
+              <span class="words-acc-title">Doha</span>
+              <span class="words-acc-count">1 doha</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Kabir Das</div>
+              <div class="poem-lines devanagari">
+                दुःख में सुमिरन सब करें, सुख में करें न कोय।<br>
+                जो सुख में सुमिरन करें, तो दुःख काहे को होय।।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Kabir Das</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Bhajan -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🎵</span>
+              <span class="words-acc-title">Bhajan</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🎵</span>Favourite bhajans to be added here.</div>
+          </div>
+        </div>
+
+        <!-- Gane -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🎶</span>
+              <span class="words-acc-title">Gane</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🎶</span>Favourite Hindi songs and lyrics to be added here.</div>
+          </div>
+        </div>
+
       </div>
 
       <!-- MARATHI PANEL -->
       <div class="words-panel" id="panel-mr">
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Abhang · Sant Tukaram</div>
-          <div class="poem-lines devanagari">
-            वृक्षवल्ली आम्हा सोयरे वनचरे।<br>
-            पक्षीही सुस्वरे आळविती।।
+
+        <!-- Kavita -->
+        <div class="words-accordion">
+          <div class="words-acc-header open" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">📖</span>
+              <span class="words-acc-title">Kavita</span>
+              <span class="words-acc-count">2 poems</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Sant Tukaram Maharaj</div>
-        </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Kavita · Suresh Bhat</div>
-          <div class="poem-lines devanagari">
-            रात्र वेडी काळोखाची, सूर झाले आसवांचे,<br>
-            स्वप्न माझे विझत गेले, दीप डोळ्यांतील साचे।
+          <div class="words-acc-body open">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Suresh Bhat</div>
+              <div class="poem-lines devanagari">
+                रात्र वेडी काळोखाची, सूर झाले आसवांचे,<br>
+                स्वप्न माझे विझत गेले, दीप डोळ्यांतील साचे।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Suresh Bhat</div>
+            </div>
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Kusumagraj</div>
+              <div class="poem-lines devanagari">
+                जे न देखे रवि, ते देखे कवि —<br>
+                जे न देखे कवि, ते देखे रसिक।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Kusumagraj (V. V. Shirwadkar)</div>
+            </div>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Suresh Bhat</div>
         </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Kavita · Kusumagraj</div>
-          <div class="poem-lines devanagari">
-            जे न देखे रवि, ते देखे कवि —<br>
-            जे न देखे कवि, ते देखे रसिक।
+
+        <!-- Bhajan / Abhang -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🪷</span>
+              <span class="words-acc-title">Bhajan / Abhang</span>
+              <span class="words-acc-count">1 abhang</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Kusumagraj (V. V. Shirwadkar)</div>
+          <div class="words-acc-body">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Sant Tukaram Maharaj</div>
+              <div class="poem-lines devanagari">
+                वृक्षवल्ली आम्हा सोयरे वनचरे।<br>
+                पक्षीही सुस्वरे आळविती।।
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Sant Tukaram Maharaj</div>
+            </div>
+          </div>
         </div>
-        <div class="words-coming">
-          अजून बरेच शब्द यायचे आहेत इथे — तुमचे आवडते.
+
+        <!-- Gane -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🎶</span>
+              <span class="words-acc-title">Gane</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🎶</span>आवडती मराठी गाणी इथे येतील.</div>
+          </div>
         </div>
+
+        <!-- Ukhane -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">💬</span>
+              <span class="words-acc-title">Ukhane / M'hani</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>💬</span>आवडते उखाणे आणि म्हणी इथे येतील.</div>
+          </div>
+        </div>
+
       </div>
 
       <!-- ENGLISH PANEL -->
       <div class="words-panel" id="panel-en">
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Poetry · Rudyard Kipling</div>
-          <div class="poem-lines">
-            If you can keep your head when all about you<br>
-            Are losing theirs and blaming it on you,<br>
-            If you can trust yourself when all men doubt you,<br>
-            But make allowance for their doubting too —<br>
-            Yours is the Earth and everything that's in it,<br>
-            And — which is more — you'll be a Man, my son!
+
+        <!-- Poetry -->
+        <div class="words-accordion">
+          <div class="words-acc-header open" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">📜</span>
+              <span class="words-acc-title">Poetry</span>
+              <span class="words-acc-count">2 poems</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Rudyard Kipling · If</div>
-        </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Stoic Reflection · Marcus Aurelius</div>
-          <div class="poem-lines">
-            You have power over your mind — not outside events.<br>
-            Realise this, and you will find strength.<br><br>
-            The impediment to action advances action.<br>
-            What stands in the way becomes the way.
+          <div class="words-acc-body open">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Rudyard Kipling · If</div>
+              <div class="poem-lines">
+                If you can keep your head when all about you<br>
+                Are losing theirs and blaming it on you,<br>
+                If you can trust yourself when all men doubt you,<br>
+                But make allowance for their doubting too —<br>
+                Yours is the Earth and everything that's in it,<br>
+                And — which is more — you'll be a Man, my son!
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Rudyard Kipling</div>
+            </div>
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Robert Frost · The Road Not Taken</div>
+              <div class="poem-lines">
+                Two roads diverged in a wood, and I —<br>
+                I took the one less travelled by,<br>
+                And that has made all the difference.
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Robert Frost</div>
+            </div>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Marcus Aurelius · Meditations</div>
         </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Poetry · Robert Frost</div>
-          <div class="poem-lines">
-            Two roads diverged in a wood, and I —<br>
-            I took the one less travelled by,<br>
-            And that has made all the difference.
+
+        <!-- Stoic Reflections -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">⚖️</span>
+              <span class="words-acc-title">Stoic Reflections</span>
+              <span class="words-acc-count">1 passage</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Robert Frost · The Road Not Taken</div>
+          <div class="words-acc-body">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Marcus Aurelius · Meditations</div>
+              <div class="poem-lines">
+                You have power over your mind — not outside events.<br>
+                Realise this, and you will find strength.<br><br>
+                The impediment to action advances action.<br>
+                What stands in the way becomes the way.
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Marcus Aurelius</div>
+            </div>
+          </div>
         </div>
-        <div class="words-coming">
-          More lines to be added — words that changed something.
+
+        <!-- Quotes -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">💡</span>
+              <span class="words-acc-title">Quotes</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>💡</span>Lines that changed how I see things.</div>
+          </div>
         </div>
+
+        <!-- Songs & Lyrics -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🎵</span>
+              <span class="words-acc-title">Songs & Lyrics</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🎵</span>Favourite English songs and lines to be added.</div>
+          </div>
+        </div>
+
       </div>
 
       <!-- SPANISH PANEL -->
       <div class="words-panel" id="panel-es">
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Poema · Pablo Neruda</div>
-          <div class="poem-lines">
-            Puedo escribir los versos más tristes esta noche.<br>
-            Escribir, por ejemplo: "La noche está estrellada,<br>
-            y tiritan, azules, los astros, a lo lejos."<br><br>
-            La quise, y a veces ella también me quería.
+
+        <!-- Poema -->
+        <div class="words-accordion">
+          <div class="words-acc-header open" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">📖</span>
+              <span class="words-acc-title">Poema</span>
+              <span class="words-acc-count">1 poem</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Pablo Neruda · Veinte Poemas de Amor</div>
-        </div>
-        <div class="poem-card fade-in-up">
-          <div class="poem-type">Reflexión · Jorge Luis Borges</div>
-          <div class="poem-lines">
-            El tiempo se bifurca perpetuamente<br>
-            hacia futuros innumerables.<br><br>
-            No nos une el amor, sino el espanto;<br>
-            será por eso que la quiero tanto.
+          <div class="words-acc-body open">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Pablo Neruda · Veinte Poemas de Amor</div>
+              <div class="poem-lines">
+                Puedo escribir los versos más tristes esta noche.<br>
+                Escribir, por ejemplo: "La noche está estrellada,<br>
+                y tiritan, azules, los astros, a lo lejos."<br><br>
+                La quise, y a veces ella también me quería.
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Pablo Neruda</div>
+            </div>
           </div>
-          <div class="poem-divider"></div>
-          <div class="poem-author">Jorge Luis Borges</div>
         </div>
-        <div class="words-coming">
-          Más palabras vendrán — las que no se olvidan.
+
+        <!-- Reflexión -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">💭</span>
+              <span class="words-acc-title">Reflexión</span>
+              <span class="words-acc-count">1 passage</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="poem-card fade-in-up">
+              <div class="poem-type">Jorge Luis Borges</div>
+              <div class="poem-lines">
+                El tiempo se bifurca perpetuamente<br>
+                hacia futuros innumerables.<br><br>
+                No nos une el amor, sino el espanto;<br>
+                será por eso que la quiero tanto.
+              </div>
+              <div class="poem-divider"></div>
+              <div class="poem-author">Jorge Luis Borges</div>
+            </div>
+          </div>
         </div>
+
+        <!-- Canciones -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">🎵</span>
+              <span class="words-acc-title">Canciones</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>🎵</span>Canciones y letras favoritas en español.</div>
+          </div>
+        </div>
+
+        <!-- Frases -->
+        <div class="words-accordion">
+          <div class="words-acc-header" onclick="toggleAcc(this)">
+            <div class="words-acc-left">
+              <span class="words-acc-icon">💡</span>
+              <span class="words-acc-title">Frases</span>
+              <span class="words-acc-count">Coming soon</span>
+            </div>
+            <span class="words-acc-arrow">▼</span>
+          </div>
+          <div class="words-acc-body">
+            <div class="words-coming"><span>💡</span>Frases que no se olvidan — más por venir.</div>
+          </div>
+        </div>
+
       </div>
 
     </div>
@@ -875,6 +1184,35 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
 .t-img-wrap { overflow: hidden; aspect-ratio: 3/2; min-height: 320px; border-radius: 12px 12px 0 0; }
 .t-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease, opacity 0.5s ease; opacity: 0.85; }
 .travel-card:hover .t-img-wrap img { transform: scale(1.08); opacity: 1; }
+
+
+/* ════════ WORDS ACCORDION SUBSECTIONS ════════ */
+.words-accordion { margin-bottom: 12px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,168,83,0.12); }
+.words-acc-header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 22px; cursor: pointer;
+  background: rgba(20,14,8,0.7);
+  transition: background 0.25s;
+  user-select: none;
+}
+.words-acc-header:hover { background: rgba(212,168,83,0.08); }
+.words-acc-header.open { background: rgba(212,168,83,0.1); border-bottom: 1px solid rgba(212,168,83,0.12); }
+.words-acc-left { display: flex; align-items: center; gap: 12px; }
+.words-acc-icon { font-size: 1.2rem; }
+.words-acc-title { font-size: 1rem; font-weight: 600; color: #e8dcc8; }
+.words-acc-count { font-size: 0.72rem; color: rgba(212,168,83,0.5); background: rgba(212,168,83,0.08); padding: 2px 9px; border-radius: 999px; border: 1px solid rgba(212,168,83,0.15); }
+.words-acc-arrow { color: rgba(212,168,83,0.5); font-size: 0.85rem; transition: transform 0.3s ease; }
+.words-acc-header.open .words-acc-arrow { transform: rotate(180deg); color: #d4a853; }
+.words-acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.45s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+  padding: 0 20px;
+  background: rgba(14,11,8,0.6);
+}
+.words-acc-body.open {
+  max-height: 2000px;
+  padding: 20px 20px 8px;
+}
 
 </style>
 
@@ -1865,6 +2203,26 @@ document.addEventListener('DOMContentLoaded', function(){
     }, {passive:true});
   });
 });
+
+
+// ════════ WORDS ACCORDION ════════
+function toggleAcc(header){
+  const body = header.nextElementSibling;
+  const isOpen = header.classList.contains('open');
+
+  // Close all accordions in same panel
+  const panel = header.closest('.words-panel');
+  panel.querySelectorAll('.words-acc-header.open').forEach(h => {
+    h.classList.remove('open');
+    h.nextElementSibling.classList.remove('open');
+  });
+
+  // Open clicked one if it was closed
+  if(!isOpen){
+    header.classList.add('open');
+    body.classList.add('open');
+  }
+}
 
 </script>
 </body>
