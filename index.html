@@ -14,7 +14,7 @@
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:#08111f;
+  background:radial-gradient(ellipse at 50% 0%, #0d1b32 0%, #08111f 55%, #050b14 100%);
   color:#f8fafc;
   font-family:Inter,sans-serif;
   overflow-x:hidden;
@@ -25,6 +25,19 @@ body{
 body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradient(90deg,transparent 0 70px,rgba(201,162,39,.05) 70px 74px),repeating-linear-gradient(180deg,transparent 0 180px,rgba(201,162,39,.03) 180px 184px);z-index:-3}
 .container{max-width:1200px;margin:auto;padding:0 24px}
 
+/* Ambient Cursor Spotlight & Hero Motion Aura */
+#cursor-spotlight {
+  position:fixed;
+  width:680px;
+  height:680px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(201,162,39,0.08) 0%, rgba(56,189,248,0.03) 40%, transparent 70%);
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  z-index:-1;
+  transition:opacity 0.3s ease;
+}
+
 /* Frosted glass shield reserved exclusively for text blocks */
 .text-mat {
   position:relative;
@@ -34,36 +47,41 @@ body:before{content:"";position:fixed;inset:0;background:repeating-linear-gradie
   -webkit-backdrop-filter:blur(16px);
   padding:45px;
   border-radius:20px;
-  border:1px solid rgba(255,255,255,0.05);
-  box-shadow:0 20px 40px rgba(0,0,0,0.4);
+  border:1px solid rgba(201,162,39,0.16);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5), 0 0 30px rgba(201,162,39,0.05);
 }
 
 /* ════════════ GLOBAL NAVIGATION ════════════ */
-nav{position:sticky;top:0;display:flex;justify-content:center;gap:45px;padding:22px;background:rgba(8,17,31,.85);backdrop-filter:blur(10px);z-index:999;border-bottom:1px solid rgba(255,255,255,0.05);}
-nav a{color:#94a3b8;font-size:1.15rem;text-decoration:none;transition:0.3s;font-weight:600;letter-spacing:0.02em;}
-nav a:hover{color:#c9a227}
-nav a.active { color:#c9a227; text-shadow: 0 0 12px rgba(201,162,39,0.4); }
+nav{position:sticky;top:0;display:flex;justify-content:center;gap:45px;padding:22px;background:rgba(8,17,31,.85);backdrop-filter:blur(14px);z-index:999;border-bottom:1px solid rgba(201,162,39,0.12);}
+nav a{color:#94a3b8;font-size:1.15rem;text-decoration:none;transition:0.3s;font-weight:600;letter-spacing:0.02em;position:relative;}
+nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:2px;background:linear-gradient(90deg,#c9a227,#f3d266);transition:width 0.3s ease;border-radius:99px;}
+nav a:hover{color:#f3d266}
+nav a:hover::after, nav a.active::after{width:100%;}
+nav a.active { color:#c9a227; text-shadow: 0 0 12px rgba(201,162,39,0.45); }
 
-/* ════════════ HERO & COMPONENTS ════════════ */
-.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center}
-h1{font-family:"Playfair Display",serif;font-size:5.5rem;color:#fff;line-height:1.1;margin-bottom:10px}
-.goldline{width:140px;height:3px;background:#c9a227;margin:25px auto;border-radius:99px}
-.subtitle{color:#c9a227;font-size:1.35rem;max-width:850px;margin:0 auto 25px;font-weight:500;}
+/* ════════════ HERO & MOTION GRAPHICS ════════════ */
+.hero{min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:visible;}
+#hero-aura-canvas{position:absolute;inset:-40px -80px;width:calc(100% + 160px);height:calc(100% + 80px);z-index:1;pointer-events:none;}
+h1{font-family:"Playfair Display",serif;font-size:5.5rem;color:#fff;line-height:1.1;margin-bottom:10px;text-shadow:0 8px 35px rgba(0,0,0,0.6), 0 0 28px rgba(201,162,39,0.15);}
+.goldline{width:140px;height:3px;background:linear-gradient(90deg,transparent,#c9a227,#f5d76e,#c9a227,transparent);margin:25px auto;border-radius:99px;box-shadow:0 0 18px rgba(201,162,39,0.65);animation:pulseLine 3.5s ease-in-out infinite;}
+@keyframes pulseLine{0%,100%{transform:scaleX(1);opacity:0.9}50%{transform:scaleX(1.18);opacity:1}}
+.subtitle{color:#e0b83a;font-size:1.35rem;max-width:850px;margin:0 auto 25px;font-weight:500;text-shadow:0 0 20px rgba(201,162,39,0.2);}
 .hero p{max-width:800px;margin:auto;color:#cbd5e1}
-.btn{display:inline-block;margin:12px;padding:14px 28px;border:1px solid #c9a227;border-radius:8px;text-decoration:none;color:#c9a227;transition:.3s;font-weight:500;font-size:1.05rem;}
-.btn:hover{background:#c9a227;color:#08111f;box-shadow:0 0 15px rgba(201,162,39,0.4);}
+.btn{display:inline-block;margin:12px;padding:14px 28px;border:1px solid #c9a227;border-radius:8px;text-decoration:none;color:#c9a227;transition:.35s cubic-bezier(0.22,1,0.36,1);font-weight:500;font-size:1.05rem;background:rgba(201,162,39,0.04);backdrop-filter:blur(6px);}
+.btn:hover{background:#c9a227;color:#08111f;box-shadow:0 0 24px rgba(201,162,39,0.55);transform:translateY(-3px);}
 
 section{padding:100px 0}
-.section-title{text-align:center;font-size:3rem;font-family:"Playfair Display",serif;color:#c9a227;margin-bottom:50px}
+.section-title{text-align:center;font-size:3rem;font-family:"Playfair Display",serif;color:#c9a227;margin-bottom:50px;text-shadow:0 0 24px rgba(201,162,39,0.2);}
 .about{max-width:900px;margin:auto;}
 
 .tags{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
-.tag,.card{background:#111827;border:1px solid rgba(201,162,39,.18)}
-.tag{padding:12px 20px;border-radius:999px;font-size:1.05rem;font-weight:500;}
+.tag,.card{background:linear-gradient(145deg,#11192a,#0c1322);border:1px solid rgba(201,162,39,.22)}
+.tag{padding:12px 20px;border-radius:999px;font-size:1.05rem;font-weight:500;transition:all 0.3s ease;}
+.tag:hover{border-color:#c9a227;color:#f3d266;transform:translateY(-4px);box-shadow:0 10px 24px rgba(201,162,39,0.18);}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 
-.card{padding:32px;border-radius:14px;transition:.35s;text-decoration:none;display:block}
-.card:hover{transform:translateY(-10px);border-color:#c9a227;box-shadow:0 20px 40px rgba(201,162,39,.15)}
+.card{padding:32px;border-radius:14px;transition:transform .35s cubic-bezier(0.22,1,0.36,1), border-color .35s ease, box-shadow .35s ease;text-decoration:none;display:block;will-change:transform;}
+.card:hover{transform:translateY(-10px);border-color:#c9a227;box-shadow:0 22px 44px rgba(201,162,39,.18), 0 0 20px rgba(201,162,39,0.08)}
 .card h3{color:#c9a227;margin-bottom:12px;font-size:1.4rem;}
 .card p{color:#94a3b8;font-size:1.1rem;line-height:1.7;}
 
@@ -80,14 +98,15 @@ section{padding:100px 0}
 }
 .book img:hover{
     transform:scale(1.04);
-    box-shadow:0 30px 60px rgba(0,0,0,.6);
+    box-shadow:0 30px 60px rgba(0,0,0,.6), 0 0 25px rgba(201,162,39,0.22);
 }
 .book h3 { font-size:1.2rem; margin-bottom:8px; }
 .btn-sm{display:inline-block;margin-top:10px;padding:8px 18px;border:1px solid rgba(201,162,39,0.4);border-radius:6px;color:#c9a227;font-size:0.9rem;text-decoration:none;transition:0.3s;font-weight:500;}
-.btn-sm:hover{background:rgba(201,162,39,0.1);border-color:#c9a227;}
+.btn-sm:hover{background:rgba(201,162,39,0.15);border-color:#c9a227;box-shadow:0 0 15px rgba(201,162,39,0.25);}
 
 .contact{text-align:center}
-.contact a{display:inline-block;margin:10px 20px;color:#c9a227;text-decoration:none;font-size:1.15rem;font-weight:500;}
+.contact a{display:inline-block;margin:10px 20px;color:#c9a227;text-decoration:none;font-size:1.15rem;font-weight:500;transition:0.3s;}
+.contact a:hover{color:#f5d76e;text-shadow:0 0 14px rgba(201,162,39,0.5);transform:translateY(-2px);}
 footer{text-align:center;padding:50px;color:#94a3b8;border-top:1px solid rgba(255,255,255,.08);font-size:1rem;}
 
 #backToTop { position:fixed; bottom:30px; right:30px; z-index:1000; background:rgba(201,162,39,0.15); border:1px solid rgba(201,162,39,0.4); backdrop-filter:blur(10px); color:#c9a227; padding:12px 20px; border-radius:8px; cursor:pointer; opacity:0; pointer-events:none; transition:all 0.3s ease; font-weight:600; font-family:Inter,sans-serif; font-size:0.95rem; }
@@ -116,7 +135,7 @@ footer{text-align:center;padding:50px;color:#94a3b8;border-top:1px solid rgba(25
 .carousel-dots span.active{background:#c9a227;transform:scale(1.4)}
 
 /* ════════════ ARTICLE CARDS ════════════ */
-.article-card{display:block;text-decoration:none;background:#111827;border:1px solid rgba(201,162,39,.35);padding:36px;border-radius:14px;transition:.35s;position:relative;overflow:hidden}
+.article-card{display:block;text-decoration:none;background:linear-gradient(145deg,#11192a,#0c1322);border:1px solid rgba(201,162,39,.35);padding:36px;border-radius:14px;transition:.35s;position:relative;overflow:hidden}
 .article-card::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#c9a227,#f0c940)}
 .article-card:hover{transform:translateY(-8px);border-color:#c9a227;box-shadow:0 20px 40px rgba(201,162,39,.2)}
 .article-card h3{color:#fff;margin:14px 0;font-size:1.35rem;line-height:1.4}
@@ -127,15 +146,15 @@ footer{text-align:center;padding:50px;color:#94a3b8;border-top:1px solid rgba(25
 .article-cta{color:#c9a227;font-size:1rem;font-weight:600}
 .coming-soon{opacity:.6}.coming-soon h3{color:#c9a227}
 
-/* ════════════ MAIN FINANCE BACKGROUND ELEMENTS ════════════ */
-.market-line{position:fixed;left:0;right:0;top:18%;height:2px;background:linear-gradient(90deg,transparent,#c9a227,transparent);animation:slide 6s linear infinite;opacity:.4;z-index:-2}
+/* ════════════ MAIN FINANCE BACKGROUND ELEMENTS (GLOWING BULL, BEAR & CANDLES) ════════════ */
+.market-line{position:fixed;left:0;right:0;top:18%;height:2px;background:linear-gradient(90deg,transparent,#c9a227,#f5d76e,#c9a227,transparent);animation:slide 6s linear infinite;opacity:.48;z-index:-2;box-shadow:0 0 12px rgba(201,162,39,0.5);}
 @keyframes slide{0%{transform:translateX(-30%)}100%{transform:translateX(30%)}}
 
-.bg-bull, .bg-bear { position:fixed; top:50%; transform:translateY(-50%); width:480px !important; height:480px !important; z-index:-1; pointer-events:none; transition:opacity 1s ease; }
-.bg-bull { left: 10px !important; }
-.bg-bear { right: 10px !important; }
-.bg-bull svg { width:100%; height:100%; opacity: 0.32 !important; }
-.bg-bear svg { width:100%; height:100%; transform:scaleX(-1); opacity: 0.28 !important; }
+.bg-bull, .bg-bear { position:fixed; top:50%; transform:translateY(-50%); width:480px !important; height:480px !important; z-index:-1; pointer-events:none; transition:opacity 1s ease; will-change:transform; }
+.bg-bull { left: 10px !important; filter:drop-shadow(0 0 28px rgba(201,162,39,0.22)); }
+.bg-bear { right: 10px !important; filter:drop-shadow(0 0 28px rgba(148,163,184,0.18)); }
+.bg-bull svg { width:100%; height:100%; opacity: 0.34 !important; }
+.bg-bear svg { width:100%; height:100%; transform:scaleX(-1); opacity: 0.30 !important; }
 #market-canvas{position:fixed;inset:0;z-index:-2;pointer-events:none; transition:opacity 1s ease;}
 
 /* ════════════ THEME OVERLAYS & HIDING MECHANISM ════════════ */
@@ -163,7 +182,7 @@ body.theme-podcast .bg-bull, body.theme-podcast .bg-bear, body.theme-podcast #ma
 #travel .section-title { color: #38bdf8; }
 .travel-places { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin: 0 auto 50px; max-width: 850px; position:relative; z-index:2; }
 .travel-place { padding: 6px 16px; border-radius: 4px; background: rgba(56,189,248,0.05); border: 1px solid rgba(56,189,248,0.25); color: #7dd3fc; font-size: 0.9rem; font-family: monospace; font-weight: 500; letter-spacing: 0.05em; cursor: default; transition: 0.3s; }
-.travel-place:hover { background: rgba(56,189,248,0.15); border-color: #38bdf8; color: #fff; }
+.travel-place:hover { background: rgba(56,189,248,0.15); border-color: #38bdf8; color: #fff; box-shadow:0 0 14px rgba(56,189,248,0.25); }
 
 .travel-grid{
     display:grid;
@@ -231,7 +250,7 @@ body.light-mode .ticker-price { color: #1a1a2e; }
 body.light-mode .card, body.light-mode .tag { background: #fff; border-color: rgba(154,122,16,0.25); box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
 body.light-mode .card p, body.light-mode .about { color: #4a4a6a; }
 body.light-mode .card h3, body.light-mode .section-title, body.light-mode .subtitle { color: #9a7a10; }
-body.light-mode h1 { color: #1a1a2e; }
+body.light-mode h1 { color: #1a1a2e; text-shadow:none; }
 body.light-mode .hero p { color: #4a4a6a; }
 body.light-mode footer { color: #6a6a8a; border-top-color: rgba(0,0,0,0.1); }
 body.light-mode .article-card { background: #fff; }
@@ -371,6 +390,7 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 </head>
 <body>
 
+<div id="cursor-spotlight"></div>
 <div id="scroll-progress"></div>
 <button id="theme-toggle" title="Toggle light/dark mode">🌙</button>
 <button id="backToTop" title="Go to top">↑ Top</button>
@@ -412,6 +432,7 @@ body.light-mode .lang-level { color: #9a7a10; background: rgba(154,122,16,0.1); 
 <div class="container">
 
 <section class="hero" id="top">
+<canvas id="hero-aura-canvas"></canvas>
 <div style="position:relative; z-index:2;">
 <h1>Pratik Deshmukh</h1>
 <div class="goldline"></div>
@@ -953,6 +974,113 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
 <footer>Pratik Deshmukh • Markets • Businesses • Investing</footer>
 
 <script>
+// ── AMBIENT CURSOR SPOTLIGHT & SUBTLE CARD MOTION ──
+(function(){
+  const spot = document.getElementById('cursor-spotlight');
+  if(spot){
+    window.addEventListener('pointermove', e => {
+      spot.style.left = e.clientX + 'px';
+      spot.style.top = e.clientY + 'px';
+    }, { passive: true });
+  }
+
+  document.querySelectorAll('.card, .article-card, .pod-master-card').forEach(card => {
+    card.addEventListener('pointermove', e => {
+      const r = card.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width - 0.5;
+      const y = (e.clientY - r.top) / r.height - 0.5;
+      card.style.transform = `perspective(950px) rotateX(${-y * 4.5}deg) rotateY(${x * 4.5}deg) translateY(-8px)`;
+    });
+    card.addEventListener('pointerleave', () => {
+      card.style.transform = '';
+    });
+  });
+})();
+
+// ── HERO ORBITAL & GOLDEN CONSTELLATION MOTION GRAPHIC ──
+(function(){
+  const canvas = document.getElementById('hero-aura-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let W = 0, H = 0, t = 0, mx = 0, my = 0;
+
+  function resize(){
+    const rect = canvas.parentElement.getBoundingClientRect();
+    W = canvas.width = rect.width + 160;
+    H = canvas.height = rect.height + 80;
+  }
+  window.addEventListener('resize', resize);
+  resize();
+
+  window.addEventListener('pointermove', e => {
+    mx = (e.clientX / window.innerWidth - 0.5) * 2;
+    my = (e.clientY / window.innerHeight - 0.5) * 2;
+  }, { passive: true });
+
+  const nodes = Array.from({length: 34}, () => ({
+    x: Math.random(),
+    y: Math.random(),
+    vx: (Math.random() - 0.5) * 0.0004,
+    vy: (Math.random() - 0.5) * 0.0004,
+    r: 1 + Math.random() * 1.8,
+    alpha: 0.2 + Math.random() * 0.5
+  }));
+
+  function drawHeroMotion(){
+    ctx.clearRect(0, 0, W, H);
+    t += 0.008;
+    const cx = W * 0.5 + mx * 18;
+    const cy = H * 0.5 + my * 14;
+    const rx = Math.min(W, H) * 0.42;
+    const ry = rx * 0.44;
+
+    // Luminous Rotating Orbital Rings behind Hero Title
+    for(let i = 0; i < 3; i++){
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate((i % 2 === 0 ? 1 : -1) * t * (0.25 + i * 0.1) + i * 0.5);
+      ctx.beginPath();
+      ctx.ellipse(0, 0, rx * (1 - i * 0.15), ry * (1 - i * 0.12), 0, 0, Math.PI * 2);
+      ctx.strokeStyle = i === 1 ? 'rgba(56, 189, 248, 0.09)' : `rgba(201, 162, 39, ${0.14 - i * 0.03})`;
+      ctx.lineWidth = 1.2;
+      if(i === 1) ctx.setLineDash([4, 12]);
+      ctx.stroke();
+      ctx.restore();
+    }
+
+    // Floating Golden Nodes & Subtle Constellation Filaments
+    nodes.forEach((n, idx) => {
+      n.x = (n.x + n.vx + 1) % 1;
+      n.y = (n.y + n.vy + 1) % 1;
+      const px = n.x * W;
+      const py = n.y * H;
+
+      ctx.beginPath();
+      ctx.arc(px, py, n.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(240, 201, 64, ${n.alpha * (0.6 + 0.4 * Math.sin(t * 3 + idx))})`;
+      ctx.fill();
+
+      for(let j = idx + 1; j < nodes.length; j++){
+        const n2 = nodes[j];
+        const dx = px - n2.x * W;
+        const dy = py - n2.y * H;
+        const dist = Math.hypot(dx, dy);
+        if(dist < 135){
+          ctx.beginPath();
+          ctx.moveTo(px, py);
+          ctx.lineTo(n2.x * W, n2.y * H);
+          ctx.strokeStyle = `rgba(201, 162, 39, ${(1 - dist / 135) * 0.12})`;
+          ctx.lineWidth = 0.8;
+          ctx.stroke();
+        }
+      }
+    });
+
+    requestAnimationFrame(drawHeroMotion);
+  }
+  drawHeroMotion();
+})();
+
 // ── DEEP SCROLL HATCH ──
 (function(){
   const topBtn = document.getElementById('backToTop');
@@ -986,7 +1114,7 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
   sections.forEach(sec => { observer.observe(sec); });
 })();
 
-// ── MAIN CANDLESTICK ANIMATION & FLOATERS ──
+// ── MAIN CANDLESTICK ANIMATION & FLOATERS (GLOWING + UP/DOWN BULL & BEAR) ──
 (function(){
   const canvas = document.getElementById('market-canvas');
   const ctx = canvas.getContext('2d');
@@ -1013,12 +1141,13 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
   function draw(){
     ctx.clearRect(0,0,canvas.width,canvas.height);
     t++;
-    candles.forEach(c=>{
-      const fy=Math.sin(t*c.spd+c.ph)*5;
+    const wavePoints = [];
+    candles.forEach((c, idx)=>{
+      const fy=Math.sin(t*c.spd+c.ph)*7;
       const cy=c.y+fy;
       const col=c.bullish?`rgba(34,197,94,${c.op})`:`rgba(239,68,68,${c.op})`;
       
-      ctx.shadowBlur = 15;
+      ctx.shadowBlur = 18;
       ctx.shadowColor = col;
 
       ctx.strokeStyle=col; ctx.lineWidth=1.5;
@@ -1027,7 +1156,27 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
       ctx.fillRect(c.x-c.bW/2,cy-c.bH/2,c.bW,c.bH);
 
       ctx.shadowBlur = 0;
+      wavePoints.push({ x: c.x, y: cy });
     });
+
+    // Subtle glowing gold moving-average trendline weaving across candlesticks
+    if(wavePoints.length > 1){
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(wavePoints[0].x, wavePoints[0].y);
+      for(let i = 1; i < wavePoints.length; i++){
+        const xc = (wavePoints[i - 1].x + wavePoints[i].x) / 2;
+        const yc = (wavePoints[i - 1].y + wavePoints[i].y) / 2;
+        ctx.quadraticCurveTo(wavePoints[i - 1].x, wavePoints[i - 1].y, xc, yc);
+      }
+      ctx.strokeStyle = 'rgba(201, 162, 39, 0.22)';
+      ctx.lineWidth = 1.8;
+      ctx.shadowBlur = 14;
+      ctx.shadowColor = 'rgba(201, 162, 39, 0.5)';
+      ctx.stroke();
+      ctx.restore();
+    }
+
     requestAnimationFrame(draw);
   }
   draw();
@@ -1037,8 +1186,8 @@ body.light-mode .t-img-wrap { border-bottom-color: rgba(154,122,16,0.2); backgro
   let f=0;
   function floatAnimate(){
     f+=0.02;
-    bull.style.transform=`translateY(calc(-50% + ${Math.sin(f)*8}px))`;
-    bear.style.transform=`translateY(calc(-50% + ${Math.sin(f+1.5)*8}px))`;
+    bull.style.transform=`translateY(calc(-50% + ${Math.sin(f)*10}px))`;
+    bear.style.transform=`translateY(calc(-50% + ${Math.sin(f+1.5)*10}px))`;
     requestAnimationFrame(floatAnimate);
   }
   floatAnimate();
